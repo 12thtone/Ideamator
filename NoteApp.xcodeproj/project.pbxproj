@@ -7,14 +7,21 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		F92571B71A648F15008C6E4C /* DataSource.m in Sources */ = {isa = PBXBuildFile; fileRef = F92571B61A648F15008C6E4C /* DataSource.m */; };
+		F94D7A1D1A60A19B009D3CC0 /* ReadNoteViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F94D7A1C1A60A19B009D3CC0 /* ReadNoteViewController.m */; };
 		F98D50A91A60594700146C36 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = F98D50A81A60594700146C36 /* main.m */; };
 		F98D50AC1A60594700146C36 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = F98D50AB1A60594700146C36 /* AppDelegate.m */; };
 		F98D50AF1A60594700146C36 /* NoteApp.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = F98D50AD1A60594700146C36 /* NoteApp.xcdatamodeld */; };
-		F98D50B21A60594700146C36 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F98D50B11A60594700146C36 /* ViewController.m */; };
 		F98D50B51A60594700146C36 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F98D50B31A60594700146C36 /* Main.storyboard */; };
 		F98D50B71A60594700146C36 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F98D50B61A60594700146C36 /* Images.xcassets */; };
 		F98D50BA1A60594700146C36 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = F98D50B81A60594700146C36 /* LaunchScreen.xib */; };
 		F98D50C61A60594700146C36 /* NoteAppTests.m in Sources */ = {isa = PBXBuildFile; fileRef = F98D50C51A60594700146C36 /* NoteAppTests.m */; };
+		F98D50D31A605FFA00146C36 /* 512-paste-clipboard.png in Resources */ = {isa = PBXBuildFile; fileRef = F98D50D21A605FFA00146C36 /* 512-paste-clipboard.png */; };
+		F98D50D51A60600400146C36 /* 512-paste-clipboard@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = F98D50D41A60600400146C36 /* 512-paste-clipboard@2x.png */; };
+		F98D50DB1A60698900146C36 /* AddNoteViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F98D50DA1A60698900146C36 /* AddNoteViewController.m */; };
+		F98D50E41A60777600146C36 /* Note.m in Sources */ = {isa = PBXBuildFile; fileRef = F98D50E31A60777600146C36 /* Note.m */; };
+		F98D50E71A607BCA00146C36 /* EditNoteViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F98D50E61A607BCA00146C36 /* EditNoteViewController.m */; };
+		F9F80F311A6898DB005130CD /* NoteTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F9F80F301A6898DB005130CD /* NoteTableViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -28,20 +35,32 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		F92571B51A648F15008C6E4C /* DataSource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DataSource.h; path = ../DataSource.h; sourceTree = "<group>"; };
+		F92571B61A648F15008C6E4C /* DataSource.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DataSource.m; path = ../DataSource.m; sourceTree = "<group>"; };
+		F94D7A1B1A60A19B009D3CC0 /* ReadNoteViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ReadNoteViewController.h; path = ../ReadNoteViewController.h; sourceTree = "<group>"; };
+		F94D7A1C1A60A19B009D3CC0 /* ReadNoteViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ReadNoteViewController.m; path = ../ReadNoteViewController.m; sourceTree = "<group>"; };
 		F98D50A31A60594700146C36 /* NoteApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = NoteApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F98D50A71A60594700146C36 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		F98D50A81A60594700146C36 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		F98D50AA1A60594700146C36 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		F98D50AB1A60594700146C36 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
 		F98D50AE1A60594700146C36 /* NoteApp.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = NoteApp.xcdatamodel; sourceTree = "<group>"; };
-		F98D50B01A60594700146C36 /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
-		F98D50B11A60594700146C36 /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
 		F98D50B41A60594700146C36 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		F98D50B61A60594700146C36 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		F98D50B91A60594700146C36 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
 		F98D50BF1A60594700146C36 /* NoteAppTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = NoteAppTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		F98D50C41A60594700146C36 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		F98D50C51A60594700146C36 /* NoteAppTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NoteAppTests.m; sourceTree = "<group>"; };
+		F98D50D21A605FFA00146C36 /* 512-paste-clipboard.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "512-paste-clipboard.png"; sourceTree = "<group>"; };
+		F98D50D41A60600400146C36 /* 512-paste-clipboard@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "512-paste-clipboard@2x.png"; sourceTree = "<group>"; };
+		F98D50D91A60698900146C36 /* AddNoteViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AddNoteViewController.h; path = ../AddNoteViewController.h; sourceTree = "<group>"; };
+		F98D50DA1A60698900146C36 /* AddNoteViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AddNoteViewController.m; path = ../AddNoteViewController.m; sourceTree = "<group>"; };
+		F98D50E21A60777600146C36 /* Note.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Note.h; sourceTree = "<group>"; };
+		F98D50E31A60777600146C36 /* Note.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Note.m; sourceTree = "<group>"; };
+		F98D50E51A607BCA00146C36 /* EditNoteViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = EditNoteViewController.h; path = ../EditNoteViewController.h; sourceTree = "<group>"; };
+		F98D50E61A607BCA00146C36 /* EditNoteViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = EditNoteViewController.m; path = ../EditNoteViewController.m; sourceTree = "<group>"; };
+		F9F80F2F1A6898DB005130CD /* NoteTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = NoteTableViewController.h; path = ../NoteTableViewController.h; sourceTree = "<group>"; };
+		F9F80F301A6898DB005130CD /* NoteTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = NoteTableViewController.m; path = ../NoteTableViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -85,12 +104,22 @@
 			children = (
 				F98D50AA1A60594700146C36 /* AppDelegate.h */,
 				F98D50AB1A60594700146C36 /* AppDelegate.m */,
-				F98D50B01A60594700146C36 /* ViewController.h */,
-				F98D50B11A60594700146C36 /* ViewController.m */,
+				F98D50E51A607BCA00146C36 /* EditNoteViewController.h */,
+				F98D50E61A607BCA00146C36 /* EditNoteViewController.m */,
+				F94D7A1B1A60A19B009D3CC0 /* ReadNoteViewController.h */,
+				F94D7A1C1A60A19B009D3CC0 /* ReadNoteViewController.m */,
+				F98D50D91A60698900146C36 /* AddNoteViewController.h */,
+				F98D50DA1A60698900146C36 /* AddNoteViewController.m */,
+				F9F80F2F1A6898DB005130CD /* NoteTableViewController.h */,
+				F9F80F301A6898DB005130CD /* NoteTableViewController.m */,
+				F92571B51A648F15008C6E4C /* DataSource.h */,
+				F92571B61A648F15008C6E4C /* DataSource.m */,
 				F98D50B31A60594700146C36 /* Main.storyboard */,
 				F98D50B61A60594700146C36 /* Images.xcassets */,
 				F98D50B81A60594700146C36 /* LaunchScreen.xib */,
 				F98D50AD1A60594700146C36 /* NoteApp.xcdatamodeld */,
+				F98D50E21A60777600146C36 /* Note.h */,
+				F98D50E31A60777600146C36 /* Note.m */,
 				F98D50A61A60594700146C36 /* Supporting Files */,
 			);
 			path = NoteApp;
@@ -99,6 +128,8 @@
 		F98D50A61A60594700146C36 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				F98D50D21A605FFA00146C36 /* 512-paste-clipboard.png */,
+				F98D50D41A60600400146C36 /* 512-paste-clipboard@2x.png */,
 				F98D50A71A60594700146C36 /* Info.plist */,
 				F98D50A81A60594700146C36 /* main.m */,
 			);
@@ -171,6 +202,7 @@
 				TargetAttributes = {
 					F98D50A21A60594700146C36 = {
 						CreatedOnToolsVersion = 6.1.1;
+						DevelopmentTeam = RCJFFV5UHS;
 					};
 					F98D50BE1A60594700146C36 = {
 						CreatedOnToolsVersion = 6.1.1;
@@ -203,6 +235,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				F98D50B51A60594700146C36 /* Main.storyboard in Resources */,
+				F98D50D31A605FFA00146C36 /* 512-paste-clipboard.png in Resources */,
+				F98D50D51A60600400146C36 /* 512-paste-clipboard@2x.png in Resources */,
 				F98D50BA1A60594700146C36 /* LaunchScreen.xib in Resources */,
 				F98D50B71A60594700146C36 /* Images.xcassets in Resources */,
 			);
@@ -222,9 +256,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F98D50E41A60777600146C36 /* Note.m in Sources */,
+				F98D50DB1A60698900146C36 /* AddNoteViewController.m in Sources */,
+				F92571B71A648F15008C6E4C /* DataSource.m in Sources */,
+				F9F80F311A6898DB005130CD /* NoteTableViewController.m in Sources */,
+				F94D7A1D1A60A19B009D3CC0 /* ReadNoteViewController.m in Sources */,
+				F98D50E71A607BCA00146C36 /* EditNoteViewController.m in Sources */,
 				F98D50AF1A60594700146C36 /* NoteApp.xcdatamodeld in Sources */,
 				F98D50AC1A60594700146C36 /* AppDelegate.m in Sources */,
-				F98D50B21A60594700146C36 /* ViewController.m in Sources */,
 				F98D50A91A60594700146C36 /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -349,6 +388,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				INFOPLIST_FILE = NoteApp/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -359,6 +399,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				INFOPLIST_FILE = NoteApp/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -418,6 +459,7 @@
 				F98D50CB1A60594700146C36 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		F98D50CC1A60594700146C36 /* Build configuration list for PBXNativeTarget "NoteAppTests" */ = {
 			isa = XCConfigurationList;
@@ -426,6 +468,7 @@
 				F98D50CE1A60594700146C36 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 
