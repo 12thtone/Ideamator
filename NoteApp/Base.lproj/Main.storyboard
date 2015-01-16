@@ -66,12 +66,12 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Add Note" id="6NW-Aa-cFa">
-                        <barButtonItem key="leftBarButtonItem" style="plain" systemItem="cancel" id="AZA-Gd-ENG">
+                        <barButtonItem key="leftBarButtonItem" style="done" systemItem="cancel" id="AZA-Gd-ENG">
                             <connections>
                                 <action selector="cancelNote:" destination="mra-DW-FRe" id="9Xk-Ml-MpY"/>
                             </connections>
                         </barButtonItem>
-                        <barButtonItem key="rightBarButtonItem" style="plain" systemItem="save" id="HUq-JI-bkJ">
+                        <barButtonItem key="rightBarButtonItem" style="done" systemItem="save" id="HUq-JI-bkJ">
                             <connections>
                                 <action selector="saveNote:" destination="mra-DW-FRe" id="syj-x1-Nke"/>
                             </connections>
@@ -181,12 +181,12 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Edit Note" id="VF7-v6-s3L">
-                        <barButtonItem key="leftBarButtonItem" style="plain" systemItem="cancel" id="cJ6-sP-JRO">
+                        <barButtonItem key="leftBarButtonItem" style="done" systemItem="cancel" id="cJ6-sP-JRO">
                             <connections>
                                 <action selector="cancelEdit:" destination="QLy-CJ-zcJ" id="Unw-s8-8qh"/>
                             </connections>
                         </barButtonItem>
-                        <barButtonItem key="rightBarButtonItem" style="plain" systemItem="save" id="GJD-R9-uCq">
+                        <barButtonItem key="rightBarButtonItem" style="done" systemItem="save" id="GJD-R9-uCq">
                             <connections>
                                 <action selector="saveEdit:" destination="QLy-CJ-zcJ" id="bGh-uO-lfp"/>
                             </connections>

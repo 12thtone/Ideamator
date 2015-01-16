@@ -267,7 +267,7 @@
             
     }
 }
-
+/*
 - (void)controller:(NSFetchedResultsController *)controller didChangeSection:(id<NSFetchedResultsSectionInfo>)sectionInfo atIndex:(NSUInteger)sectionIndex forChangeType:(NSFetchedResultsChangeType)type {
     
     switch (type) {
@@ -280,7 +280,7 @@
             break;
     }
 }
-
+*/
 #pragma mark - Content Filtering
 
 - (void)filterContentForSearchText:(NSString*)searchText scope:(NSString*)scope
