@@ -11,6 +11,7 @@
 #import "Note.h"
 #import "AddNoteViewController.h"
 #import "ReadNoteViewController.h"
+#import "DataSource.h"
 
 @interface NoteTableViewController () <NSFetchedResultsControllerDelegate, UISearchDisplayDelegate, UISearchBarDelegate>
 
@@ -29,6 +30,7 @@
 
 @synthesize searchResults;
 @synthesize fixedResults;
+@synthesize noteList;
 
 - (id)initWithStyle:(UITableViewStyle)style
 {
@@ -123,14 +125,12 @@
     //if (tableView == self.searchDisplayController.searchResultsTableView)
     if (tableView == self.searchDisplayController.searchResultsTableView)
     {
-        NSLog(@"Configuring cell to show search results");
         note = [self.searchResults objectAtIndex:indexPath.row];
-        
+        NSLog(@"In the search");
         [fixedResults addObject:note.noteTitle];
     }
     else
     {
-        NSLog(@"Configuring cell to show normal data");
         //Note *note = [self.fetchedResultsController objectAtIndexPath:indexPath];
         note = [self.fetchedResultsController objectAtIndexPath:indexPath];
     }
@@ -272,27 +272,12 @@
 
 - (void)filterContentForSearchText:(NSString*)searchText scope:(NSString*)scope
 {
-    NSLog(@"Previous Search Results were removed.");
     [self.searchResults removeAllObjects];
-    
-    for (Note *note in [self.fetchedResultsController fetchedObjects])
-    {
-        if ([scope isEqualToString:@"All"] || [note.noteTitle isEqualToString:scope])
-        {
-            NSComparisonResult result = [note.noteTitle compare:searchText
-                                                        options:(NSCaseInsensitiveSearch|NSDiacriticInsensitiveSearch)
-                                                          range:NSMakeRange(0, [searchText length])];
-            if (result == NSOrderedSame)
-            {
-                NSLog(@"Adding response.responseId '%@' to searchResults as it begins with search text '%@'", note.noteTitle, searchText);
-                [self.searchResults addObject:note];
-            }
-        }
-    }
+    noteList = [self.fetchedResultsController fetchedObjects].mutableCopy;
+    self.searchResults = [[DataSource sharedInstance] searchNotes:(NSString*)searchText scope:(NSString*)scope notes:(NSMutableArray*)noteList].mutableCopy;
 }
 
-#pragma mark -
-#pragma mark UISearchDisplayController Delegate Methods
+#pragma mark - UISearchDisplayController Delegate Methods
 
 - (BOOL)searchDisplayController:(UISearchDisplayController *)controller shouldReloadTableForSearchString:(NSString *)searchString
 {

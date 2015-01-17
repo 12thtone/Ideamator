@@ -9,14 +9,21 @@
 #import "DataSource.h"
 #import "AppDelegate.h"
 #import <CoreData/CoreData.h>
+#import "Note.h"
+#import "NoteTableViewController.h"
 
 @interface DataSource ()
 
 @property (nonatomic, strong)NSManagedObjectContext *managerObjectContext;
 
+@property (nonatomic, strong) NoteTableViewController *reference;
+
 @end
 
 @implementation DataSource
+
+@synthesize searchResults;
+@synthesize reference;
 
 + (instancetype) sharedInstance {
     static dispatch_once_t once;
@@ -44,6 +51,25 @@
             NSLog(@"Save Succeeded");
         }
     }
+}
+
+- (NSArray *) searchNotes:(NSString*)searchText scope:(NSString*)scope notes:(NSMutableArray*)noteList {
+    searchResults = [[NSMutableArray alloc] init];
+    for (Note *note in noteList) {
+        if ([scope isEqualToString:@"All"] || [note.noteTitle isEqualToString:scope])
+        {
+            NSComparisonResult result = [note.noteTitle compare:searchText
+                                                        options:(NSCaseInsensitiveSearch|NSDiacriticInsensitiveSearch)
+                                                          range:NSMakeRange(0, [searchText length])];
+            
+            if (result == NSOrderedSame)
+            {
+                [searchResults addObject:note];
+            }
+        }
+    }
+    
+    return searchResults;
 }
 
 @end
