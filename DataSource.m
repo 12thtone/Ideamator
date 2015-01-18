@@ -55,19 +55,8 @@
 
 - (NSArray *) searchNotes:(NSString*)searchText scope:(NSString*)scope notes:(NSMutableArray*)noteList {
     searchResults = [[NSMutableArray alloc] init];
-    for (Note *note in noteList) {
-        if ([scope isEqualToString:@"All"] || [note.noteTitle isEqualToString:scope])
-        {
-            NSComparisonResult result = [note.noteTitle compare:searchText
-                                                        options:(NSCaseInsensitiveSearch|NSDiacriticInsensitiveSearch)
-                                                          range:NSMakeRange(0, [searchText length])];
-            
-            if (result == NSOrderedSame)
-            {
-                [searchResults addObject:note];
-            }
-        }
-    }
+    NSPredicate *predicate = [NSPredicate predicateWithFormat:@"SELF.noteText contains[c] %@", searchText];
+    searchResults = [NSMutableArray arrayWithArray:[noteList filteredArrayUsingPredicate:predicate]];
     
     return searchResults;
 }
