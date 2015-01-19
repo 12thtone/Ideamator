@@ -22,7 +22,8 @@
 @property (nonatomic, strong)NSManagedObjectContext *managedObjectContext;
 @property (nonatomic, strong)NSFetchedResultsController *fetchedResultsController;
 
-- (IBAction)cancel:(id)sender;
+@property (nonatomic, strong) Note *selectedFilteredNote;
+@property (nonatomic, strong) Note *selectedNote;
 
 @end
 
@@ -157,6 +158,20 @@
     
     if ([[segue identifier]isEqualToString:@"readNote"]) {
         
+        ReadNoteViewController *readNoteViewController = segue.destinationViewController;
+        
+        if (self.searchResults.count != 0) {
+            NSIndexPath *indexFilteredPath = [self.searchDisplayController.searchResultsTableView indexPathForSelectedRow];
+            self.selectedFilteredNote = [self.searchResults objectAtIndex:indexFilteredPath.row];
+            readNoteViewController.selectedNote = _selectedFilteredNote;
+        }
+        else
+        {
+            NSIndexPath *indexPath = [self.tableView indexPathForSelectedRow];
+            self.selectedNote = [self.fetchedResultsController objectAtIndexPath:indexPath];
+            readNoteViewController.selectedNote = _selectedNote;
+        }
+        /*
         ReadNoteViewController *readNoteViewController = (ReadNoteViewController*) segue.destinationViewController;
         
         NSIndexPath *indexPath = [self.tableView indexPathForSelectedRow];
@@ -164,6 +179,7 @@
         Note *selectedNote = (Note*)[self.fetchedResultsController objectAtIndexPath:indexPath];
         
         readNoteViewController.selectedNote = selectedNote;
+         */
     }
 }
 
@@ -291,7 +307,11 @@
     return YES;
 }
 
-- (IBAction)cancel:(id)sender {
-    [self dismissViewControllerAnimated:NO completion:nil];
+- (void)searchBarCancelButtonClicked:(UISearchBar *)searchBar
+{
+    // After a search, and after the Cancel button is pressed, the data in the first cell is displayed when any cell is touched.
+    // [self viewDidLoad] fixes that.]
+    [self viewDidLoad];
 }
+
 @end
