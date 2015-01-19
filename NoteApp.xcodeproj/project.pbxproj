@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		F902AD5F1A6DA5DD008E9409 /* notePaper.jpg in Resources */ = {isa = PBXBuildFile; fileRef = F902AD5E1A6DA5DD008E9409 /* notePaper.jpg */; };
 		F92571B71A648F15008C6E4C /* DataSource.m in Sources */ = {isa = PBXBuildFile; fileRef = F92571B61A648F15008C6E4C /* DataSource.m */; };
 		F94D7A1D1A60A19B009D3CC0 /* ReadNoteViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F94D7A1C1A60A19B009D3CC0 /* ReadNoteViewController.m */; };
 		F98D50A91A60594700146C36 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = F98D50A81A60594700146C36 /* main.m */; };
@@ -35,6 +36,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		F902AD5E1A6DA5DD008E9409 /* notePaper.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = notePaper.jpg; sourceTree = "<group>"; };
 		F92571B51A648F15008C6E4C /* DataSource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DataSource.h; path = ../DataSource.h; sourceTree = "<group>"; };
 		F92571B61A648F15008C6E4C /* DataSource.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DataSource.m; path = ../DataSource.m; sourceTree = "<group>"; };
 		F94D7A1B1A60A19B009D3CC0 /* ReadNoteViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ReadNoteViewController.h; path = ../ReadNoteViewController.h; sourceTree = "<group>"; };
@@ -128,6 +130,7 @@
 		F98D50A61A60594700146C36 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				F902AD5E1A6DA5DD008E9409 /* notePaper.jpg */,
 				F98D50D21A605FFA00146C36 /* 512-paste-clipboard.png */,
 				F98D50D41A60600400146C36 /* 512-paste-clipboard@2x.png */,
 				F98D50A71A60594700146C36 /* Info.plist */,
@@ -234,6 +237,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F902AD5F1A6DA5DD008E9409 /* notePaper.jpg in Resources */,
 				F98D50B51A60594700146C36 /* Main.storyboard in Resources */,
 				F98D50D31A605FFA00146C36 /* 512-paste-clipboard.png in Resources */,
 				F98D50D51A60600400146C36 /* 512-paste-clipboard@2x.png in Resources */,

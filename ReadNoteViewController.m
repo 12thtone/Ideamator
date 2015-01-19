@@ -16,6 +16,10 @@
 @property (weak, nonatomic) IBOutlet UITextView *noteLabel;
 @property (nonatomic, strong)NSManagedObjectContext *managedObjectContext;
 @property (nonatomic, strong)NSFetchedResultsController *fetchedResultsController;
+@property (nonatomic, strong) NSString *noteTitle;
+@property (nonatomic, strong) NSString *noteText;
+
+- (IBAction)shareButton:(UIBarButtonItem *)sender;
 
 @end
 
@@ -27,11 +31,11 @@
     
     NSLog(@"View is loading.");
     
-    NSString *noteTitle = [NSString stringWithFormat:@"%@", _selectedNote.noteTitle];
-    NSString *noteText = [NSString stringWithFormat:@"%@", _selectedNote.noteText];
+    _noteTitle = [NSString stringWithFormat:@"%@", _selectedNote.noteTitle];
+    _noteText = [NSString stringWithFormat:@"%@", _selectedNote.noteText];
     
-    self.titleLabel.text = noteTitle;
-    self.noteLabel.text = noteText;
+    self.titleLabel.text = _noteTitle;
+    self.noteLabel.text = _noteText;
     
 }
 
@@ -58,6 +62,20 @@
         //EditNoteViewController *editNoteViewController = (EditNoteViewController*) segue.destinationViewController;
         
         editNoteViewController.selectedNote = self.selectedNote;
+        
+    }
+}
+
+#pragma mark - Sharing
+
+- (IBAction)shareButton:(UIBarButtonItem *)sender {
+    NSMutableArray *noteToShare = [NSMutableArray array];
+    [noteToShare addObject:self.noteText];
+    UIActivityViewController *activityVC = [[UIActivityViewController alloc] initWithActivityItems:noteToShare applicationActivities:nil];
+    [self presentViewController:activityVC animated:YES completion:nil];
+    
+    if (UIActivityTypeMail) {
+        [activityVC setValue:@"From NoteApp" forKey:@"subject"];
         
     }
 }

@@ -42,7 +42,7 @@
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="4fv-UP-Dcb">
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="4fv-UP-Dcb">
                                 <rect key="frame" x="16" y="191" width="568" height="235"/>
                                 <color key="backgroundColor" red="0.0" green="0.0" blue="1" alpha="0.050000000000000003" colorSpace="calibratedRGB"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
@@ -53,6 +53,7 @@
                         <constraints>
                             <constraint firstItem="UAt-jL-UJm" firstAttribute="leading" secondItem="iJ4-hp-y7h" secondAttribute="leading" constant="16" id="9fM-Or-8yF"/>
                             <constraint firstItem="UAt-jL-UJm" firstAttribute="top" secondItem="PNf-6Y-Uco" secondAttribute="bottom" constant="8" id="CKe-FZ-tKK"/>
+                            <constraint firstItem="Yqa-Mw-J0I" firstAttribute="top" secondItem="4fv-UP-Dcb" secondAttribute="bottom" constant="174" id="EqY-9Z-gST"/>
                             <constraint firstItem="4fv-UP-Dcb" firstAttribute="leading" secondItem="iJ4-hp-y7h" secondAttribute="leading" constant="16" id="IaS-a1-MuL"/>
                             <constraint firstItem="1DJ-U4-2Bj" firstAttribute="top" secondItem="UAt-jL-UJm" secondAttribute="bottom" constant="8" id="Jw1-Ha-aWf"/>
                             <constraint firstItem="1DJ-U4-2Bj" firstAttribute="leading" secondItem="iJ4-hp-y7h" secondAttribute="leading" constant="16" id="Mnm-bH-Uki"/>
@@ -99,7 +100,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Note Title" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qE0-Ci-gzk">
-                                <rect key="frame" x="16" y="95" width="568" height="21"/>
+                                <rect key="frame" x="16" y="110" width="568" height="21"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="21" id="kVx-gI-qyv"/>
                                 </constraints>
@@ -107,28 +108,45 @@
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" editable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Q6r-Pz-qvh">
-                                <rect key="frame" x="16" y="124" width="568" height="235"/>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Q6r-Pz-qvh">
+                                <rect key="frame" x="16" y="139" width="568" height="220"/>
                                 <color key="backgroundColor" red="0.0" green="1" blue="0.0" alpha="0.089999999999999997" colorSpace="calibratedRGB"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                                 <dataDetectorType key="dataDetectorTypes" phoneNumber="YES" link="YES" address="YES" calendarEvent="YES"/>
                             </textView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gmd-1Z-8h6">
+                                <rect key="frame" x="553" y="72" width="31" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="30" id="E9L-Yu-sMm"/>
+                                    <constraint firstAttribute="width" constant="31" id="Xcs-4I-u0J"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <state key="normal" title="Edit">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <segue destination="QLy-CJ-zcJ" kind="show" identifier="editNote" id="oUE-ja-VYh"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="qE0-Ci-gzk" firstAttribute="leading" secondItem="PBd-gN-45q" secondAttribute="leading" constant="16" id="4in-5G-qhF"/>
+                            <constraint firstItem="qE0-Ci-gzk" firstAttribute="top" secondItem="gmd-1Z-8h6" secondAttribute="bottom" constant="8" id="5xI-FZ-Mvi"/>
+                            <constraint firstAttribute="trailing" secondItem="gmd-1Z-8h6" secondAttribute="trailing" constant="16" id="8Rs-QW-XRg"/>
                             <constraint firstAttribute="trailing" secondItem="Q6r-Pz-qvh" secondAttribute="trailing" constant="16" id="HFJ-5n-BeM"/>
+                            <constraint firstItem="Q2v-CU-bwu" firstAttribute="top" secondItem="Q6r-Pz-qvh" secondAttribute="bottom" constant="241" id="Pgb-Yj-r1Q"/>
+                            <constraint firstItem="gmd-1Z-8h6" firstAttribute="top" secondItem="bpe-Zf-JHV" secondAttribute="bottom" constant="8" id="VQH-Oc-u4h"/>
                             <constraint firstItem="Q6r-Pz-qvh" firstAttribute="top" secondItem="qE0-Ci-gzk" secondAttribute="bottom" constant="8" id="b9j-UX-c0R"/>
                             <constraint firstAttribute="trailing" secondItem="qE0-Ci-gzk" secondAttribute="trailing" constant="16" id="cOM-JY-Fki"/>
                             <constraint firstItem="Q6r-Pz-qvh" firstAttribute="leading" secondItem="PBd-gN-45q" secondAttribute="leading" constant="16" id="hNt-OC-wif"/>
-                            <constraint firstItem="qE0-Ci-gzk" firstAttribute="top" secondItem="bpe-Zf-JHV" secondAttribute="bottom" constant="31" id="t54-MJ-2zT"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Read" id="fR7-Vr-9ow">
-                        <barButtonItem key="rightBarButtonItem" style="done" systemItem="edit" id="27k-dT-qvq">
+                        <barButtonItem key="rightBarButtonItem" title="Share" style="done" id="27k-dT-qvq">
                             <connections>
-                                <segue destination="QLy-CJ-zcJ" kind="show" identifier="editNote" id="zcn-di-32R"/>
+                                <action selector="shareButton:" destination="hvT-pW-cUU" id="sTO-p0-ceY"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
@@ -162,7 +180,7 @@
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="MHV-2s-58M">
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="MHV-2s-58M">
                                 <rect key="frame" x="16" y="124" width="568" height="235"/>
                                 <color key="backgroundColor" red="0.0" green="0.0" blue="1" alpha="0.070000000000000007" colorSpace="calibratedRGB"/>
                                 <color key="tintColor" red="0.0" green="0.0" blue="1" alpha="0.080000000000000002" colorSpace="calibratedRGB"/>
@@ -172,6 +190,7 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
+                            <constraint firstItem="DZL-Im-b9c" firstAttribute="top" secondItem="MHV-2s-58M" secondAttribute="bottom" constant="241" id="7rj-NA-Htz"/>
                             <constraint firstItem="zch-9U-33d" firstAttribute="top" secondItem="hfa-hO-PAm" secondAttribute="bottom" constant="31" id="DcO-RB-4ge"/>
                             <constraint firstAttribute="trailing" secondItem="MHV-2s-58M" secondAttribute="trailing" constant="16" id="Fow-Ut-9cR"/>
                             <constraint firstAttribute="trailing" secondItem="zch-9U-33d" secondAttribute="trailing" constant="16" id="IZE-PH-EiR"/>
@@ -201,7 +220,7 @@
             </objects>
             <point key="canvasLocation" x="5482" y="1244"/>
         </scene>
-        <!--Search-->
+        <!--Notes-->
         <scene sceneID="dpx-lQ-fdE">
             <objects>
                 <tableViewController id="GcZ-DL-oXe" customClass="NoteTableViewController" sceneMemberID="viewController">
@@ -234,7 +253,7 @@
                             <outlet property="delegate" destination="GcZ-DL-oXe" id="Zpl-dj-9Cj"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="Search" id="moM-bj-68y">
+                    <navigationItem key="navigationItem" title="Notes" id="moM-bj-68y">
                         <barButtonItem key="rightBarButtonItem" style="done" systemItem="add" id="typ-TK-aUD">
                             <connections>
                                 <segue destination="1mv-gc-42G" kind="presentation" identifier="addNote" id="Ar2-0Z-YwN"/>
