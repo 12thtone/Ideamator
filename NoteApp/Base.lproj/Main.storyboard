@@ -34,7 +34,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Note:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1DJ-U4-2Bj">
-                                <rect key="frame" x="16" y="162" width="568" height="21"/>
+                                <rect key="frame" x="16" y="162" width="514" height="21"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="21" id="kKY-xU-rgc"/>
                                 </constraints>
@@ -48,6 +48,19 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences" spellCheckingType="yes"/>
                             </textView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="99e-xw-dcN">
+                                <rect key="frame" x="538" y="162" width="46" height="22"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="46" id="bfE-lZ-xup"/>
+                                    <constraint firstAttribute="height" constant="22" id="qZo-ZV-Wbo"/>
+                                </constraints>
+                                <state key="normal" title="Import">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="openImportDocumentPicker:" destination="mra-DW-FRe" eventType="touchUpInside" id="99z-aL-J7p"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
@@ -56,13 +69,15 @@
                             <constraint firstItem="Yqa-Mw-J0I" firstAttribute="top" secondItem="4fv-UP-Dcb" secondAttribute="bottom" constant="174" id="EqY-9Z-gST"/>
                             <constraint firstItem="4fv-UP-Dcb" firstAttribute="leading" secondItem="iJ4-hp-y7h" secondAttribute="leading" constant="16" id="IaS-a1-MuL"/>
                             <constraint firstItem="1DJ-U4-2Bj" firstAttribute="top" secondItem="UAt-jL-UJm" secondAttribute="bottom" constant="8" id="Jw1-Ha-aWf"/>
+                            <constraint firstItem="99e-xw-dcN" firstAttribute="leading" secondItem="1DJ-U4-2Bj" secondAttribute="trailing" constant="8" id="KuS-4x-TJY"/>
                             <constraint firstItem="1DJ-U4-2Bj" firstAttribute="leading" secondItem="iJ4-hp-y7h" secondAttribute="leading" constant="16" id="Mnm-bH-Uki"/>
-                            <constraint firstAttribute="trailing" secondItem="1DJ-U4-2Bj" secondAttribute="trailing" constant="16" id="Tfs-7H-Trk"/>
+                            <constraint firstAttribute="trailing" secondItem="99e-xw-dcN" secondAttribute="trailing" constant="16" id="Mrt-kh-kw9"/>
                             <constraint firstAttribute="trailing" secondItem="PNf-6Y-Uco" secondAttribute="trailing" constant="16" id="dyk-3p-CZP"/>
                             <constraint firstItem="PNf-6Y-Uco" firstAttribute="top" secondItem="H1a-Um-pFr" secondAttribute="bottom" constant="31" id="kkh-mp-Vbw"/>
                             <constraint firstItem="PNf-6Y-Uco" firstAttribute="leading" secondItem="iJ4-hp-y7h" secondAttribute="leading" constant="16" id="qkn-Dz-T5w"/>
                             <constraint firstAttribute="trailing" secondItem="4fv-UP-Dcb" secondAttribute="trailing" constant="16" id="vh1-z7-uCH"/>
                             <constraint firstAttribute="trailing" secondItem="UAt-jL-UJm" secondAttribute="trailing" constant="16" id="vsh-eO-6hp"/>
+                            <constraint firstItem="99e-xw-dcN" firstAttribute="top" secondItem="UAt-jL-UJm" secondAttribute="bottom" constant="8" id="xDh-Tj-fV5"/>
                             <constraint firstItem="4fv-UP-Dcb" firstAttribute="top" secondItem="1DJ-U4-2Bj" secondAttribute="bottom" constant="8" id="ycj-Mx-agk"/>
                         </constraints>
                     </view>
