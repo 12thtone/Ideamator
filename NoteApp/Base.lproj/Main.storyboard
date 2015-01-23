@@ -271,7 +271,7 @@
                     <navigationItem key="navigationItem" title="Notes" id="moM-bj-68y">
                         <barButtonItem key="rightBarButtonItem" style="done" systemItem="add" id="typ-TK-aUD">
                             <connections>
-                                <segue destination="1mv-gc-42G" kind="presentation" identifier="addNote" id="Ar2-0Z-YwN"/>
+                                <segue destination="1mv-gc-42G" kind="presentation" identifier="addNote" id="p1d-gB-Cln"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>

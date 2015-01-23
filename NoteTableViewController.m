@@ -12,6 +12,7 @@
 #import "AddNoteViewController.h"
 #import "ReadNoteViewController.h"
 #import "DataSource.h"
+#import <CoreData/CoreData.h>
 
 @interface NoteTableViewController () <NSFetchedResultsControllerDelegate, UISearchDisplayDelegate, UISearchBarDelegate>
 
@@ -146,13 +147,11 @@
 }
 
 -(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+    
     if ([[segue identifier]isEqualToString:@"addNote"]) {
         UINavigationController *navigationController = segue.destinationViewController;
-        
         AddNoteViewController *addNoteViewController = (AddNoteViewController*) navigationController.topViewController;
-        
         Note *addNote = [NSEntityDescription insertNewObjectForEntityForName:@"Note" inManagedObjectContext:[self managedObjectContext]];
-        
         addNoteViewController.addNote = addNote;
     }
     
@@ -171,15 +170,6 @@
             self.selectedNote = [self.fetchedResultsController objectAtIndexPath:indexPath];
             readNoteViewController.selectedNote = _selectedNote;
         }
-        /*
-        ReadNoteViewController *readNoteViewController = (ReadNoteViewController*) segue.destinationViewController;
-        
-        NSIndexPath *indexPath = [self.tableView indexPathForSelectedRow];
-        
-        Note *selectedNote = (Note*)[self.fetchedResultsController objectAtIndexPath:indexPath];
-        
-        readNoteViewController.selectedNote = selectedNote;
-         */
     }
 }
 
@@ -313,7 +303,5 @@
     // [self viewDidLoad] fixes that.]
     [self viewDidLoad];
 }
-
-#pragma mark - Importing Notes
 
 @end
