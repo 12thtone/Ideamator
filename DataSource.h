@@ -8,9 +8,15 @@
 
 #import <Foundation/Foundation.h>
 
+@class Note, NoteTableViewController;
+
 @interface DataSource : NSObject
 
 +(instancetype) sharedInstance;
+
+@property (nonatomic, strong) NSMutableArray *searchResults;
+
+- (NSArray*) searchNotes:(NSString*)searchText scope:(NSString*)scope notes:(NSMutableArray*)noteList;
 
 - (void) cancelAndDismiss;
 

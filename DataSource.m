@@ -9,14 +9,21 @@
 #import "DataSource.h"
 #import "AppDelegate.h"
 #import <CoreData/CoreData.h>
+#import "Note.h"
+#import "NoteTableViewController.h"
 
 @interface DataSource ()
 
 @property (nonatomic, strong)NSManagedObjectContext *managerObjectContext;
 
+@property (nonatomic, strong) NoteTableViewController *reference;
+
 @end
 
 @implementation DataSource
+
+@synthesize searchResults;
+@synthesize reference;
 
 + (instancetype) sharedInstance {
     static dispatch_once_t once;
@@ -44,6 +51,14 @@
             NSLog(@"Save Succeeded");
         }
     }
+}
+
+- (NSArray *) searchNotes:(NSString*)searchText scope:(NSString*)scope notes:(NSMutableArray*)noteList {
+    searchResults = [[NSMutableArray alloc] init];
+    NSPredicate *predicate = [NSPredicate predicateWithFormat:@"SELF.noteText contains[c] %@", searchText];
+    searchResults = [NSMutableArray arrayWithArray:[noteList filteredArrayUsingPredicate:predicate]];
+    
+    return searchResults;
 }
 
 @end

@@ -10,12 +10,13 @@
 #import "Note.h"
 #import "DataSource.h"
 
-@interface AddNoteViewController ()
+@interface AddNoteViewController () <UIDocumentPickerDelegate>
 
 @property (weak, nonatomic) IBOutlet UITextField *titleField;
 @property (weak, nonatomic) IBOutlet UITextView *noteField;
 - (IBAction)cancelNote:(UIBarButtonItem *)sender;
 - (IBAction)saveNote:(UIBarButtonItem *)sender;
+- (IBAction)openImportDocumentPicker:(id)sender;
 
 @end
 
@@ -44,4 +45,38 @@
     [[DataSource sharedInstance] saveAndDismiss];
     [self dismissViewControllerAnimated:YES completion:nil];
 }
+
+#pragma mark - Importing Notes
+
+- (IBAction)openImportDocumentPicker:(id)sender {
+    UIDocumentPickerViewController *documentPicker = [[UIDocumentPickerViewController alloc] initWithDocumentTypes:@[@"public.text"]
+                                                                                                            inMode:UIDocumentPickerModeImport];
+    documentPicker.delegate = self;
+    documentPicker.modalPresentationStyle = UIModalPresentationFormSheet;
+    [self presentViewController:documentPicker animated:YES completion:nil];
+}
+
+- (void)documentPicker:(UIDocumentPickerViewController *)controller didPickDocumentAtURL:(NSURL *)url {
+    if (controller.documentPickerMode == UIDocumentPickerModeImport) {
+        NSString *alertMessage = [NSString stringWithFormat:@"Successfully imported %@ as a note", [url lastPathComponent]];
+        dispatch_async(dispatch_get_main_queue(), ^{
+            UIAlertController *alertController = [UIAlertController
+                                                  alertControllerWithTitle:@"Import"
+                                                  message:alertMessage
+                                                  preferredStyle:UIAlertControllerStyleAlert];
+            [alertController addAction:[UIAlertAction actionWithTitle:@"Ok" style:UIAlertActionStyleDefault handler:nil]];
+            [self presentViewController:alertController animated:YES completion:nil];
+        });
+        
+        NSData *data = [NSData dataWithContentsOfURL:url];
+        
+        if (data) {
+            NSLog(@"Data: %@", [NSString stringWithUTF8String:[data bytes]]);
+            self.noteField.text = [NSString stringWithUTF8String:[data bytes]];
+        } else {
+            NSLog(@"Data is nil");
+        }
+    }
+}
+
 @end
