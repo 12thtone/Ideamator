@@ -12,6 +12,7 @@
 #import "AddNoteViewController.h"
 #import "ReadNoteViewController.h"
 #import "DataSource.h"
+#import <CoreData/CoreData.h>
 
 @interface NoteTableViewController () <NSFetchedResultsControllerDelegate, UISearchDisplayDelegate, UISearchBarDelegate>
 
@@ -61,6 +62,8 @@
     fixedResults = [NSMutableArray arrayWithCapacity:[[self.fetchedResultsController fetchedObjects] count]];
     [self.tableView reloadData];
     
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(reloadTableView:) name:@"reloadTable" object:nil];
+    
     // Uncomment the following line to preserve selection between presentations.
     // self.clearsSelectionOnViewWillAppear = NO;
     
@@ -72,6 +75,11 @@
 {
     self.searchResults = nil;
     self.fixedResults = nil;
+}
+
+- (void) dealloc
+{
+    [[NSNotificationCenter defaultCenter] removeObserver:self name:@"reloadTable" object:nil];
 }
 
 - (void)viewWillAppear:(BOOL)animated {
@@ -88,17 +96,9 @@
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
-    
     return [[self.fetchedResultsController sections]count];
 }
-/*
- - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
- {
- id<NSFetchedResultsSectionInfo> sectionInfo = [[self.fetchedResultsController sections]objectAtIndex:section];
- 
- return [sectionInfo numberOfObjects];
- }
- */
+
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
     if (tableView == self.searchDisplayController.searchResultsTableView)
@@ -107,7 +107,6 @@
     }
     else
     {
-        //return [[[self.fetchedResultsController sections] objectAtIndex:section] numberOfObjects];
         id<NSFetchedResultsSectionInfo> sectionInfo = [[self.fetchedResultsController sections]objectAtIndex:section];
         
         return [sectionInfo numberOfObjects];
@@ -123,7 +122,6 @@
     
     Note *note = nil;
     
-    //if (tableView == self.searchDisplayController.searchResultsTableView)
     if (tableView == self.searchDisplayController.searchResultsTableView)
     {
         note = [self.searchResults objectAtIndex:indexPath.row];
@@ -132,28 +130,28 @@
     }
     else
     {
-        //Note *note = [self.fetchedResultsController objectAtIndexPath:indexPath];
         note = [self.fetchedResultsController objectAtIndexPath:indexPath];
     }
     
     cell.textLabel.text = note.noteTitle;
     
-    //fixedResults = response.responseText;
-    
-    //fixedResults = [self.searchResults objectAtIndex:cell.textLabel.text];
-    
     return cell;
 }
 
 -(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+    
     if ([[segue identifier]isEqualToString:@"addNote"]) {
-        UINavigationController *navigationController = segue.destinationViewController;
-        
-        AddNoteViewController *addNoteViewController = (AddNoteViewController*) navigationController.topViewController;
-        
-        Note *addNote = [NSEntityDescription insertNewObjectForEntityForName:@"Note" inManagedObjectContext:[self managedObjectContext]];
-        
-        addNoteViewController.addNote = addNote;
+        if (isPhone) {
+            UINavigationController *navigationController = segue.destinationViewController;
+            AddNoteViewController *addNoteViewController = (AddNoteViewController*) navigationController.topViewController;
+            Note *addNote = [NSEntityDescription insertNewObjectForEntityForName:@"Note" inManagedObjectContext:[self managedObjectContext]];
+            addNoteViewController.addNote = addNote;
+        } else {
+            UIViewController *destinationVC = segue.destinationViewController;
+            AddNoteViewController *addNoteViewController = (AddNoteViewController*) destinationVC;
+            Note *addNote = [NSEntityDescription insertNewObjectForEntityForName:@"Note" inManagedObjectContext:[self managedObjectContext]];
+            addNoteViewController.addNote = addNote;
+        }
     }
     
     if ([[segue identifier]isEqualToString:@"readNote"]) {
@@ -171,15 +169,15 @@
             self.selectedNote = [self.fetchedResultsController objectAtIndexPath:indexPath];
             readNoteViewController.selectedNote = _selectedNote;
         }
-        /*
-        ReadNoteViewController *readNoteViewController = (ReadNoteViewController*) segue.destinationViewController;
-        
-        NSIndexPath *indexPath = [self.tableView indexPathForSelectedRow];
-        
-        Note *selectedNote = (Note*)[self.fetchedResultsController objectAtIndexPath:indexPath];
-        
-        readNoteViewController.selectedNote = selectedNote;
-         */
+    }
+}
+
+- (void)reloadTableView:(NSNotification*)notification {
+    {
+        if ([[notification name] isEqualToString:@"reloadTable"])
+        {
+            [self.tableView reloadData];
+        }
     }
 }
 
@@ -309,11 +307,7 @@
 
 - (void)searchBarCancelButtonClicked:(UISearchBar *)searchBar
 {
-    // After a search, and after the Cancel button is pressed, the data in the first cell is displayed when any cell is touched.
-    // [self viewDidLoad] fixes that.]
     [self viewDidLoad];
 }
-
-#pragma mark - Importing Notes
 
 @end
