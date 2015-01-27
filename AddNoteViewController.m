@@ -14,6 +14,9 @@
 
 @property (weak, nonatomic) IBOutlet UITextField *titleField;
 @property (weak, nonatomic) IBOutlet UITextView *noteField;
+@property (weak, nonatomic) IBOutlet UITextField *titleFieldPad;
+@property (weak, nonatomic) IBOutlet UITextView *noteFieldPad;
+
 - (IBAction)cancelNote:(UIBarButtonItem *)sender;
 - (IBAction)saveNote:(UIBarButtonItem *)sender;
 - (IBAction)openImportDocumentPicker:(id)sender;
@@ -40,6 +43,13 @@
 }
 
 - (IBAction)saveNote:(UIBarButtonItem *)sender {
+    if (isPhone) {
+        addNote.noteTitle = _titleField.text;
+        addNote.noteText = _noteField.text;
+    } else {
+        addNote.noteTitle = _titleFieldPad.text;
+        addNote.noteText = _noteFieldPad.text;
+    }
     addNote.noteTitle = _titleField.text;
     addNote.noteText = _noteField.text;
     [[DataSource sharedInstance] saveAndDismiss];

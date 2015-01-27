@@ -149,10 +149,17 @@
 -(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
     
     if ([[segue identifier]isEqualToString:@"addNote"]) {
-        UINavigationController *navigationController = segue.destinationViewController;
-        AddNoteViewController *addNoteViewController = (AddNoteViewController*) navigationController.topViewController;
-        Note *addNote = [NSEntityDescription insertNewObjectForEntityForName:@"Note" inManagedObjectContext:[self managedObjectContext]];
-        addNoteViewController.addNote = addNote;
+        if (isPhone) {
+            UINavigationController *navigationController = segue.destinationViewController;
+            AddNoteViewController *addNoteViewController = (AddNoteViewController*) navigationController.topViewController;
+            Note *addNote = [NSEntityDescription insertNewObjectForEntityForName:@"Note" inManagedObjectContext:[self managedObjectContext]];
+            addNoteViewController.addNote = addNote;
+        } else {
+            UIViewController *destinationVC = segue.destinationViewController;
+            AddNoteViewController *addNoteViewController = (AddNoteViewController*) destinationVC;
+            Note *addNote = [NSEntityDescription insertNewObjectForEntityForName:@"Note" inManagedObjectContext:[self managedObjectContext]];
+            addNoteViewController.addNote = addNote;
+        }
     }
     
     if ([[segue identifier]isEqualToString:@"readNote"]) {
