@@ -53,6 +53,8 @@
     addNote.noteTitle = _titleField.text;
     addNote.noteText = _noteField.text;
     [[DataSource sharedInstance] saveAndDismiss];
+    
+    [[NSNotificationCenter defaultCenter] postNotificationName:@"reloadTable" object:nil];
     [self dismissViewControllerAnimated:YES completion:nil];
 }
 

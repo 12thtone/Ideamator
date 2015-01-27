@@ -62,6 +62,8 @@
     fixedResults = [NSMutableArray arrayWithCapacity:[[self.fetchedResultsController fetchedObjects] count]];
     [self.tableView reloadData];
     
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(reloadTableView:) name:@"reloadTable" object:nil];
+    
     // Uncomment the following line to preserve selection between presentations.
     // self.clearsSelectionOnViewWillAppear = NO;
     
@@ -73,6 +75,11 @@
 {
     self.searchResults = nil;
     self.fixedResults = nil;
+}
+
+- (void) dealloc
+{
+    [[NSNotificationCenter defaultCenter] removeObserver:self name:@"reloadTable" object:nil];
 }
 
 - (void)viewWillAppear:(BOOL)animated {
@@ -89,17 +96,9 @@
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
-    
     return [[self.fetchedResultsController sections]count];
 }
-/*
- - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
- {
- id<NSFetchedResultsSectionInfo> sectionInfo = [[self.fetchedResultsController sections]objectAtIndex:section];
- 
- return [sectionInfo numberOfObjects];
- }
- */
+
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
     if (tableView == self.searchDisplayController.searchResultsTableView)
@@ -108,7 +107,6 @@
     }
     else
     {
-        //return [[[self.fetchedResultsController sections] objectAtIndex:section] numberOfObjects];
         id<NSFetchedResultsSectionInfo> sectionInfo = [[self.fetchedResultsController sections]objectAtIndex:section];
         
         return [sectionInfo numberOfObjects];
@@ -124,7 +122,6 @@
     
     Note *note = nil;
     
-    //if (tableView == self.searchDisplayController.searchResultsTableView)
     if (tableView == self.searchDisplayController.searchResultsTableView)
     {
         note = [self.searchResults objectAtIndex:indexPath.row];
@@ -133,15 +130,10 @@
     }
     else
     {
-        //Note *note = [self.fetchedResultsController objectAtIndexPath:indexPath];
         note = [self.fetchedResultsController objectAtIndexPath:indexPath];
     }
     
     cell.textLabel.text = note.noteTitle;
-    
-    //fixedResults = response.responseText;
-    
-    //fixedResults = [self.searchResults objectAtIndex:cell.textLabel.text];
     
     return cell;
 }
@@ -176,6 +168,15 @@
             NSIndexPath *indexPath = [self.tableView indexPathForSelectedRow];
             self.selectedNote = [self.fetchedResultsController objectAtIndexPath:indexPath];
             readNoteViewController.selectedNote = _selectedNote;
+        }
+    }
+}
+
+- (void)reloadTableView:(NSNotification*)notification {
+    {
+        if ([[notification name] isEqualToString:@"reloadTable"])
+        {
+            [self.tableView reloadData];
         }
     }
 }
@@ -306,8 +307,6 @@
 
 - (void)searchBarCancelButtonClicked:(UISearchBar *)searchBar
 {
-    // After a search, and after the Cancel button is pressed, the data in the first cell is displayed when any cell is touched.
-    // [self viewDidLoad] fixes that.]
     [self viewDidLoad];
 }
 
