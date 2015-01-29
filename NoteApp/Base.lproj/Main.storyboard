@@ -4,7 +4,7 @@
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6247"/>
     </dependencies>
     <scenes>
-        <!--Add Note-->
+        <!--Add Note View Controller-->
         <scene sceneID="hhv-BJ-CLJ">
             <objects>
                 <viewController id="mra-DW-FRe" customClass="AddNoteViewController" sceneMemberID="viewController">
@@ -16,38 +16,23 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="UAt-jL-UJm">
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" clearButtonMode="always" translatesAutoresizingMaskIntoConstraints="NO" id="UAt-jL-UJm">
                                 <rect key="frame" x="16" y="124" width="568" height="30"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="30" id="rov-BE-2FB"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="words"/>
                             </textField>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Note Title:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PNf-6Y-Uco">
-                                <rect key="frame" x="16" y="95" width="568" height="21"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="21" id="IKk-s7-TOT"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Note:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1DJ-U4-2Bj">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="New Idea:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1DJ-U4-2Bj">
                                 <rect key="frame" x="16" y="162" width="514" height="21"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="21" id="kKY-xU-rgc"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <fontDescription key="fontDescription" name="DevanagariSangamMN" family="Devanagari Sangam MN" pointSize="17"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="4fv-UP-Dcb">
-                                <rect key="frame" x="16" y="191" width="568" height="235"/>
-                                <color key="backgroundColor" red="0.0" green="0.0" blue="1" alpha="0.050000000000000003" colorSpace="calibratedRGB"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences" spellCheckingType="yes"/>
-                            </textView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="99e-xw-dcN">
                                 <rect key="frame" x="538" y="162" width="46" height="22"/>
                                 <constraints>
@@ -61,27 +46,53 @@
                                     <action selector="openImportDocumentPicker:" destination="mra-DW-FRe" eventType="touchUpInside" id="99z-aL-J7p"/>
                                 </connections>
                             </button>
+                            <pickerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Mor-9L-8dS">
+                                <rect key="frame" x="0.0" y="418" width="600" height="162"/>
+                                <color key="backgroundColor" red="0.60000002384185791" green="0.40000000596046448" blue="0.20000000298023224" alpha="0.080000000000000002" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="162" id="Gyv-SP-ycC"/>
+                                </constraints>
+                            </pickerView>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" keyboardDismissMode="onDrag" translatesAutoresizingMaskIntoConstraints="NO" id="4fv-UP-Dcb">
+                                <rect key="frame" x="0.0" y="191" width="600" height="227"/>
+                                <color key="backgroundColor" red="0.60000002384185791" green="0.40000000596046448" blue="0.20000000298023224" alpha="0.080000000000000002" colorSpace="calibratedRGB"/>
+                                <color key="textColor" white="0.0" alpha="0.45000000000000001" colorSpace="calibratedWhite"/>
+                                <fontDescription key="fontDescription" name="DevanagariSangamMN" family="Devanagari Sangam MN" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="New Idea Title:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PNf-6Y-Uco">
+                                <rect key="frame" x="16" y="95" width="568" height="21"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="21" id="IKk-s7-TOT"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="DevanagariSangamMN" family="Devanagari Sangam MN" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
+                            <constraint firstItem="Mor-9L-8dS" firstAttribute="leading" secondItem="iJ4-hp-y7h" secondAttribute="leading" id="5f3-S4-Pbk"/>
                             <constraint firstItem="UAt-jL-UJm" firstAttribute="leading" secondItem="iJ4-hp-y7h" secondAttribute="leading" constant="16" id="9fM-Or-8yF"/>
                             <constraint firstItem="UAt-jL-UJm" firstAttribute="top" secondItem="PNf-6Y-Uco" secondAttribute="bottom" constant="8" id="CKe-FZ-tKK"/>
-                            <constraint firstItem="Yqa-Mw-J0I" firstAttribute="top" secondItem="4fv-UP-Dcb" secondAttribute="bottom" constant="174" id="EqY-9Z-gST"/>
-                            <constraint firstItem="4fv-UP-Dcb" firstAttribute="leading" secondItem="iJ4-hp-y7h" secondAttribute="leading" constant="16" id="IaS-a1-MuL"/>
                             <constraint firstItem="1DJ-U4-2Bj" firstAttribute="top" secondItem="UAt-jL-UJm" secondAttribute="bottom" constant="8" id="Jw1-Ha-aWf"/>
                             <constraint firstItem="99e-xw-dcN" firstAttribute="leading" secondItem="1DJ-U4-2Bj" secondAttribute="trailing" constant="8" id="KuS-4x-TJY"/>
                             <constraint firstItem="1DJ-U4-2Bj" firstAttribute="leading" secondItem="iJ4-hp-y7h" secondAttribute="leading" constant="16" id="Mnm-bH-Uki"/>
                             <constraint firstAttribute="trailing" secondItem="99e-xw-dcN" secondAttribute="trailing" constant="16" id="Mrt-kh-kw9"/>
+                            <constraint firstAttribute="trailing" secondItem="Mor-9L-8dS" secondAttribute="trailing" id="Py7-Vm-seF"/>
+                            <constraint firstItem="4fv-UP-Dcb" firstAttribute="leading" secondItem="iJ4-hp-y7h" secondAttribute="leading" id="WZB-xR-sOS"/>
+                            <constraint firstItem="Mor-9L-8dS" firstAttribute="top" secondItem="4fv-UP-Dcb" secondAttribute="bottom" id="WzZ-Sv-n6e"/>
+                            <constraint firstAttribute="trailing" secondItem="4fv-UP-Dcb" secondAttribute="trailing" id="dvq-Eo-mYB"/>
                             <constraint firstAttribute="trailing" secondItem="PNf-6Y-Uco" secondAttribute="trailing" constant="16" id="dyk-3p-CZP"/>
+                            <constraint firstItem="Yqa-Mw-J0I" firstAttribute="top" secondItem="Mor-9L-8dS" secondAttribute="bottom" constant="20" id="fyN-eI-3HI"/>
                             <constraint firstItem="PNf-6Y-Uco" firstAttribute="top" secondItem="H1a-Um-pFr" secondAttribute="bottom" constant="31" id="kkh-mp-Vbw"/>
                             <constraint firstItem="PNf-6Y-Uco" firstAttribute="leading" secondItem="iJ4-hp-y7h" secondAttribute="leading" constant="16" id="qkn-Dz-T5w"/>
-                            <constraint firstAttribute="trailing" secondItem="4fv-UP-Dcb" secondAttribute="trailing" constant="16" id="vh1-z7-uCH"/>
                             <constraint firstAttribute="trailing" secondItem="UAt-jL-UJm" secondAttribute="trailing" constant="16" id="vsh-eO-6hp"/>
                             <constraint firstItem="99e-xw-dcN" firstAttribute="top" secondItem="UAt-jL-UJm" secondAttribute="bottom" constant="8" id="xDh-Tj-fV5"/>
                             <constraint firstItem="4fv-UP-Dcb" firstAttribute="top" secondItem="1DJ-U4-2Bj" secondAttribute="bottom" constant="8" id="ycj-Mx-agk"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" title="Add Note" id="6NW-Aa-cFa">
+                    <navigationItem key="navigationItem" id="6NW-Aa-cFa">
                         <barButtonItem key="leftBarButtonItem" style="done" systemItem="cancel" id="AZA-Gd-ENG">
                             <connections>
                                 <action selector="cancelNote:" destination="mra-DW-FRe" id="9Xk-Ml-MpY"/>
@@ -95,6 +106,7 @@
                     </navigationItem>
                     <connections>
                         <outlet property="noteField" destination="4fv-UP-Dcb" id="0xH-ng-TCW"/>
+                        <outlet property="statusPicker" destination="Mor-9L-8dS" id="eqj-2S-wlG"/>
                         <outlet property="titleField" destination="UAt-jL-UJm" id="CwE-ny-iPR"/>
                     </connections>
                 </viewController>
@@ -102,7 +114,7 @@
             </objects>
             <point key="canvasLocation" x="4459" y="508"/>
         </scene>
-        <!--Read-->
+        <!--Read an Idea-->
         <scene sceneID="DYD-eJ-pVw">
             <objects>
                 <viewController id="hvT-pW-cUU" customClass="ReadNoteViewController" sceneMemberID="viewController">
@@ -119,14 +131,15 @@
                                 <constraints>
                                     <constraint firstAttribute="height" constant="21" id="kVx-gI-qyv"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <fontDescription key="fontDescription" name="DevanagariSangamMN" family="Devanagari Sangam MN" pointSize="22"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Q6r-Pz-qvh">
-                                <rect key="frame" x="16" y="139" width="568" height="220"/>
-                                <color key="backgroundColor" red="0.0" green="1" blue="0.0" alpha="0.089999999999999997" colorSpace="calibratedRGB"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <rect key="frame" x="0.0" y="139" width="600" height="461"/>
+                                <color key="backgroundColor" red="0.60000002384185791" green="0.40000000596046448" blue="0.20000000298023224" alpha="0.080000000000000002" colorSpace="calibratedRGB"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="0.75" colorSpace="calibratedRGB"/>
+                                <fontDescription key="fontDescription" name="DevanagariSangamMN" family="Devanagari Sangam MN" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                                 <dataDetectorType key="dataDetectorTypes" phoneNumber="YES" link="YES" address="YES" calendarEvent="YES"/>
                             </textView>
@@ -147,18 +160,18 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
+                            <constraint firstAttribute="trailing" secondItem="Q6r-Pz-qvh" secondAttribute="trailing" id="2za-3m-Pde"/>
                             <constraint firstItem="qE0-Ci-gzk" firstAttribute="leading" secondItem="PBd-gN-45q" secondAttribute="leading" constant="16" id="4in-5G-qhF"/>
                             <constraint firstItem="qE0-Ci-gzk" firstAttribute="top" secondItem="gmd-1Z-8h6" secondAttribute="bottom" constant="8" id="5xI-FZ-Mvi"/>
                             <constraint firstAttribute="trailing" secondItem="gmd-1Z-8h6" secondAttribute="trailing" constant="16" id="8Rs-QW-XRg"/>
-                            <constraint firstAttribute="trailing" secondItem="Q6r-Pz-qvh" secondAttribute="trailing" constant="16" id="HFJ-5n-BeM"/>
-                            <constraint firstItem="Q2v-CU-bwu" firstAttribute="top" secondItem="Q6r-Pz-qvh" secondAttribute="bottom" constant="241" id="Pgb-Yj-r1Q"/>
+                            <constraint firstItem="Q6r-Pz-qvh" firstAttribute="leading" secondItem="PBd-gN-45q" secondAttribute="leading" id="ItP-HX-2M8"/>
                             <constraint firstItem="gmd-1Z-8h6" firstAttribute="top" secondItem="bpe-Zf-JHV" secondAttribute="bottom" constant="8" id="VQH-Oc-u4h"/>
                             <constraint firstItem="Q6r-Pz-qvh" firstAttribute="top" secondItem="qE0-Ci-gzk" secondAttribute="bottom" constant="8" id="b9j-UX-c0R"/>
                             <constraint firstAttribute="trailing" secondItem="qE0-Ci-gzk" secondAttribute="trailing" constant="16" id="cOM-JY-Fki"/>
-                            <constraint firstItem="Q6r-Pz-qvh" firstAttribute="leading" secondItem="PBd-gN-45q" secondAttribute="leading" constant="16" id="hNt-OC-wif"/>
+                            <constraint firstItem="Q2v-CU-bwu" firstAttribute="top" secondItem="Q6r-Pz-qvh" secondAttribute="bottom" id="zEh-eN-2xB"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" title="Read" id="fR7-Vr-9ow">
+                    <navigationItem key="navigationItem" title="Read an Idea" id="fR7-Vr-9ow">
                         <barButtonItem key="rightBarButtonItem" title="Share" style="done" id="27k-dT-qvq">
                             <connections>
                                 <action selector="shareButton:" destination="hvT-pW-cUU" id="sTO-p0-ceY"/>
@@ -174,7 +187,7 @@
             </objects>
             <point key="canvasLocation" x="4799" y="1244"/>
         </scene>
-        <!--Edit Note-->
+        <!--Edit an Idea-->
         <scene sceneID="NzS-u0-PVJ">
             <objects>
                 <viewController id="QLy-CJ-zcJ" customClass="EditNoteViewController" sceneMemberID="viewController">
@@ -191,30 +204,41 @@
                                 <constraints>
                                     <constraint firstAttribute="height" constant="21" id="3Rg-bd-Ol1"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <fontDescription key="fontDescription" name="DevanagariSangamMN" family="Devanagari Sangam MN" pointSize="22"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="MHV-2s-58M">
-                                <rect key="frame" x="16" y="124" width="568" height="235"/>
-                                <color key="backgroundColor" red="0.0" green="0.0" blue="1" alpha="0.070000000000000007" colorSpace="calibratedRGB"/>
-                                <color key="tintColor" red="0.0" green="0.0" blue="1" alpha="0.080000000000000002" colorSpace="calibratedRGB"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <rect key="frame" x="0.0" y="124" width="600" height="294"/>
+                                <color key="backgroundColor" red="0.60000002384185791" green="0.40000000596046448" blue="0.20000000298023224" alpha="0.080000000000000002" colorSpace="calibratedRGB"/>
+                                <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="0.45000000000000001" colorSpace="calibratedRGB"/>
+                                <fontDescription key="fontDescription" name="DevanagariSangamMN" family="Devanagari Sangam MN" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences" spellCheckingType="yes"/>
                             </textView>
+                            <pickerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Agq-hI-Gx7">
+                                <rect key="frame" x="0.0" y="418" width="600" height="162"/>
+                                <color key="backgroundColor" red="0.60000002384185791" green="0.40000000596046448" blue="0.20000000298023224" alpha="0.080000000000000002" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="162" id="qqi-xs-Bag"/>
+                                </constraints>
+                            </pickerView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="DZL-Im-b9c" firstAttribute="top" secondItem="MHV-2s-58M" secondAttribute="bottom" constant="241" id="7rj-NA-Htz"/>
                             <constraint firstItem="zch-9U-33d" firstAttribute="top" secondItem="hfa-hO-PAm" secondAttribute="bottom" constant="31" id="DcO-RB-4ge"/>
-                            <constraint firstAttribute="trailing" secondItem="MHV-2s-58M" secondAttribute="trailing" constant="16" id="Fow-Ut-9cR"/>
                             <constraint firstAttribute="trailing" secondItem="zch-9U-33d" secondAttribute="trailing" constant="16" id="IZE-PH-EiR"/>
                             <constraint firstItem="MHV-2s-58M" firstAttribute="top" secondItem="zch-9U-33d" secondAttribute="bottom" constant="8" id="LaP-eu-bkX"/>
-                            <constraint firstItem="MHV-2s-58M" firstAttribute="leading" secondItem="4ZX-th-Jtp" secondAttribute="leading" constant="16" id="pgo-EH-koo"/>
+                            <constraint firstAttribute="trailing" secondItem="Agq-hI-Gx7" secondAttribute="trailing" id="O4W-0V-gox"/>
+                            <constraint firstItem="DZL-Im-b9c" firstAttribute="top" secondItem="Agq-hI-Gx7" secondAttribute="bottom" constant="20" id="QcL-LB-vQy"/>
+                            <constraint firstItem="MHV-2s-58M" firstAttribute="leading" secondItem="4ZX-th-Jtp" secondAttribute="leading" id="deL-xn-GGN"/>
+                            <constraint firstAttribute="trailing" secondItem="MHV-2s-58M" secondAttribute="trailing" id="h3u-bk-aaY"/>
+                            <constraint firstItem="Agq-hI-Gx7" firstAttribute="top" secondItem="MHV-2s-58M" secondAttribute="bottom" id="kof-sG-G7B"/>
+                            <constraint firstItem="Agq-hI-Gx7" firstAttribute="leading" secondItem="4ZX-th-Jtp" secondAttribute="leading" id="vIY-Tv-893"/>
                             <constraint firstItem="zch-9U-33d" firstAttribute="leading" secondItem="4ZX-th-Jtp" secondAttribute="leading" constant="16" id="w6Y-37-JRs"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" title="Edit Note" id="VF7-v6-s3L">
+                    <navigationItem key="navigationItem" title="Edit an Idea" id="VF7-v6-s3L">
                         <barButtonItem key="leftBarButtonItem" style="done" systemItem="cancel" id="cJ6-sP-JRO">
                             <connections>
                                 <action selector="cancelEdit:" destination="QLy-CJ-zcJ" id="Unw-s8-8qh"/>
@@ -227,6 +251,7 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
+                        <outlet property="editStatusPicker" destination="Agq-hI-Gx7" id="MBA-4a-nbu"/>
                         <outlet property="noteText" destination="MHV-2s-58M" id="gg1-sG-Bcm"/>
                         <outlet property="noteTitle" destination="zch-9U-33d" id="pW6-XZ-lVC"/>
                     </connections>
@@ -235,7 +260,7 @@
             </objects>
             <point key="canvasLocation" x="5482" y="1244"/>
         </scene>
-        <!--Notes-->
+        <!--Note Table View Controller-->
         <scene sceneID="dpx-lQ-fdE">
             <objects>
                 <tableViewController id="GcZ-DL-oXe" customClass="NoteTableViewController" sceneMemberID="viewController">
@@ -243,21 +268,38 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                        <searchBar key="tableHeaderView" contentMode="redraw" id="gac-qu-mtZ">
+                        <searchBar key="tableHeaderView" contentMode="redraw" text="" placeholder="Idea Search" id="gac-qu-mtZ">
                             <rect key="frame" x="0.0" y="0.0" width="600" height="44"/>
                             <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                            <color key="barTintColor" red="0.60000002384185791" green="0.40000000596046448" blue="0.20000000298023224" alpha="0.10000000000000001" colorSpace="calibratedRGB"/>
                             <textInputTraits key="textInputTraits"/>
                             <connections>
                                 <outlet property="delegate" destination="GcZ-DL-oXe" id="LOP-id-s3V"/>
                             </connections>
                         </searchBar>
                         <prototypes>
-                            <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="Cell" id="0c1-wZ-YxL">
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="0.0" reuseIdentifier="Cell" textLabel="dLz-iy-gAq" detailTextLabel="QeH-i7-zbh" style="IBUITableViewCellStyleValue1" id="0c1-wZ-YxL">
                                 <rect key="frame" x="0.0" y="0.0" width="600" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="0c1-wZ-YxL" id="mkV-xt-96K">
                                     <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <label opaque="NO" multipleTouchEnabled="YES" tag="101" contentMode="left" text="Title" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="dLz-iy-gAq">
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <fontDescription key="fontDescription" name="DevanagariSangamMN" family="Devanagari Sangam MN" pointSize="15"/>
+                                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <label opaque="NO" multipleTouchEnabled="YES" tag="102" contentMode="left" text="Detail" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="QeH-i7-zbh">
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <fontDescription key="fontDescription" name="DevanagariSangamMN" family="Devanagari Sangam MN" pointSize="18"/>
+                                            <color key="textColor" red="0.55686274509803924" green="0.55686274509803924" blue="0.57647058823529407" alpha="1" colorSpace="calibratedRGB"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
                                 </tableViewCellContentView>
+                                <color key="backgroundColor" red="0.60000002384185791" green="0.40000000596046448" blue="0.20000000298023224" alpha="0.080000000000000002" colorSpace="calibratedRGB"/>
+                                <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <connections>
                                     <segue destination="hvT-pW-cUU" kind="show" identifier="readNote" id="QiH-R0-Nww"/>
                                 </connections>
@@ -268,7 +310,7 @@
                             <outlet property="delegate" destination="GcZ-DL-oXe" id="Zpl-dj-9Cj"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="Notes" id="moM-bj-68y">
+                    <navigationItem key="navigationItem" id="moM-bj-68y">
                         <barButtonItem key="rightBarButtonItem" style="done" systemItem="add" id="typ-TK-aUD">
                             <connections>
                                 <segue destination="1mv-gc-42G" kind="presentation" identifier="addNote" id="p1d-gB-Cln"/>
@@ -280,31 +322,7 @@
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="NwC-CT-ebW" userLabel="First Responder" sceneMemberID="firstResponder"/>
-                <searchDisplayController id="afw-QD-4Hy">
-                    <connections>
-                        <outlet property="delegate" destination="GcZ-DL-oXe" id="NWf-pm-Ei9"/>
-                        <outlet property="searchContentsController" destination="GcZ-DL-oXe" id="ddK-fJ-ic6"/>
-                        <outlet property="searchResultsDataSource" destination="GcZ-DL-oXe" id="knM-ug-RMJ"/>
-                        <outlet property="searchResultsDelegate" destination="GcZ-DL-oXe" id="4Hk-YP-dUQ"/>
-                    </connections>
-                </searchDisplayController>
-                <searchDisplayController id="68t-aO-laP">
-                    <connections>
-                        <outlet property="delegate" destination="GcZ-DL-oXe" id="QIf-gL-was"/>
-                        <outlet property="searchContentsController" destination="GcZ-DL-oXe" id="TEn-kP-loY"/>
-                        <outlet property="searchResultsDataSource" destination="GcZ-DL-oXe" id="MA7-U2-i1b"/>
-                        <outlet property="searchResultsDelegate" destination="GcZ-DL-oXe" id="Bgv-qk-jb5"/>
-                    </connections>
-                </searchDisplayController>
-                <searchDisplayController id="SpD-Tz-e7r">
-                    <connections>
-                        <outlet property="delegate" destination="GcZ-DL-oXe" id="vUi-0G-VR1"/>
-                        <outlet property="searchContentsController" destination="GcZ-DL-oXe" id="kPg-sI-RYh"/>
-                        <outlet property="searchResultsDataSource" destination="GcZ-DL-oXe" id="shp-5W-NTc"/>
-                        <outlet property="searchResultsDelegate" destination="GcZ-DL-oXe" id="9fg-hK-xtF"/>
-                    </connections>
-                </searchDisplayController>
-                <searchDisplayController id="ZLH-4s-sR8">
+                <searchDisplayController searchResultsTitle="" id="ZLH-4s-sR8">
                     <connections>
                         <outlet property="delegate" destination="GcZ-DL-oXe" id="rWM-7F-MDb"/>
                         <outlet property="searchBar" destination="gac-qu-mtZ" id="HfL-lG-Iit"/>
@@ -314,7 +332,7 @@
                     </connections>
                 </searchDisplayController>
             </objects>
-            <point key="canvasLocation" x="4093" y="1244"/>
+            <point key="canvasLocation" x="4093" y="1206"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="cK9-CR-YS3">

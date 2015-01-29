@@ -62,6 +62,9 @@
     fixedResults = [NSMutableArray arrayWithCapacity:[[self.fetchedResultsController fetchedObjects] count]];
     [self.tableView reloadData];
     
+    [self.navigationController.navigationBar setTitleTextAttributes:[NSDictionary dictionaryWithObjectsAndKeys: [UIFont fontWithName:@"Snell Roundhand" size:30],NSFontAttributeName, nil]];
+    self.navigationItem.title = @"The Ideamator";
+    
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(reloadTableView:) name:@"reloadTable" object:nil];
     
     // Uncomment the following line to preserve selection between presentations.
@@ -125,7 +128,6 @@
     if (tableView == self.searchDisplayController.searchResultsTableView)
     {
         note = [self.searchResults objectAtIndex:indexPath.row];
-        NSLog(@"In the search");
         [fixedResults addObject:note.noteTitle];
     }
     else
@@ -133,7 +135,12 @@
         note = [self.fetchedResultsController objectAtIndexPath:indexPath];
     }
     
-    cell.textLabel.text = note.noteTitle;
+    //cell.textLabel.text = note.noteTitle;
+    UILabel *noteTitleLabel = (UILabel *)[cell viewWithTag:101];
+    noteTitleLabel.text = note.noteTitle;
+    
+    UILabel *noteStatusLabel = (UILabel *)[cell viewWithTag:102];
+    noteStatusLabel.text = note.noteTag;
     
     return cell;
 }
@@ -176,6 +183,7 @@
     {
         if ([[notification name] isEqualToString:@"reloadTable"])
         {
+            NSLog(@"Reloading");
             [self.tableView reloadData];
         }
     }
@@ -270,7 +278,12 @@
         case NSFetchedResultsChangeUpdate: {
             Note *changeNote = [self.fetchedResultsController objectAtIndexPath:indexPath];
             UITableViewCell *cell = [tableView cellForRowAtIndexPath:indexPath];
-            cell.textLabel.text = changeNote.noteTitle;
+            //cell.textLabel.text = changeNote.noteTitle;
+            UILabel *noteTitleLabel = (UILabel *)[cell viewWithTag:101];
+            noteTitleLabel.text = changeNote.noteTitle;
+            
+            UILabel *noteStatusLabel = (UILabel *)[cell viewWithTag:102];
+            noteStatusLabel.text = changeNote.noteTag;
         }
             break;
             

@@ -18,6 +18,8 @@
 
 @property (nonatomic, strong) NoteTableViewController *reference;
 
+@property (nonatomic, strong) NSArray *statusArray;
+
 @end
 
 @implementation DataSource
@@ -32,6 +34,12 @@
         sharedInstance = [[self alloc] init];
     });
     return sharedInstance;
+}
+
+- (NSArray *) populateStatusArray {
+    self.statusArray = @[@"Change the World", @"Amazing", @"Great", @"Good", @"Good Start", @"Not Bad", @"For the Birds"];
+        
+    return self.statusArray;
 }
 
 - (NSManagedObjectContext*)managerObjectContext {
