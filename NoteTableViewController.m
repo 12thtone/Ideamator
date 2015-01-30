@@ -60,7 +60,6 @@
     
     self.searchResults = [NSMutableArray arrayWithCapacity:[[self.fetchedResultsController fetchedObjects] count]];
     fixedResults = [NSMutableArray arrayWithCapacity:[[self.fetchedResultsController fetchedObjects] count]];
-    [self.tableView reloadData];
     
     [self.navigationController.navigationBar setTitleTextAttributes:[NSDictionary dictionaryWithObjectsAndKeys: [UIFont fontWithName:@"Snell Roundhand" size:30],NSFontAttributeName, nil]];
     self.navigationItem.title = @"The Ideamator";
@@ -86,7 +85,14 @@
 }
 
 - (void)viewWillAppear:(BOOL)animated {
-    [self.tableView reloadData];
+    [super viewWillAppear:animated];
+    //[self.tableView reloadData];
+}
+
+- (void)viewDidAppear:(BOOL)animated
+{
+    [super viewDidAppear:animated];
+    //[self.tableView reloadData];
 }
 
 - (void)didReceiveMemoryWarning
@@ -216,7 +222,7 @@
     }
     
 }
-
+/*
 // Override to support rearranging the table view.
 - (void)tableView:(UITableView *)tableView moveRowAtIndexPath:(NSIndexPath *)fromIndexPath toIndexPath:(NSIndexPath *)toIndexPath
 {
@@ -228,7 +234,7 @@
     // Return NO if you do not want the item to be re-orderable.
     return YES;
 }
-
+*/
 #pragma mark - Fetched Results Controller Section
 
 - (NSFetchedResultsController*)fetchedResultsController {
@@ -278,13 +284,12 @@
         case NSFetchedResultsChangeUpdate: {
             Note *changeNote = [self.fetchedResultsController objectAtIndexPath:indexPath];
             UITableViewCell *cell = [tableView cellForRowAtIndexPath:indexPath];
-            //cell.textLabel.text = changeNote.noteTitle;
             UILabel *noteTitleLabel = (UILabel *)[cell viewWithTag:101];
             noteTitleLabel.text = changeNote.noteTitle;
             
             UILabel *noteStatusLabel = (UILabel *)[cell viewWithTag:102];
             noteStatusLabel.text = changeNote.noteTag;
-        }
+            }
             break;
             
         case NSFetchedResultsChangeMove:
