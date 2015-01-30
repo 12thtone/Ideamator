@@ -165,6 +165,10 @@
     cell.textLabel.text = note.noteTitle;
     cell.detailTextLabel.text = note.noteTag;
     
+    [cell setSelected:YES];
+    NSLog(@"Selected");
+    [cell setSelected:NO];
+    
     //UILabel *noteTitleLabel = (UILabel *)[cell viewWithTag:101];
     //noteTitleLabel.text = note.noteTitle;
     
