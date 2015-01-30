@@ -92,13 +92,34 @@
 - (void)viewDidAppear:(BOOL)animated
 {
     [super viewDidAppear:animated];
-    //[self.tableView reloadData];
+    [self.tableView reloadData];
 }
 
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+- (void)reloadTableView:(NSNotification*)notification {
+    {
+        if ([[notification name] isEqualToString:@"reloadTable"])
+        {
+            NSLog(@"Reloading");
+            NSError *error = nil;
+            
+            //[NSFetchedResultsController deleteCacheWithName:nil];
+            [self.fetchedResultsController performFetch:&error];
+            
+            if (error) {
+                NSLog(@"Error! %@", error);
+                abort();
+            }
+            
+            [self.tableView reloadData];
+            // The contents of the first cell are printed on all new cells w/o reloadData.
+        }
+    }
 }
 
 #pragma mark - Table view data source
@@ -141,12 +162,14 @@
         note = [self.fetchedResultsController objectAtIndexPath:indexPath];
     }
     
-    //cell.textLabel.text = note.noteTitle;
-    UILabel *noteTitleLabel = (UILabel *)[cell viewWithTag:101];
-    noteTitleLabel.text = note.noteTitle;
+    cell.textLabel.text = note.noteTitle;
+    cell.detailTextLabel.text = note.noteTag;
     
-    UILabel *noteStatusLabel = (UILabel *)[cell viewWithTag:102];
-    noteStatusLabel.text = note.noteTag;
+    //UILabel *noteTitleLabel = (UILabel *)[cell viewWithTag:101];
+    //noteTitleLabel.text = note.noteTitle;
+    
+    //UILabel *noteStatusLabel = (UILabel *)[cell viewWithTag:102];
+    //noteStatusLabel.text = note.noteTag;
     
     return cell;
 }
@@ -181,16 +204,6 @@
             NSIndexPath *indexPath = [self.tableView indexPathForSelectedRow];
             self.selectedNote = [self.fetchedResultsController objectAtIndexPath:indexPath];
             readNoteViewController.selectedNote = _selectedNote;
-        }
-    }
-}
-
-- (void)reloadTableView:(NSNotification*)notification {
-    {
-        if ([[notification name] isEqualToString:@"reloadTable"])
-        {
-            NSLog(@"Reloading");
-            [self.tableView reloadData];
         }
     }
 }
@@ -284,11 +297,14 @@
         case NSFetchedResultsChangeUpdate: {
             Note *changeNote = [self.fetchedResultsController objectAtIndexPath:indexPath];
             UITableViewCell *cell = [tableView cellForRowAtIndexPath:indexPath];
-            UILabel *noteTitleLabel = (UILabel *)[cell viewWithTag:101];
-            noteTitleLabel.text = changeNote.noteTitle;
             
-            UILabel *noteStatusLabel = (UILabel *)[cell viewWithTag:102];
-            noteStatusLabel.text = changeNote.noteTag;
+            cell.textLabel.text = changeNote.noteTitle;
+            cell.detailTextLabel.text = changeNote.noteTag;
+            //UILabel *noteTitleLabel = (UILabel *)[cell viewWithTag:101];
+            //noteTitleLabel.text = changeNote.noteTitle;
+            
+            //UILabel *noteStatusLabel = (UILabel *)[cell viewWithTag:102];
+            //noteStatusLabel.text = changeNote.noteTag;
             }
             break;
             

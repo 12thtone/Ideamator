@@ -46,15 +46,8 @@
                                     <action selector="openImportDocumentPicker:" destination="mra-DW-FRe" eventType="touchUpInside" id="99z-aL-J7p"/>
                                 </connections>
                             </button>
-                            <pickerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Mor-9L-8dS">
-                                <rect key="frame" x="0.0" y="418" width="600" height="162"/>
-                                <color key="backgroundColor" red="0.60000002384185791" green="0.40000000596046448" blue="0.20000000298023224" alpha="0.080000000000000002" colorSpace="calibratedRGB"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="162" id="Gyv-SP-ycC"/>
-                                </constraints>
-                            </pickerView>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" keyboardDismissMode="onDrag" translatesAutoresizingMaskIntoConstraints="NO" id="4fv-UP-Dcb">
-                                <rect key="frame" x="0.0" y="191" width="600" height="227"/>
+                                <rect key="frame" x="0.0" y="191" width="600" height="247"/>
                                 <color key="backgroundColor" red="0.60000002384185791" green="0.40000000596046448" blue="0.20000000298023224" alpha="0.080000000000000002" colorSpace="calibratedRGB"/>
                                 <color key="textColor" white="0.0" alpha="0.45000000000000001" colorSpace="calibratedWhite"/>
                                 <fontDescription key="fontDescription" name="DevanagariSangamMN" family="Devanagari Sangam MN" pointSize="14"/>
@@ -69,6 +62,13 @@
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <pickerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Mor-9L-8dS">
+                                <rect key="frame" x="0.0" y="438" width="600" height="162"/>
+                                <color key="backgroundColor" red="0.60000002384185791" green="0.40000000596046448" blue="0.20000000298023224" alpha="0.080000000000000002" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="162" id="Gyv-SP-ycC"/>
+                                </constraints>
+                            </pickerView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
@@ -81,11 +81,11 @@
                             <constraint firstAttribute="trailing" secondItem="99e-xw-dcN" secondAttribute="trailing" constant="16" id="Mrt-kh-kw9"/>
                             <constraint firstAttribute="trailing" secondItem="Mor-9L-8dS" secondAttribute="trailing" id="Py7-Vm-seF"/>
                             <constraint firstItem="4fv-UP-Dcb" firstAttribute="leading" secondItem="iJ4-hp-y7h" secondAttribute="leading" id="WZB-xR-sOS"/>
-                            <constraint firstItem="Mor-9L-8dS" firstAttribute="top" secondItem="4fv-UP-Dcb" secondAttribute="bottom" id="WzZ-Sv-n6e"/>
                             <constraint firstAttribute="trailing" secondItem="4fv-UP-Dcb" secondAttribute="trailing" id="dvq-Eo-mYB"/>
                             <constraint firstAttribute="trailing" secondItem="PNf-6Y-Uco" secondAttribute="trailing" constant="16" id="dyk-3p-CZP"/>
-                            <constraint firstItem="Yqa-Mw-J0I" firstAttribute="top" secondItem="Mor-9L-8dS" secondAttribute="bottom" constant="20" id="fyN-eI-3HI"/>
                             <constraint firstItem="PNf-6Y-Uco" firstAttribute="top" secondItem="H1a-Um-pFr" secondAttribute="bottom" constant="31" id="kkh-mp-Vbw"/>
+                            <constraint firstItem="Mor-9L-8dS" firstAttribute="top" secondItem="4fv-UP-Dcb" secondAttribute="bottom" id="pcm-Hu-N0M"/>
+                            <constraint firstItem="Yqa-Mw-J0I" firstAttribute="top" secondItem="Mor-9L-8dS" secondAttribute="bottom" id="qCT-sl-eRI"/>
                             <constraint firstItem="PNf-6Y-Uco" firstAttribute="leading" secondItem="iJ4-hp-y7h" secondAttribute="leading" constant="16" id="qkn-Dz-T5w"/>
                             <constraint firstAttribute="trailing" secondItem="UAt-jL-UJm" secondAttribute="trailing" constant="16" id="vsh-eO-6hp"/>
                             <constraint firstItem="99e-xw-dcN" firstAttribute="top" secondItem="UAt-jL-UJm" secondAttribute="bottom" constant="8" id="xDh-Tj-fV5"/>
@@ -209,7 +209,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="MHV-2s-58M">
-                                <rect key="frame" x="0.0" y="124" width="600" height="294"/>
+                                <rect key="frame" x="0.0" y="124" width="600" height="314"/>
                                 <color key="backgroundColor" red="0.60000002384185791" green="0.40000000596046448" blue="0.20000000298023224" alpha="0.080000000000000002" colorSpace="calibratedRGB"/>
                                 <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="0.45000000000000001" colorSpace="calibratedRGB"/>
@@ -217,7 +217,7 @@
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences" spellCheckingType="yes"/>
                             </textView>
                             <pickerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Agq-hI-Gx7">
-                                <rect key="frame" x="0.0" y="418" width="600" height="162"/>
+                                <rect key="frame" x="0.0" y="438" width="600" height="162"/>
                                 <color key="backgroundColor" red="0.60000002384185791" green="0.40000000596046448" blue="0.20000000298023224" alpha="0.080000000000000002" colorSpace="calibratedRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="162" id="qqi-xs-Bag"/>
@@ -226,14 +226,14 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
+                            <constraint firstItem="Agq-hI-Gx7" firstAttribute="top" secondItem="MHV-2s-58M" secondAttribute="bottom" id="7Oc-jp-fWy"/>
                             <constraint firstItem="zch-9U-33d" firstAttribute="top" secondItem="hfa-hO-PAm" secondAttribute="bottom" constant="31" id="DcO-RB-4ge"/>
+                            <constraint firstItem="DZL-Im-b9c" firstAttribute="top" secondItem="Agq-hI-Gx7" secondAttribute="bottom" id="EnX-Nq-QXh"/>
                             <constraint firstAttribute="trailing" secondItem="zch-9U-33d" secondAttribute="trailing" constant="16" id="IZE-PH-EiR"/>
                             <constraint firstItem="MHV-2s-58M" firstAttribute="top" secondItem="zch-9U-33d" secondAttribute="bottom" constant="8" id="LaP-eu-bkX"/>
                             <constraint firstAttribute="trailing" secondItem="Agq-hI-Gx7" secondAttribute="trailing" id="O4W-0V-gox"/>
-                            <constraint firstItem="DZL-Im-b9c" firstAttribute="top" secondItem="Agq-hI-Gx7" secondAttribute="bottom" constant="20" id="QcL-LB-vQy"/>
                             <constraint firstItem="MHV-2s-58M" firstAttribute="leading" secondItem="4ZX-th-Jtp" secondAttribute="leading" id="deL-xn-GGN"/>
                             <constraint firstAttribute="trailing" secondItem="MHV-2s-58M" secondAttribute="trailing" id="h3u-bk-aaY"/>
-                            <constraint firstItem="Agq-hI-Gx7" firstAttribute="top" secondItem="MHV-2s-58M" secondAttribute="bottom" id="kof-sG-G7B"/>
                             <constraint firstItem="Agq-hI-Gx7" firstAttribute="leading" secondItem="4ZX-th-Jtp" secondAttribute="leading" id="vIY-Tv-893"/>
                             <constraint firstItem="zch-9U-33d" firstAttribute="leading" secondItem="4ZX-th-Jtp" secondAttribute="leading" constant="16" id="w6Y-37-JRs"/>
                         </constraints>

@@ -72,18 +72,16 @@
     if (isPhone) {
         addNote.noteTitle = _titleField.text;
         addNote.noteText = _noteField.text;
-        //addNote.noteTag = self.selectedStatus;
     } else {
         addNote.noteTitle = _titleFieldPad.text;
         addNote.noteText = _noteFieldPad.text;
     }
-    //addNote.noteTitle = _titleField.text;
-    //addNote.noteText = _noteField.text;
+    
     addNote.noteTag = self.selectedStatus;
     [[DataSource sharedInstance] saveAndDismiss];
     
-    [[NSNotificationCenter defaultCenter] postNotificationName:@"reloadTable" object:nil];
     [self dismissViewControllerAnimated:YES completion:nil];
+    [[NSNotificationCenter defaultCenter] postNotificationName:@"reloadTable" object:nil];
 }
 
 #pragma mark - Importing Notes
