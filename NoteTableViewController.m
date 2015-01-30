@@ -92,7 +92,7 @@
 - (void)viewDidAppear:(BOOL)animated
 {
     [super viewDidAppear:animated];
-    [self.tableView reloadData];
+    //[self.tableView reloadData];
 }
 
 - (void)didReceiveMemoryWarning
@@ -106,17 +106,19 @@
         if ([[notification name] isEqualToString:@"reloadTable"])
         {
             NSLog(@"Reloading");
+            /*
             NSError *error = nil;
             
             //[NSFetchedResultsController deleteCacheWithName:nil];
+            
             [self.fetchedResultsController performFetch:&error];
             
             if (error) {
                 NSLog(@"Error! %@", error);
                 abort();
-            }
+            }*/
             
-            [self.tableView reloadData];
+            //[self.tableView reloadData];
             // The contents of the first cell are printed on all new cells w/o reloadData.
         }
     }
@@ -165,9 +167,9 @@
     cell.textLabel.text = note.noteTitle;
     cell.detailTextLabel.text = note.noteTag;
     
-    [cell setSelected:YES];
-    NSLog(@"Selected");
-    [cell setSelected:NO];
+    //[cell setSelected:YES];
+    //NSLog(@"Selected");
+    //[cell setSelected:NO];
     
     //UILabel *noteTitleLabel = (UILabel *)[cell viewWithTag:101];
     //noteTitleLabel.text = note.noteTitle;
@@ -181,6 +183,7 @@
 -(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
     
     if ([[segue identifier]isEqualToString:@"addNote"]) {
+        /*
         if (isPhone) {
             UINavigationController *navigationController = segue.destinationViewController;
             AddNoteViewController *addNoteViewController = (AddNoteViewController*) navigationController.topViewController;
@@ -191,7 +194,7 @@
             AddNoteViewController *addNoteViewController = (AddNoteViewController*) destinationVC;
             Note *addNote = [NSEntityDescription insertNewObjectForEntityForName:@"Note" inManagedObjectContext:[self managedObjectContext]];
             addNoteViewController.addNote = addNote;
-        }
+        }*/
     }
     
     if ([[segue identifier]isEqualToString:@"readNote"]) {

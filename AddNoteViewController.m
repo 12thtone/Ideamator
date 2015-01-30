@@ -9,6 +9,8 @@
 #import "AddNoteViewController.h"
 #import "Note.h"
 #import "DataSource.h"
+#import "AppDelegate.h"
+#import "NoteTableViewController.h"
 
 @interface AddNoteViewController () <UIDocumentPickerDelegate, UIPickerViewDelegate, UIPickerViewDataSource>
 
@@ -55,6 +57,10 @@
     // Dispose of any resources that can be recreated.
 }
 
+- (NSManagedObjectContext*)managedObjectContext {
+    return [(AppDelegate*)[[UIApplication sharedApplication]delegate]managedObjectContext];
+}
+
 - (void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event {
     
     [self.noteField endEditing:YES];
@@ -69,6 +75,21 @@
 }
 
 - (IBAction)saveNote:(UIBarButtonItem *)sender {
+    NSManagedObjectContext *context = [self managedObjectContext];
+    self.addNote = [NSEntityDescription insertNewObjectForEntityForName:@"Note" inManagedObjectContext:context];
+    if (isPhone) {
+        addNote.noteTitle = _titleField.text;
+        addNote.noteText = _noteField.text;
+    } else {
+        addNote.noteTitle = _titleFieldPad.text; addNote.noteText = _noteFieldPad.text;
+    }
+    
+    addNote.noteTag = self.selectedStatus; [[DataSource sharedInstance] saveAndDismiss];
+    
+    [self dismissViewControllerAnimated:YES completion:nil];
+    [[NSNotificationCenter defaultCenter] postNotificationName:@"reloadTable" object:nil];
+    
+    /*
     if (isPhone) {
         addNote.noteTitle = _titleField.text;
         addNote.noteText = _noteField.text;
@@ -82,6 +103,7 @@
     
     [self dismissViewControllerAnimated:YES completion:nil];
     [[NSNotificationCenter defaultCenter] postNotificationName:@"reloadTable" object:nil];
+     */
 }
 
 #pragma mark - Importing Notes
