@@ -75,7 +75,7 @@
     [self presentViewController:activityVC animated:YES completion:nil];
     
     if (UIActivityTypeMail) {
-        [activityVC setValue:@"From NoteApp" forKey:@"subject"];
+        [activityVC setValue:@"From The Ideamator" forKey:@"subject"];
         
     }
 }

@@ -1,0 +1,397 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6254" systemVersion="14B25" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="0Ze-7R-tMm">
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6247"/>
+    </dependencies>
+    <scenes>
+        <!--Note Table View Controller-->
+        <scene sceneID="Gmu-JX-f2I">
+            <objects>
+                <tableViewController id="OkZ-xe-yqp" customClass="NoteTableViewController" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="eod-yc-BlV">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <searchBar key="tableHeaderView" contentMode="redraw" placeholder="Idea Search" id="Dyq-do-kY3">
+                            <rect key="frame" x="0.0" y="0.0" width="600" height="44"/>
+                            <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                            <color key="barTintColor" red="0.60000002384185791" green="0.40000000596046448" blue="0.20000000298023224" alpha="1" colorSpace="calibratedRGB"/>
+                            <textInputTraits key="textInputTraits"/>
+                            <connections>
+                                <outlet property="delegate" destination="OkZ-xe-yqp" id="6fw-Td-3fU"/>
+                            </connections>
+                        </searchBar>
+                        <prototypes>
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="Cell" textLabel="Bpl-if-LSZ" detailTextLabel="T4b-tp-O8c" style="IBUITableViewCellStyleValue1" id="0On-5H-sdt">
+                                <rect key="frame" x="0.0" y="0.0" width="600" height="44"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="0On-5H-sdt" id="iFy-3Z-SSy">
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Idea" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="Bpl-if-LSZ">
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <fontDescription key="fontDescription" name="DevanagariSangamMN" family="Devanagari Sangam MN" pointSize="15"/>
+                                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <label opaque="NO" multipleTouchEnabled="YES" tag="102" contentMode="left" text="Big" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="T4b-tp-O8c">
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <fontDescription key="fontDescription" name="DevanagariSangamMN" family="Devanagari Sangam MN" pointSize="18"/>
+                                            <color key="textColor" red="0.55686274509803924" green="0.55686274509803924" blue="0.57647058823529407" alpha="1" colorSpace="calibratedRGB"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
+                                    <color key="backgroundColor" red="0.60000002384185791" green="0.40000000596046448" blue="0.20000000298023224" alpha="0.080000000000000002" colorSpace="calibratedRGB"/>
+                                </tableViewCellContentView>
+                                <color key="backgroundColor" red="0.60000002384185791" green="0.40000000596046448" blue="0.20000000298023224" alpha="0.080000000000000002" colorSpace="calibratedRGB"/>
+                                <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <connections>
+                                    <segue destination="50v-k1-u80" kind="show" identifier="readNote" id="yrk-L0-sft"/>
+                                </connections>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="OkZ-xe-yqp" id="Vn1-9k-S4I"/>
+                            <outlet property="delegate" destination="OkZ-xe-yqp" id="A1l-Dg-5WD"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" id="YBC-Qw-hJe">
+                        <barButtonItem key="rightBarButtonItem" style="done" systemItem="add" id="adP-DW-ZcI">
+                            <connections>
+                                <segue destination="HUl-Dk-IUe" kind="popoverPresentation" identifier="addNote" popoverAnchorBarButtonItem="adP-DW-ZcI" id="WNC-FX-PMv">
+                                    <popoverArrowDirection key="popoverArrowDirection" up="YES" down="YES" left="YES" right="YES"/>
+                                </segue>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="searchDisplayController" destination="OOJ-95-uyP" id="D1L-R1-bUD"/>
+                    </connections>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="TVK-Gt-5cf" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <searchDisplayController id="DFt-wh-whH">
+                    <connections>
+                        <outlet property="delegate" destination="OkZ-xe-yqp" id="979-qp-hsh"/>
+                        <outlet property="searchContentsController" destination="OkZ-xe-yqp" id="vlF-LF-NT6"/>
+                        <outlet property="searchResultsDataSource" destination="OkZ-xe-yqp" id="0dp-qd-rZ5"/>
+                        <outlet property="searchResultsDelegate" destination="OkZ-xe-yqp" id="3Oi-Fg-h8K"/>
+                    </connections>
+                </searchDisplayController>
+                <searchDisplayController id="V7O-Mb-kag">
+                    <connections>
+                        <outlet property="delegate" destination="OkZ-xe-yqp" id="bvi-fc-3N9"/>
+                        <outlet property="searchContentsController" destination="OkZ-xe-yqp" id="EKM-Eb-1TL"/>
+                        <outlet property="searchResultsDataSource" destination="OkZ-xe-yqp" id="Qam-aP-aL5"/>
+                        <outlet property="searchResultsDelegate" destination="OkZ-xe-yqp" id="eV8-MR-aQx"/>
+                    </connections>
+                </searchDisplayController>
+                <searchDisplayController id="CTN-uM-IAX">
+                    <connections>
+                        <outlet property="delegate" destination="OkZ-xe-yqp" id="yUG-7v-pfM"/>
+                        <outlet property="searchContentsController" destination="OkZ-xe-yqp" id="itm-qs-7ZR"/>
+                        <outlet property="searchResultsDataSource" destination="OkZ-xe-yqp" id="Myb-pv-Z3X"/>
+                        <outlet property="searchResultsDelegate" destination="OkZ-xe-yqp" id="4uf-kU-JkI"/>
+                    </connections>
+                </searchDisplayController>
+                <searchDisplayController id="OOJ-95-uyP">
+                    <connections>
+                        <outlet property="delegate" destination="OkZ-xe-yqp" id="TJL-6z-SmJ"/>
+                        <outlet property="searchBar" destination="Dyq-do-kY3" id="16r-wE-uNe"/>
+                        <outlet property="searchContentsController" destination="OkZ-xe-yqp" id="kw9-EQ-mTT"/>
+                        <outlet property="searchResultsDataSource" destination="OkZ-xe-yqp" id="b0K-pb-4U5"/>
+                        <outlet property="searchResultsDelegate" destination="OkZ-xe-yqp" id="FSg-fC-IhQ"/>
+                    </connections>
+                </searchDisplayController>
+            </objects>
+            <point key="canvasLocation" x="4905" y="1244"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="bi9-em-fk0">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="0Ze-7R-tMm" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="NpJ-gd-Gdb">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="OkZ-xe-yqp" kind="relationship" relationship="rootViewController" id="Pw7-IZ-oQL"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="psa-XP-J7k" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="4093" y="1244"/>
+        </scene>
+        <!--Add Note-->
+        <scene sceneID="uFs-w4-JKr">
+            <objects>
+                <viewController id="HUl-Dk-IUe" customClass="AddNoteViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="gFp-js-CqT"/>
+                        <viewControllerLayoutGuide type="bottom" id="kAk-NR-UtI"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="ljm-YM-QbF">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" clearButtonMode="always" translatesAutoresizingMaskIntoConstraints="NO" id="HmA-U8-cgg">
+                                <rect key="frame" x="16" y="124" width="568" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="30" id="qeI-Yq-ei6"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="New Idea Title:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="D2q-lW-ryL">
+                                <rect key="frame" x="16" y="95" width="568" height="21"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="21" id="efO-JI-s4J"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="DevanagariSangamMN" family="Devanagari Sangam MN" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="New Idea:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XoK-Yy-rbg">
+                                <rect key="frame" x="16" y="162" width="514" height="21"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="21" id="GsJ-1l-NE5"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="DevanagariSangamMN" family="Devanagari Sangam MN" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="VwK-iL-a1Y">
+                                <rect key="frame" x="0.0" y="191" width="600" height="247"/>
+                                <color key="backgroundColor" red="0.60000002384185791" green="0.40000000596046448" blue="0.20000000298023224" alpha="0.080000000000000002" colorSpace="calibratedRGB"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="0.45000000000000001" colorSpace="calibratedRGB"/>
+                                <fontDescription key="fontDescription" name="DevanagariSangamMN" family="Devanagari Sangam MN" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences" spellCheckingType="yes"/>
+                            </textView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="YYw-hp-UFF">
+                                <rect key="frame" x="538" y="162" width="46" height="22"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="22" id="gXY-7P-93g"/>
+                                    <constraint firstAttribute="width" constant="46" id="pGU-Ob-L7a"/>
+                                </constraints>
+                                <state key="normal" title="Import">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="openImportDocumentPicker:" destination="HUl-Dk-IUe" eventType="touchUpInside" id="ZaW-6G-Zdp"/>
+                                </connections>
+                            </button>
+                            <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="BVK-eA-OL8">
+                                <rect key="frame" x="0.0" y="20" width="600" height="44"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="44" id="HZ2-6C-L2T"/>
+                                </constraints>
+                                <items>
+                                    <navigationItem id="gAV-t0-XO9">
+                                        <barButtonItem key="leftBarButtonItem" style="done" systemItem="cancel" id="Nx4-x7-5WF">
+                                            <connections>
+                                                <action selector="cancelNote:" destination="HUl-Dk-IUe" id="fKH-uB-Und"/>
+                                            </connections>
+                                        </barButtonItem>
+                                        <barButtonItem key="rightBarButtonItem" style="done" systemItem="save" id="7BQ-p5-yFw">
+                                            <connections>
+                                                <action selector="saveNote:" destination="HUl-Dk-IUe" id="IP4-fp-AYx"/>
+                                            </connections>
+                                        </barButtonItem>
+                                    </navigationItem>
+                                </items>
+                            </navigationBar>
+                            <pickerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Sqi-Kr-DN6">
+                                <rect key="frame" x="0.0" y="438" width="600" height="162"/>
+                                <color key="backgroundColor" red="0.60000002384185791" green="0.40000000596046448" blue="0.20000000298023224" alpha="0.080000000000000002" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="162" id="FMe-fT-mTh"/>
+                                </constraints>
+                            </pickerView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="BVK-eA-OL8" firstAttribute="leading" secondItem="ljm-YM-QbF" secondAttribute="leading" id="7Rg-pf-Q4f"/>
+                            <constraint firstItem="HmA-U8-cgg" firstAttribute="leading" secondItem="ljm-YM-QbF" secondAttribute="leading" constant="16" id="Bjz-eQ-Gjb"/>
+                            <constraint firstItem="kAk-NR-UtI" firstAttribute="top" secondItem="Sqi-Kr-DN6" secondAttribute="bottom" id="E11-1u-Z2H"/>
+                            <constraint firstItem="XoK-Yy-rbg" firstAttribute="top" secondItem="HmA-U8-cgg" secondAttribute="bottom" constant="8" id="Gqx-TA-Nmz"/>
+                            <constraint firstItem="BVK-eA-OL8" firstAttribute="top" secondItem="gFp-js-CqT" secondAttribute="bottom" id="Gti-Qk-qc8"/>
+                            <constraint firstItem="VwK-iL-a1Y" firstAttribute="top" secondItem="XoK-Yy-rbg" secondAttribute="bottom" constant="8" id="Kzr-PG-BkV"/>
+                            <constraint firstAttribute="trailing" secondItem="BVK-eA-OL8" secondAttribute="trailing" id="a0O-uv-A3J"/>
+                            <constraint firstAttribute="trailing" secondItem="VwK-iL-a1Y" secondAttribute="trailing" id="ebC-1m-9pL"/>
+                            <constraint firstItem="D2q-lW-ryL" firstAttribute="top" secondItem="BVK-eA-OL8" secondAttribute="bottom" constant="31" id="gkj-ri-Gb6"/>
+                            <constraint firstAttribute="trailing" secondItem="HmA-U8-cgg" secondAttribute="trailing" constant="16" id="hOO-ah-qS0"/>
+                            <constraint firstItem="Sqi-Kr-DN6" firstAttribute="leading" secondItem="ljm-YM-QbF" secondAttribute="leading" id="hat-Dv-Z1M"/>
+                            <constraint firstItem="XoK-Yy-rbg" firstAttribute="leading" secondItem="ljm-YM-QbF" secondAttribute="leading" constant="16" id="jM8-V4-h1U"/>
+                            <constraint firstItem="HmA-U8-cgg" firstAttribute="top" secondItem="D2q-lW-ryL" secondAttribute="bottom" constant="8" id="jnJ-rB-rOQ"/>
+                            <constraint firstItem="D2q-lW-ryL" firstAttribute="leading" secondItem="ljm-YM-QbF" secondAttribute="leading" constant="16" id="jsI-Je-Rz8"/>
+                            <constraint firstAttribute="trailing" secondItem="Sqi-Kr-DN6" secondAttribute="trailing" id="ocJ-5W-Kxr"/>
+                            <constraint firstAttribute="trailing" secondItem="YYw-hp-UFF" secondAttribute="trailing" constant="16" id="pQ4-dQ-X0p"/>
+                            <constraint firstAttribute="trailing" secondItem="D2q-lW-ryL" secondAttribute="trailing" constant="16" id="qfr-VO-E4L"/>
+                            <constraint firstItem="Sqi-Kr-DN6" firstAttribute="top" secondItem="VwK-iL-a1Y" secondAttribute="bottom" id="qtL-j9-lg9"/>
+                            <constraint firstItem="YYw-hp-UFF" firstAttribute="top" secondItem="HmA-U8-cgg" secondAttribute="bottom" constant="8" id="uGb-tu-KRm"/>
+                            <constraint firstItem="VwK-iL-a1Y" firstAttribute="leading" secondItem="ljm-YM-QbF" secondAttribute="leading" id="v4T-Rd-onN"/>
+                            <constraint firstItem="YYw-hp-UFF" firstAttribute="leading" secondItem="XoK-Yy-rbg" secondAttribute="trailing" constant="8" id="zlT-7i-NDP"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" title="Add Note" id="pe0-WE-bqj"/>
+                    <connections>
+                        <outlet property="noteField" destination="VwK-iL-a1Y" id="LyZ-35-q2x"/>
+                        <outlet property="noteFieldPad" destination="VwK-iL-a1Y" id="3pg-Oo-5CA"/>
+                        <outlet property="statusPickerPad" destination="Sqi-Kr-DN6" id="dSs-f0-fVF"/>
+                        <outlet property="titleField" destination="HmA-U8-cgg" id="EtD-yr-tLi"/>
+                        <outlet property="titleFieldPad" destination="HmA-U8-cgg" id="yND-Fn-PfG"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dDO-gM-1ZQ" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="5215" y="492"/>
+        </scene>
+        <!--Read an Idea-->
+        <scene sceneID="TUB-Qi-U4h">
+            <objects>
+                <viewController id="50v-k1-u80" customClass="ReadNoteViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="HrQ-Wb-Ysd"/>
+                        <viewControllerLayoutGuide type="bottom" id="HvA-CF-rek"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="b7k-91-FlW">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Note Title" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rur-Tn-dXe">
+                                <rect key="frame" x="16" y="110" width="568" height="21"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="21" id="37B-ge-IS1"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="DevanagariSangamMN" family="Devanagari Sangam MN" pointSize="22"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kq5-n8-DTa">
+                                <rect key="frame" x="553" y="72" width="31" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="31" id="mts-Da-LvS"/>
+                                    <constraint firstAttribute="height" constant="30" id="yg5-5n-oN1"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <state key="normal" title="Edit">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <segue destination="FS0-NW-K14" kind="show" identifier="editNote" id="BSb-on-Dhu"/>
+                                </connections>
+                            </button>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fcx-F8-8Dg">
+                                <rect key="frame" x="0.0" y="139" width="600" height="461"/>
+                                <color key="backgroundColor" red="0.60000002384185791" green="0.40000000596046448" blue="0.20000000298023224" alpha="0.080000000000000002" colorSpace="calibratedRGB"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="0.75" colorSpace="calibratedRGB"/>
+                                <fontDescription key="fontDescription" name="DevanagariSangamMN" family="Devanagari Sangam MN" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                <dataDetectorType key="dataDetectorTypes" phoneNumber="YES" link="YES" address="YES" calendarEvent="YES"/>
+                            </textView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="trailing" secondItem="fcx-F8-8Dg" secondAttribute="trailing" id="0ir-Wd-Bwk"/>
+                            <constraint firstItem="fcx-F8-8Dg" firstAttribute="leading" secondItem="b7k-91-FlW" secondAttribute="leading" id="4T1-MI-8zX"/>
+                            <constraint firstItem="rur-Tn-dXe" firstAttribute="top" secondItem="kq5-n8-DTa" secondAttribute="bottom" constant="8" id="DwX-IU-rqB"/>
+                            <constraint firstItem="fcx-F8-8Dg" firstAttribute="top" secondItem="rur-Tn-dXe" secondAttribute="bottom" constant="8" id="Gpx-BI-iA0"/>
+                            <constraint firstAttribute="trailing" secondItem="kq5-n8-DTa" secondAttribute="trailing" constant="16" id="T7i-A2-TgM"/>
+                            <constraint firstAttribute="trailing" secondItem="rur-Tn-dXe" secondAttribute="trailing" constant="16" id="iSg-rr-eBa"/>
+                            <constraint firstItem="kq5-n8-DTa" firstAttribute="top" secondItem="HrQ-Wb-Ysd" secondAttribute="bottom" constant="8" id="oZb-0E-e29"/>
+                            <constraint firstItem="HvA-CF-rek" firstAttribute="top" secondItem="fcx-F8-8Dg" secondAttribute="bottom" id="tEN-lr-Cgr"/>
+                            <constraint firstItem="rur-Tn-dXe" firstAttribute="leading" secondItem="b7k-91-FlW" secondAttribute="leading" constant="16" id="vLx-WL-lvr"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" title="Read an Idea" id="BC6-o3-Bsc">
+                        <barButtonItem key="rightBarButtonItem" title="Share" style="done" id="fK0-jN-k6W">
+                            <connections>
+                                <action selector="shareButton:" destination="50v-k1-u80" id="FQ0-Dg-hOy"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="noteLabel" destination="fcx-F8-8Dg" id="DDv-IY-scv"/>
+                        <outlet property="titleLabel" destination="rur-Tn-dXe" id="y9r-tM-chE"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="uS9-k8-g6D" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="5593" y="1244"/>
+        </scene>
+        <!--Edit an Idea-->
+        <scene sceneID="C99-CT-mVw">
+            <objects>
+                <viewController id="FS0-NW-K14" customClass="EditNoteViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="nZf-xx-NKw"/>
+                        <viewControllerLayoutGuide type="bottom" id="xGg-gb-xjj"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="jgF-vh-lox">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Note Title" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OOh-zF-yEc">
+                                <rect key="frame" x="16" y="95" width="568" height="21"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="21" id="59s-9o-YWU"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="DevanagariSangamMN" family="Devanagari Sangam MN" pointSize="22"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="vb1-y6-KpL">
+                                <rect key="frame" x="0.0" y="286" width="600" height="314"/>
+                                <color key="backgroundColor" red="0.60000002384185791" green="0.40000000596046448" blue="0.20000000298023224" alpha="0.080000000000000002" colorSpace="calibratedRGB"/>
+                                <color key="tintColor" red="0.0" green="0.0" blue="1" alpha="0.080000000000000002" colorSpace="calibratedRGB"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="0.45000000000000001" colorSpace="calibratedRGB"/>
+                                <fontDescription key="fontDescription" name="DevanagariSangamMN" family="Devanagari Sangam MN" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences" spellCheckingType="yes"/>
+                            </textView>
+                            <pickerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="epd-li-UyH">
+                                <rect key="frame" x="0.0" y="124" width="600" height="162"/>
+                                <color key="backgroundColor" red="0.60000002384185791" green="0.40000000596046448" blue="0.20000000298023224" alpha="0.080000000000000002" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="162" id="tKn-F5-rOH"/>
+                                </constraints>
+                            </pickerView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="OOh-zF-yEc" firstAttribute="leading" secondItem="jgF-vh-lox" secondAttribute="leading" constant="16" id="0mK-Jc-DRU"/>
+                            <constraint firstAttribute="trailing" secondItem="vb1-y6-KpL" secondAttribute="trailing" id="KYS-FG-Ock"/>
+                            <constraint firstItem="xGg-gb-xjj" firstAttribute="top" secondItem="vb1-y6-KpL" secondAttribute="bottom" id="MqE-Hb-ZCQ"/>
+                            <constraint firstItem="vb1-y6-KpL" firstAttribute="leading" secondItem="jgF-vh-lox" secondAttribute="leading" id="P0f-q7-6lR"/>
+                            <constraint firstItem="epd-li-UyH" firstAttribute="top" secondItem="OOh-zF-yEc" secondAttribute="bottom" constant="8" id="VaC-k3-2Fy"/>
+                            <constraint firstItem="epd-li-UyH" firstAttribute="leading" secondItem="jgF-vh-lox" secondAttribute="leading" id="YMf-b4-hrD"/>
+                            <constraint firstAttribute="trailing" secondItem="OOh-zF-yEc" secondAttribute="trailing" constant="16" id="fN1-by-vF1"/>
+                            <constraint firstItem="OOh-zF-yEc" firstAttribute="top" secondItem="nZf-xx-NKw" secondAttribute="bottom" constant="31" id="j2t-lc-In1"/>
+                            <constraint firstItem="vb1-y6-KpL" firstAttribute="top" secondItem="epd-li-UyH" secondAttribute="bottom" id="nqY-NW-PcQ"/>
+                            <constraint firstAttribute="trailing" secondItem="epd-li-UyH" secondAttribute="trailing" id="t3h-d9-oRs"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" title="Edit an Idea" id="WfM-PQ-hBU">
+                        <barButtonItem key="leftBarButtonItem" style="done" systemItem="cancel" id="bYR-Jt-bWq">
+                            <connections>
+                                <action selector="cancelEdit:" destination="FS0-NW-K14" id="ZMk-IB-tsB"/>
+                            </connections>
+                        </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" style="done" systemItem="save" id="h3W-0s-wSb">
+                            <connections>
+                                <action selector="saveEdit:" destination="FS0-NW-K14" id="5uB-hq-k4K"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="editStatusPickerPad" destination="epd-li-UyH" id="KNg-vS-BgN"/>
+                        <outlet property="noteText" destination="vb1-y6-KpL" id="79l-wu-ckt"/>
+                        <outlet property="noteTitle" destination="OOh-zF-yEc" id="343-0L-dxs"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="i9j-UO-Bob" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="6280" y="1244"/>
+        </scene>
+    </scenes>
+</document>

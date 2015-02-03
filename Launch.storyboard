@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6254" systemVersion="14B25" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="EqF-oL-plP">
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6247"/>
+    </dependencies>
+    <scenes>
+        <!--View Controller-->
+        <scene sceneID="9FV-gt-lfi">
+            <objects>
+                <viewController id="WnY-4A-0mG" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="dBm-dP-Ljh"/>
+                        <viewControllerLayoutGuide type="bottom" id="dZd-Vj-QYY"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="aGO-PN-NE3">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Metacognition.png" translatesAutoresizingMaskIntoConstraints="NO" id="2fS-LT-Ers">
+                                <rect key="frame" x="225" y="94" width="150" height="150"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="150" id="STw-9a-t5L"/>
+                                    <constraint firstAttribute="height" constant="150" id="lAi-Kg-911"/>
+                                </constraints>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="The Ideamator" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bpQ-Fe-Off">
+                                <rect key="frame" x="16" y="252" width="568" height="21"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="21" id="6Fq-B3-Eyd"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="SnellRoundhand" family="Snell Roundhand" pointSize="26"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="centerX" secondItem="2fS-LT-Ers" secondAttribute="centerX" id="HiO-ZL-tW2"/>
+                            <constraint firstItem="2fS-LT-Ers" firstAttribute="top" secondItem="dBm-dP-Ljh" secondAttribute="bottom" constant="30" id="LtT-i7-uED"/>
+                            <constraint firstAttribute="trailing" secondItem="bpQ-Fe-Off" secondAttribute="trailing" constant="16" id="dPi-n2-SGI"/>
+                            <constraint firstItem="bpQ-Fe-Off" firstAttribute="top" secondItem="2fS-LT-Ers" secondAttribute="bottom" constant="8" id="fac-aQ-3ao"/>
+                            <constraint firstItem="bpQ-Fe-Off" firstAttribute="leading" secondItem="aGO-PN-NE3" secondAttribute="leading" constant="16" id="npc-yO-D4y"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="fpf-H7-j9x"/>
+                    <connections>
+                        <outlet property="searchDisplayController" destination="Hth-1a-MTj" id="Tfz-nT-bRo"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="aFR-Ta-fw6" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <searchDisplayController id="Hth-1a-MTj">
+                    <connections>
+                        <outlet property="delegate" destination="WnY-4A-0mG" id="L7q-PE-xry"/>
+                        <outlet property="searchContentsController" destination="WnY-4A-0mG" id="tdH-Tb-Kxd"/>
+                        <outlet property="searchResultsDataSource" destination="WnY-4A-0mG" id="TH3-Tj-r8k"/>
+                        <outlet property="searchResultsDelegate" destination="WnY-4A-0mG" id="kwZ-hV-oEP"/>
+                    </connections>
+                </searchDisplayController>
+            </objects>
+            <point key="canvasLocation" x="1313" y="523"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="j1g-Ka-Khd">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="EqF-oL-plP" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="dqF-Xi-Qdu">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="WnY-4A-0mG" kind="relationship" relationship="rootViewController" id="Qks-hP-dbe"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="2BH-LW-6Mu" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="501" y="523"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="Metacognition.png" width="752" height="790"/>
+    </resources>
+</document>

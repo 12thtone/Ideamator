@@ -22,6 +22,9 @@
 		F98D50DB1A60698900146C36 /* AddNoteViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F98D50DA1A60698900146C36 /* AddNoteViewController.m */; };
 		F98D50E41A60777600146C36 /* Note.m in Sources */ = {isa = PBXBuildFile; fileRef = F98D50E31A60777600146C36 /* Note.m */; };
 		F98D50E71A607BCA00146C36 /* EditNoteViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F98D50E61A607BCA00146C36 /* EditNoteViewController.m */; };
+		F9AAEEF01A72937200F1E1E5 /* Large.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F9AAEEEF1A72937200F1E1E5 /* Large.storyboard */; };
+		F9CAE8991A7AF21C00AA2F80 /* Launch.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F9CAE8981A7AF21C00AA2F80 /* Launch.storyboard */; };
+		F9CAE89B1A7AF45900AA2F80 /* Metacognition.png in Resources */ = {isa = PBXBuildFile; fileRef = F9CAE89A1A7AF45900AA2F80 /* Metacognition.png */; };
 		F9F80F311A6898DB005130CD /* NoteTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F9F80F301A6898DB005130CD /* NoteTableViewController.m */; };
 /* End PBXBuildFile section */
 
@@ -37,6 +40,7 @@
 
 /* Begin PBXFileReference section */
 		F902AD5E1A6DA5DD008E9409 /* notePaper.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = notePaper.jpg; sourceTree = "<group>"; };
+		F907406A1A7179A1000042DD /* PrefixHeader.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = PrefixHeader.pch; path = ../PrefixHeader.pch; sourceTree = "<group>"; };
 		F92571B51A648F15008C6E4C /* DataSource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DataSource.h; path = ../DataSource.h; sourceTree = "<group>"; };
 		F92571B61A648F15008C6E4C /* DataSource.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DataSource.m; path = ../DataSource.m; sourceTree = "<group>"; };
 		F92B3C561A7009750042579D /* NoteApp.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = NoteApp.entitlements; sourceTree = "<group>"; };
@@ -62,6 +66,9 @@
 		F98D50E31A60777600146C36 /* Note.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Note.m; sourceTree = "<group>"; };
 		F98D50E51A607BCA00146C36 /* EditNoteViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = EditNoteViewController.h; path = ../EditNoteViewController.h; sourceTree = "<group>"; };
 		F98D50E61A607BCA00146C36 /* EditNoteViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = EditNoteViewController.m; path = ../EditNoteViewController.m; sourceTree = "<group>"; };
+		F9AAEEEF1A72937200F1E1E5 /* Large.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = Large.storyboard; path = ../Large.storyboard; sourceTree = "<group>"; };
+		F9CAE8981A7AF21C00AA2F80 /* Launch.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = Launch.storyboard; path = ../Launch.storyboard; sourceTree = "<group>"; };
+		F9CAE89A1A7AF45900AA2F80 /* Metacognition.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Metacognition.png; sourceTree = "<group>"; };
 		F9F80F2F1A6898DB005130CD /* NoteTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = NoteTableViewController.h; path = ../NoteTableViewController.h; sourceTree = "<group>"; };
 		F9F80F301A6898DB005130CD /* NoteTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = NoteTableViewController.m; path = ../NoteTableViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -119,7 +126,9 @@
 				F92571B51A648F15008C6E4C /* DataSource.h */,
 				F92571B61A648F15008C6E4C /* DataSource.m */,
 				F98D50B31A60594700146C36 /* Main.storyboard */,
+				F9AAEEEF1A72937200F1E1E5 /* Large.storyboard */,
 				F98D50B61A60594700146C36 /* Images.xcassets */,
+				F9CAE8981A7AF21C00AA2F80 /* Launch.storyboard */,
 				F98D50B81A60594700146C36 /* LaunchScreen.xib */,
 				F98D50AD1A60594700146C36 /* NoteApp.xcdatamodeld */,
 				F98D50E21A60777600146C36 /* Note.h */,
@@ -132,6 +141,8 @@
 		F98D50A61A60594700146C36 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				F907406A1A7179A1000042DD /* PrefixHeader.pch */,
+				F9CAE89A1A7AF45900AA2F80 /* Metacognition.png */,
 				F902AD5E1A6DA5DD008E9409 /* notePaper.jpg */,
 				F98D50D21A605FFA00146C36 /* 512-paste-clipboard.png */,
 				F98D50D41A60600400146C36 /* 512-paste-clipboard@2x.png */,
@@ -247,8 +258,11 @@
 				F902AD5F1A6DA5DD008E9409 /* notePaper.jpg in Resources */,
 				F98D50B51A60594700146C36 /* Main.storyboard in Resources */,
 				F98D50D31A605FFA00146C36 /* 512-paste-clipboard.png in Resources */,
+				F9CAE8991A7AF21C00AA2F80 /* Launch.storyboard in Resources */,
 				F98D50D51A60600400146C36 /* 512-paste-clipboard@2x.png in Resources */,
+				F9CAE89B1A7AF45900AA2F80 /* Metacognition.png in Resources */,
 				F98D50BA1A60594700146C36 /* LaunchScreen.xib in Resources */,
+				F9AAEEF01A72937200F1E1E5 /* Large.storyboard in Resources */,
 				F98D50B71A60594700146C36 /* Images.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -402,6 +416,7 @@
 				CODE_SIGN_ENTITLEMENTS = NoteApp/NoteApp.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				GCC_PREFIX_HEADER = PrefixHeader.pch;
 				INFOPLIST_FILE = NoteApp/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -416,6 +431,7 @@
 				CODE_SIGN_ENTITLEMENTS = NoteApp/NoteApp.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				GCC_PREFIX_HEADER = PrefixHeader.pch;
 				INFOPLIST_FILE = NoteApp/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
