@@ -17,7 +17,7 @@
 @property (nonatomic, strong, readonly) NSArray *statusArray;
 @property (nonatomic, strong) NSMutableArray *searchResults;
 
-- (NSArray*) searchNotes:(NSString*)searchText scope:(NSString*)scope notes:(NSMutableArray*)noteList;
+- (NSArray*) searchNotes:(NSString*)searchText notes:(NSMutableArray*)noteList;
 
 - (NSArray *) populateStatusArray;
 

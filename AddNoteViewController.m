@@ -39,7 +39,7 @@
     // Do any additional setup after loading the view.
     
     if (isPhone) {
-        [self.navigationController.navigationBar setTitleTextAttributes:[NSDictionary dictionaryWithObjectsAndKeys: [UIFont fontWithName:@"Snell Roundhand" size:30],NSFontAttributeName, nil]];
+        [self.navigationController.navigationBar setTitleTextAttributes:[NSDictionary dictionaryWithObjectsAndKeys: [UIFont fontWithName:@"SavoyeLetPlain" size:30],NSFontAttributeName, nil]];
         self.navigationItem.title = @"Add an Idea";
     } 
     
