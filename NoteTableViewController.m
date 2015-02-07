@@ -19,7 +19,7 @@
 
 @property (nonatomic, strong)Note *note;
 
-@property (nonatomic, strong) UISearchController *searchController;
+//@property (nonatomic, strong) UISearchController *searchController;
 @property (nonatomic, retain) NSMutableArray *searchResults;
 @property (nonatomic, retain) NSMutableArray *fixedResults;
 
@@ -196,6 +196,8 @@
         //self.selectedNote = [self.fetchedResultsController objectAtIndexPath:indexPath];
         //readNoteViewController.selectedNote = _selectedNote;
         ///////
+        //[self.searchController.searchBar isHidden:YES];
+        [self.searchController setActive:NO];
         NSIndexPath *indexPath = [self.tableView indexPathForSelectedRow];
         self.selectedNote = [self.fetchedResultsController objectAtIndexPath:indexPath];
         NSLog(@"You hit this: %@", self.selectedNote);
@@ -338,6 +340,7 @@
         
         SearchResultsTableViewController *vc = (SearchResultsTableViewController *)navController.topViewController;
         vc.searchResults = self.searchResults;
+        vc.searchController = self.searchController;
         [vc.tableView reloadData];
     }
     

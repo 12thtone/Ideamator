@@ -11,7 +11,17 @@
 #import "Note.h"
 #import "ReadNoteViewController.h"
 
+@interface SearchResultsTableViewController()
+@property (nonatomic, strong) ReadNoteViewController *readNoteVC;
+@end
+
 @implementation SearchResultsTableViewController
+
+- (void)viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:animated];
+    [self.searchController.searchBar setHidden:NO];
+    [self.tableView reloadData];
+}
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     return [self.searchResults count];
@@ -37,19 +47,34 @@
         readNoteViewController.selectedNote = _selectedFilteredNote;
     }
 }*/
-
+/*
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     Note *selectedNote = [self.searchResults objectAtIndex:indexPath.row];
     ReadNoteViewController *readNoteViewController = [[self storyboard] instantiateViewControllerWithIdentifier:@"ReadNoteViewController"];
     readNoteViewController.selectedNote = selectedNote;
     [self.presentingViewController.navigationController pushViewController:readNoteViewController animated:YES];
 }
-
+*/
 /*
 NSIndexPath *indexFilteredPath = [self.searchDisplayController.searchResultsTableView indexPathForSelectedRow];
 self.selectedFilteredNote = [self.searchResults objectAtIndex:indexFilteredPath.row];
 readNoteViewController.selectedNote = _selectedFilteredNote;
  */
+
+-(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+    if ([[segue identifier]isEqualToString:@"fromSearchToRead"]) {
+        //[self.searchController setActive:NO];
+        [self.searchController.searchBar setHidden:YES];
+        self.readNoteVC = [segue destinationViewController];
+        
+    }
+}
+
+-(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    Note *selectedNote = [self.searchResults objectAtIndex:indexPath.row];
+    self.readNoteVC.selectedNote = selectedNote;
+    
+}
 
 @end
 

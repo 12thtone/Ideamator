@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6254" systemVersion="14B25" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="0Ze-7R-tMm">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6254" systemVersion="14C109" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="0Ze-7R-tMm">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6247"/>
     </dependencies>
@@ -12,15 +12,6 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                        <searchBar key="tableHeaderView" contentMode="redraw" placeholder="Idea Search" id="Dyq-do-kY3">
-                            <rect key="frame" x="0.0" y="0.0" width="600" height="44"/>
-                            <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
-                            <color key="barTintColor" red="0.60000002384185791" green="0.40000000596046448" blue="0.20000000298023224" alpha="1" colorSpace="calibratedRGB"/>
-                            <textInputTraits key="textInputTraits"/>
-                            <connections>
-                                <outlet property="delegate" destination="OkZ-xe-yqp" id="6fw-Td-3fU"/>
-                            </connections>
-                        </searchBar>
                         <prototypes>
                             <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="Cell" textLabel="Bpl-if-LSZ" detailTextLabel="T4b-tp-O8c" style="IBUITableViewCellStyleValue1" id="0On-5H-sdt">
                                 <rect key="frame" x="0.0" y="0.0" width="600" height="44"/>
@@ -96,7 +87,6 @@
                 <searchDisplayController id="OOJ-95-uyP">
                     <connections>
                         <outlet property="delegate" destination="OkZ-xe-yqp" id="TJL-6z-SmJ"/>
-                        <outlet property="searchBar" destination="Dyq-do-kY3" id="16r-wE-uNe"/>
                         <outlet property="searchContentsController" destination="OkZ-xe-yqp" id="kw9-EQ-mTT"/>
                         <outlet property="searchResultsDataSource" destination="OkZ-xe-yqp" id="b0K-pb-4U5"/>
                         <outlet property="searchResultsDelegate" destination="OkZ-xe-yqp" id="FSg-fC-IhQ"/>
@@ -162,7 +152,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="VwK-iL-a1Y">
-                                <rect key="frame" x="0.0" y="191" width="600" height="247"/>
+                                <rect key="frame" x="16" y="191" width="568" height="210"/>
                                 <color key="backgroundColor" red="0.60000002384185791" green="0.40000000596046448" blue="0.20000000298023224" alpha="0.080000000000000002" colorSpace="calibratedRGB"/>
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="0.45000000000000001" colorSpace="calibratedRGB"/>
                                 <fontDescription key="fontDescription" name="DevanagariSangamMN" family="Devanagari Sangam MN" pointSize="14"/>
@@ -208,15 +198,28 @@
                                     <constraint firstAttribute="height" constant="162" id="FMe-fT-mTh"/>
                                 </constraints>
                             </pickerView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="How Good is the Idea?" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="y1d-Ze-8MI">
+                                <rect key="frame" x="16" y="409" width="514" height="21"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="21" id="41k-eN-x34"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="DevanagariSangamMN" family="Devanagari Sangam MN" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="BVK-eA-OL8" firstAttribute="leading" secondItem="ljm-YM-QbF" secondAttribute="leading" id="7Rg-pf-Q4f"/>
+                            <constraint firstItem="y1d-Ze-8MI" firstAttribute="top" secondItem="VwK-iL-a1Y" secondAttribute="bottom" constant="8" id="9PX-8e-kmm"/>
                             <constraint firstItem="HmA-U8-cgg" firstAttribute="leading" secondItem="ljm-YM-QbF" secondAttribute="leading" constant="16" id="Bjz-eQ-Gjb"/>
                             <constraint firstItem="kAk-NR-UtI" firstAttribute="top" secondItem="Sqi-Kr-DN6" secondAttribute="bottom" id="E11-1u-Z2H"/>
+                            <constraint firstItem="y1d-Ze-8MI" firstAttribute="top" secondItem="VwK-iL-a1Y" secondAttribute="bottom" constant="8" id="ETM-DV-dok"/>
                             <constraint firstItem="XoK-Yy-rbg" firstAttribute="top" secondItem="HmA-U8-cgg" secondAttribute="bottom" constant="8" id="Gqx-TA-Nmz"/>
                             <constraint firstItem="BVK-eA-OL8" firstAttribute="top" secondItem="gFp-js-CqT" secondAttribute="bottom" id="Gti-Qk-qc8"/>
                             <constraint firstItem="VwK-iL-a1Y" firstAttribute="top" secondItem="XoK-Yy-rbg" secondAttribute="bottom" constant="8" id="Kzr-PG-BkV"/>
+                            <constraint firstAttribute="trailing" secondItem="y1d-Ze-8MI" secondAttribute="trailing" constant="70" id="PO3-03-vHc"/>
+                            <constraint firstItem="y1d-Ze-8MI" firstAttribute="leading" secondItem="ljm-YM-QbF" secondAttribute="leading" constant="16" id="Vn3-DQ-PBq"/>
                             <constraint firstAttribute="trailing" secondItem="BVK-eA-OL8" secondAttribute="trailing" id="a0O-uv-A3J"/>
                             <constraint firstAttribute="trailing" secondItem="VwK-iL-a1Y" secondAttribute="trailing" id="ebC-1m-9pL"/>
                             <constraint firstItem="D2q-lW-ryL" firstAttribute="top" secondItem="BVK-eA-OL8" secondAttribute="bottom" constant="31" id="gkj-ri-Gb6"/>
@@ -226,13 +229,25 @@
                             <constraint firstItem="HmA-U8-cgg" firstAttribute="top" secondItem="D2q-lW-ryL" secondAttribute="bottom" constant="8" id="jnJ-rB-rOQ"/>
                             <constraint firstItem="D2q-lW-ryL" firstAttribute="leading" secondItem="ljm-YM-QbF" secondAttribute="leading" constant="16" id="jsI-Je-Rz8"/>
                             <constraint firstAttribute="trailing" secondItem="Sqi-Kr-DN6" secondAttribute="trailing" id="ocJ-5W-Kxr"/>
+                            <constraint firstItem="VwK-iL-a1Y" firstAttribute="top" secondItem="YYw-hp-UFF" secondAttribute="bottom" constant="7" id="p1P-Xz-6AZ"/>
                             <constraint firstAttribute="trailing" secondItem="YYw-hp-UFF" secondAttribute="trailing" constant="16" id="pQ4-dQ-X0p"/>
+                            <constraint firstItem="Sqi-Kr-DN6" firstAttribute="top" secondItem="y1d-Ze-8MI" secondAttribute="bottom" constant="8" id="pzd-Sn-ppa"/>
                             <constraint firstAttribute="trailing" secondItem="D2q-lW-ryL" secondAttribute="trailing" constant="16" id="qfr-VO-E4L"/>
                             <constraint firstItem="Sqi-Kr-DN6" firstAttribute="top" secondItem="VwK-iL-a1Y" secondAttribute="bottom" id="qtL-j9-lg9"/>
+                            <constraint firstAttribute="trailing" secondItem="VwK-iL-a1Y" secondAttribute="trailing" constant="16" id="rW8-c5-eYH"/>
                             <constraint firstItem="YYw-hp-UFF" firstAttribute="top" secondItem="HmA-U8-cgg" secondAttribute="bottom" constant="8" id="uGb-tu-KRm"/>
                             <constraint firstItem="VwK-iL-a1Y" firstAttribute="leading" secondItem="ljm-YM-QbF" secondAttribute="leading" id="v4T-Rd-onN"/>
+                            <constraint firstItem="VwK-iL-a1Y" firstAttribute="leading" secondItem="ljm-YM-QbF" secondAttribute="leading" constant="16" id="vLK-4C-YeA"/>
                             <constraint firstItem="YYw-hp-UFF" firstAttribute="leading" secondItem="XoK-Yy-rbg" secondAttribute="trailing" constant="8" id="zlT-7i-NDP"/>
                         </constraints>
+                        <variation key="default">
+                            <mask key="constraints">
+                                <exclude reference="Kzr-PG-BkV"/>
+                                <exclude reference="ebC-1m-9pL"/>
+                                <exclude reference="v4T-Rd-onN"/>
+                                <exclude reference="qtL-j9-lg9"/>
+                            </mask>
+                        </variation>
                     </view>
                     <navigationItem key="navigationItem" title="Add Note" id="pe0-WE-bqj"/>
                     <connections>
@@ -342,7 +357,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="vb1-y6-KpL">
-                                <rect key="frame" x="0.0" y="286" width="600" height="314"/>
+                                <rect key="frame" x="16" y="352" width="568" height="228"/>
                                 <color key="backgroundColor" red="0.60000002384185791" green="0.40000000596046448" blue="0.20000000298023224" alpha="0.080000000000000002" colorSpace="calibratedRGB"/>
                                 <color key="tintColor" red="0.0" green="0.0" blue="1" alpha="0.080000000000000002" colorSpace="calibratedRGB"/>
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="0.45000000000000001" colorSpace="calibratedRGB"/>
@@ -350,26 +365,90 @@
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences" spellCheckingType="yes"/>
                             </textView>
                             <pickerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="epd-li-UyH">
-                                <rect key="frame" x="0.0" y="124" width="600" height="162"/>
+                                <rect key="frame" x="0.0" y="153" width="600" height="162"/>
                                 <color key="backgroundColor" red="0.60000002384185791" green="0.40000000596046448" blue="0.20000000298023224" alpha="0.080000000000000002" colorSpace="calibratedRGB"/>
                                 <constraints>
+                                    <constraint firstAttribute="height" constant="162" id="Z3q-5e-tZf"/>
+                                    <constraint firstAttribute="height" constant="162" id="k4Y-at-uP3"/>
                                     <constraint firstAttribute="height" constant="162" id="tKn-F5-rOH"/>
                                 </constraints>
+                                <variation key="default">
+                                    <mask key="constraints">
+                                        <exclude reference="Z3q-5e-tZf"/>
+                                        <exclude reference="tKn-F5-rOH"/>
+                                    </mask>
+                                </variation>
                             </pickerView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="How Good is the Idea?" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="J58-YP-JM2">
+                                <rect key="frame" x="16" y="124" width="514" height="21"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="21" id="RAI-7F-GCv"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="DevanagariSangamMN" family="Devanagari Sangam MN" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Update the Idea:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gHr-aJ-fJ3">
+                                <rect key="frame" x="16" y="323" width="514" height="21"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="21" id="fQf-ON-35q"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="DevanagariSangamMN" family="Devanagari Sangam MN" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
+                            <constraint firstItem="epd-li-UyH" firstAttribute="top" secondItem="J58-YP-JM2" secondAttribute="bottom" constant="8" id="0hy-9S-79d"/>
                             <constraint firstItem="OOh-zF-yEc" firstAttribute="leading" secondItem="jgF-vh-lox" secondAttribute="leading" constant="16" id="0mK-Jc-DRU"/>
+                            <constraint firstItem="J58-YP-JM2" firstAttribute="top" secondItem="OOh-zF-yEc" secondAttribute="bottom" constant="8" id="6jp-7W-Efh"/>
+                            <constraint firstAttribute="trailing" secondItem="vb1-y6-KpL" secondAttribute="trailing" constant="16" id="7rh-l7-m8C"/>
+                            <constraint firstItem="epd-li-UyH" firstAttribute="leading" secondItem="jgF-vh-lox" secondAttribute="leading" id="9LX-td-vmk"/>
+                            <constraint firstAttribute="trailing" secondItem="epd-li-UyH" secondAttribute="trailing" id="AMv-Li-319"/>
+                            <constraint firstAttribute="trailing" secondItem="J58-YP-JM2" secondAttribute="trailing" constant="70" id="Bxy-O5-ohz"/>
+                            <constraint firstItem="epd-li-UyH" firstAttribute="leading" secondItem="jgF-vh-lox" secondAttribute="leading" id="DuV-Rm-HHp"/>
                             <constraint firstAttribute="trailing" secondItem="vb1-y6-KpL" secondAttribute="trailing" id="KYS-FG-Ock"/>
                             <constraint firstItem="xGg-gb-xjj" firstAttribute="top" secondItem="vb1-y6-KpL" secondAttribute="bottom" id="MqE-Hb-ZCQ"/>
+                            <constraint firstItem="epd-li-UyH" firstAttribute="top" secondItem="J58-YP-JM2" secondAttribute="bottom" constant="8" id="N1Z-2d-T21"/>
+                            <constraint firstAttribute="trailing" secondItem="gHr-aJ-fJ3" secondAttribute="trailing" constant="70" id="OO5-jb-VSe"/>
                             <constraint firstItem="vb1-y6-KpL" firstAttribute="leading" secondItem="jgF-vh-lox" secondAttribute="leading" id="P0f-q7-6lR"/>
                             <constraint firstItem="epd-li-UyH" firstAttribute="top" secondItem="OOh-zF-yEc" secondAttribute="bottom" constant="8" id="VaC-k3-2Fy"/>
                             <constraint firstItem="epd-li-UyH" firstAttribute="leading" secondItem="jgF-vh-lox" secondAttribute="leading" id="YMf-b4-hrD"/>
+                            <constraint firstItem="J58-YP-JM2" firstAttribute="leading" secondItem="jgF-vh-lox" secondAttribute="leading" constant="16" id="Zty-AX-r6u"/>
+                            <constraint firstItem="gHr-aJ-fJ3" firstAttribute="top" secondItem="epd-li-UyH" secondAttribute="bottom" constant="8" id="Zwc-Pn-N6D"/>
+                            <constraint firstItem="epd-li-UyH" firstAttribute="top" secondItem="J58-YP-JM2" secondAttribute="bottom" constant="8" id="ckP-aG-9b0"/>
+                            <constraint firstItem="vb1-y6-KpL" firstAttribute="top" secondItem="gHr-aJ-fJ3" secondAttribute="bottom" constant="8" id="etm-wU-snh"/>
                             <constraint firstAttribute="trailing" secondItem="OOh-zF-yEc" secondAttribute="trailing" constant="16" id="fN1-by-vF1"/>
+                            <constraint firstItem="vb1-y6-KpL" firstAttribute="leading" secondItem="jgF-vh-lox" secondAttribute="leading" constant="16" id="gw9-Q5-ZS5"/>
+                            <constraint firstAttribute="trailing" secondItem="epd-li-UyH" secondAttribute="trailing" id="iJK-Nn-G6u"/>
                             <constraint firstItem="OOh-zF-yEc" firstAttribute="top" secondItem="nZf-xx-NKw" secondAttribute="bottom" constant="31" id="j2t-lc-In1"/>
+                            <constraint firstItem="gHr-aJ-fJ3" firstAttribute="leading" secondItem="jgF-vh-lox" secondAttribute="leading" constant="16" id="jJt-3q-kVH"/>
+                            <constraint firstItem="xGg-gb-xjj" firstAttribute="top" secondItem="vb1-y6-KpL" secondAttribute="bottom" constant="20" id="jNE-Ge-Rph"/>
+                            <constraint firstItem="gHr-aJ-fJ3" firstAttribute="top" secondItem="epd-li-UyH" secondAttribute="bottom" constant="8" id="kTP-iT-e65"/>
                             <constraint firstItem="vb1-y6-KpL" firstAttribute="top" secondItem="epd-li-UyH" secondAttribute="bottom" id="nqY-NW-PcQ"/>
+                            <constraint firstItem="vb1-y6-KpL" firstAttribute="top" secondItem="gHr-aJ-fJ3" secondAttribute="bottom" constant="8" id="oYX-HC-XLA"/>
                             <constraint firstAttribute="trailing" secondItem="epd-li-UyH" secondAttribute="trailing" id="t3h-d9-oRs"/>
+                            <constraint firstItem="gHr-aJ-fJ3" firstAttribute="top" secondItem="epd-li-UyH" secondAttribute="bottom" constant="8" id="xqE-m9-Eaw"/>
                         </constraints>
+                        <variation key="default">
+                            <mask key="constraints">
+                                <exclude reference="0hy-9S-79d"/>
+                                <exclude reference="9LX-td-vmk"/>
+                                <exclude reference="VaC-k3-2Fy"/>
+                                <exclude reference="YMf-b4-hrD"/>
+                                <exclude reference="ckP-aG-9b0"/>
+                                <exclude reference="iJK-Nn-G6u"/>
+                                <exclude reference="t3h-d9-oRs"/>
+                                <exclude reference="Zwc-Pn-N6D"/>
+                                <exclude reference="kTP-iT-e65"/>
+                                <exclude reference="KYS-FG-Ock"/>
+                                <exclude reference="P0f-q7-6lR"/>
+                                <exclude reference="etm-wU-snh"/>
+                                <exclude reference="nqY-NW-PcQ"/>
+                                <exclude reference="MqE-Hb-ZCQ"/>
+                            </mask>
+                        </variation>
                     </view>
                     <navigationItem key="navigationItem" title="Edit an Idea" id="WfM-PQ-hBU">
                         <barButtonItem key="leftBarButtonItem" style="done" systemItem="cancel" id="bYR-Jt-bWq">
@@ -393,5 +472,71 @@
             </objects>
             <point key="canvasLocation" x="6280" y="1244"/>
         </scene>
+        <!--Search Results Table View Controller-->
+        <scene sceneID="lYb-DH-QLc">
+            <objects>
+                <tableViewController storyboardIdentifier="SearchResultsTableViewController" id="Up2-dh-XYQ" customClass="SearchResultsTableViewController" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="T1K-4z-S0D">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <prototypes>
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="SearchResultCell" textLabel="z2j-qn-GDr" detailTextLabel="ffh-Gg-yk2" style="IBUITableViewCellStyleValue1" id="mDf-SB-H6A">
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="mDf-SB-H6A" id="hvY-zp-Ztj">
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Title" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="z2j-qn-GDr">
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <fontDescription key="fontDescription" name="DevanagariSangamMN" family="Devanagari Sangam MN" pointSize="15"/>
+                                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Detail" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="ffh-Gg-yk2">
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <fontDescription key="fontDescription" name="DevanagariSangamMN" family="Devanagari Sangam MN" pointSize="18"/>
+                                            <color key="textColor" red="0.5568627451" green="0.5568627451" blue="0.57647058819999997" alpha="1" colorSpace="calibratedRGB"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
+                                </tableViewCellContentView>
+                                <color key="backgroundColor" red="0.60000002379999995" green="0.40000000600000002" blue="0.20000000300000001" alpha="0.080000000000000002" colorSpace="calibratedRGB"/>
+                                <connections>
+                                    <segue destination="50v-k1-u80" kind="show" identifier="fromSearchToRead" id="Fxh-hS-KqB"/>
+                                </connections>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="Up2-dh-XYQ" id="6KE-eI-jvf"/>
+                            <outlet property="delegate" destination="Up2-dh-XYQ" id="TdT-0i-SET"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" id="bKk-nN-Hn5"/>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Q3Q-YT-tkV" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="4947" y="1947"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="IiG-a1-fEk">
+            <objects>
+                <navigationController storyboardIdentifier="TableSearchResultsNavController" automaticallyAdjustsScrollViewInsets="NO" id="G0m-hH-ATB" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="Yd3-fh-VyS">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="Up2-dh-XYQ" kind="relationship" relationship="rootViewController" id="au0-rr-O4W"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="mdd-79-t3S" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="4135" y="1947"/>
+        </scene>
     </scenes>
+    <inferredMetricsTieBreakers>
+        <segue reference="Fxh-hS-KqB"/>
+    </inferredMetricsTieBreakers>
 </document>
