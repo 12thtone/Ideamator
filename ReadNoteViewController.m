@@ -10,6 +10,7 @@
 #import "EditNoteViewController.h"
 #import "AppDelegate.h"
 #import "Note.h"
+#import "NoteTableViewController.h"
 
 @interface ReadNoteViewController () <NSFetchedResultsControllerDelegate>
 @property (weak, nonatomic) IBOutlet UILabel *titleLabel;
@@ -31,6 +32,9 @@
     
     NSLog(@"View is loading.");
     
+    [self.navigationController.navigationBar setTitleTextAttributes:[NSDictionary dictionaryWithObjectsAndKeys: [UIFont fontWithName:@"SavoyeLetPlain" size:30],NSFontAttributeName, nil]];
+    self.navigationItem.title = @"Read an Idea";
+    
     _noteTitle = [NSString stringWithFormat:@"%@", _selectedNote.noteTitle];
     _noteText = [NSString stringWithFormat:@"%@", _selectedNote.noteText];
     
@@ -41,7 +45,6 @@
 
 -(void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
-    //[self viewDidLoad];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -57,10 +60,7 @@
     if ([[segue identifier]isEqualToString:@"editNote"]) {
         UINavigationController *navigationController = segue.destinationViewController;
         
-        //EditNoteViewController *editNoteViewController = (EditNoteViewController*) navigationController.topViewController;
         EditNoteViewController *editNoteViewController = (EditNoteViewController*) navigationController;
-        //EditNoteViewController *editNoteViewController = (EditNoteViewController*) segue.destinationViewController;
-        
         editNoteViewController.selectedNote = self.selectedNote;
         
     }
@@ -72,6 +72,11 @@
     NSMutableArray *noteToShare = [NSMutableArray array];
     [noteToShare addObject:self.noteText];
     UIActivityViewController *activityVC = [[UIActivityViewController alloc] initWithActivityItems:noteToShare applicationActivities:nil];
+    
+    if (!isPhone) {
+        activityVC.popoverPresentationController.barButtonItem = sender;
+    }
+    
     [self presentViewController:activityVC animated:YES completion:nil];
     
     if (UIActivityTypeMail) {

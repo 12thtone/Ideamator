@@ -61,7 +61,7 @@
     }
 }
 
-- (NSArray *) searchNotes:(NSString*)searchText scope:(NSString*)scope notes:(NSMutableArray*)noteList {
+- (NSArray *) searchNotes:(NSString*)searchText notes:(NSMutableArray*)noteList {
     searchResults = [[NSMutableArray alloc] init];
     NSPredicate *predicate = [NSPredicate predicateWithFormat:@"SELF.noteText contains[c] %@ OR SELF.noteTitle contains[c] %@", searchText, searchText];
     searchResults = [NSMutableArray arrayWithArray:[noteList filteredArrayUsingPredicate:predicate]];

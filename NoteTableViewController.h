@@ -13,5 +13,6 @@
 @interface NoteTableViewController : UITableViewController
 
 @property (nonatomic, strong) NSMutableArray *noteList;
+@property (nonatomic, strong) UISearchController *searchController;
 
 @end

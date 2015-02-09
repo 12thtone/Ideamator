@@ -13,10 +13,12 @@
 #import "ReadNoteViewController.h"
 #import "DataSource.h"
 #import <CoreData/CoreData.h>
+#import "SearchResultsTableViewController.h"
 
-@interface NoteTableViewController () <NSFetchedResultsControllerDelegate, UISearchDisplayDelegate, UISearchBarDelegate>
+@interface NoteTableViewController () <NSFetchedResultsControllerDelegate, UISearchResultsUpdating, UISearchBarDelegate>
 
 @property (nonatomic, strong)Note *note;
+
 @property (nonatomic, retain) NSMutableArray *searchResults;
 @property (nonatomic, retain) NSMutableArray *fixedResults;
 
@@ -58,19 +60,23 @@
         abort();
     }
     
-    self.searchResults = [NSMutableArray arrayWithCapacity:[[self.fetchedResultsController fetchedObjects] count]];
-    fixedResults = [NSMutableArray arrayWithCapacity:[[self.fetchedResultsController fetchedObjects] count]];
+    // Create a mutable array to contain products for the search results table.
+    self.searchResults = [NSMutableArray arrayWithCapacity:[self.noteList count]];
     
-    [self.navigationController.navigationBar setTitleTextAttributes:[NSDictionary dictionaryWithObjectsAndKeys: [UIFont fontWithName:@"Snell Roundhand" size:30],NSFontAttributeName, nil]];
+    // The table view controller is in a nav controller, and so the containing nav controller is the 'search results controller'
+    UINavigationController *searchResultsController = [[self storyboard] instantiateViewControllerWithIdentifier:@"TableSearchResultsNavController"];
+    
+    self.searchController = [[UISearchController alloc] initWithSearchResultsController:searchResultsController];
+    
+    self.searchController.searchResultsUpdater = self;
+    
+    self.searchController.searchBar.frame = CGRectMake(self.searchController.searchBar.frame.origin.x, self.searchController.searchBar.frame.origin.y, self.searchController.searchBar.frame.size.width, 44.0);
+    self.searchController.searchBar.barTintColor = [UIColor brownColor];
+    [self.searchController.searchBar setTranslucent:YES];
+    self.tableView.tableHeaderView = self.searchController.searchBar;
+    
+    [self.navigationController.navigationBar setTitleTextAttributes:[NSDictionary dictionaryWithObjectsAndKeys: [UIFont fontWithName:@"SavoyeLetPlain" size:30],NSFontAttributeName, nil]];
     self.navigationItem.title = @"The Ideamator";
-    
-    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(reloadTableView:) name:@"reloadTable" object:nil];
-    
-    // Uncomment the following line to preserve selection between presentations.
-    // self.clearsSelectionOnViewWillAppear = NO;
-    
-    // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-    // self.navigationItem.rightBarButtonItem = self.editButtonItem;
 }
 
 - (void)viewDidUnload
@@ -79,49 +85,23 @@
     self.fixedResults = nil;
 }
 
-- (void) dealloc
-{
-    [[NSNotificationCenter defaultCenter] removeObserver:self name:@"reloadTable" object:nil];
-}
-
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
-    //[self.tableView reloadData];
+    
+    if (!isPhone) {
+        [self.tableView reloadData];
+    }
 }
 
 - (void)viewDidAppear:(BOOL)animated
 {
     [super viewDidAppear:animated];
-    //[self.tableView reloadData];
 }
 
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
-}
-
-- (void)reloadTableView:(NSNotification*)notification {
-    {
-        if ([[notification name] isEqualToString:@"reloadTable"])
-        {
-            NSLog(@"Reloading");
-            /*
-            NSError *error = nil;
-            
-            //[NSFetchedResultsController deleteCacheWithName:nil];
-            
-            [self.fetchedResultsController performFetch:&error];
-            
-            if (error) {
-                NSLog(@"Error! %@", error);
-                abort();
-            }*/
-            
-            //[self.tableView reloadData];
-            // The contents of the first cell are printed on all new cells w/o reloadData.
-        }
-    }
 }
 
 #pragma mark - Table view data source
@@ -133,16 +113,9 @@
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    if (tableView == self.searchDisplayController.searchResultsTableView)
-    {
-        return [self.searchResults count];
-    }
-    else
-    {
-        id<NSFetchedResultsSectionInfo> sectionInfo = [[self.fetchedResultsController sections]objectAtIndex:section];
-        
-        return [sectionInfo numberOfObjects];
-    }
+    id<NSFetchedResultsSectionInfo> sectionInfo = [[self.fetchedResultsController sections]objectAtIndex:section];
+    
+    return [sectionInfo numberOfObjects];
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -154,64 +127,24 @@
     
     Note *note = nil;
     
-    if (tableView == self.searchDisplayController.searchResultsTableView)
-    {
-        note = [self.searchResults objectAtIndex:indexPath.row];
-        [fixedResults addObject:note.noteTitle];
-    }
-    else
-    {
-        note = [self.fetchedResultsController objectAtIndexPath:indexPath];
-    }
+    note = [self.fetchedResultsController objectAtIndexPath:indexPath];
     
     cell.textLabel.text = note.noteTitle;
     cell.detailTextLabel.text = note.noteTag;
     
-    //[cell setSelected:YES];
-    //NSLog(@"Selected");
-    //[cell setSelected:NO];
-    
-    //UILabel *noteTitleLabel = (UILabel *)[cell viewWithTag:101];
-    //noteTitleLabel.text = note.noteTitle;
-    
-    //UILabel *noteStatusLabel = (UILabel *)[cell viewWithTag:102];
-    //noteStatusLabel.text = note.noteTag;
-    
     return cell;
+    
 }
 
 -(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
     
-    if ([[segue identifier]isEqualToString:@"addNote"]) {
-        /*
-        if (isPhone) {
-            UINavigationController *navigationController = segue.destinationViewController;
-            AddNoteViewController *addNoteViewController = (AddNoteViewController*) navigationController.topViewController;
-            Note *addNote = [NSEntityDescription insertNewObjectForEntityForName:@"Note" inManagedObjectContext:[self managedObjectContext]];
-            addNoteViewController.addNote = addNote;
-        } else {
-            UIViewController *destinationVC = segue.destinationViewController;
-            AddNoteViewController *addNoteViewController = (AddNoteViewController*) destinationVC;
-            Note *addNote = [NSEntityDescription insertNewObjectForEntityForName:@"Note" inManagedObjectContext:[self managedObjectContext]];
-            addNoteViewController.addNote = addNote;
-        }*/
-    }
-    
     if ([[segue identifier]isEqualToString:@"readNote"]) {
         
-        ReadNoteViewController *readNoteViewController = segue.destinationViewController;
+        NSIndexPath *indexPath = [self.tableView indexPathForSelectedRow];
+        self.selectedNote = [self.fetchedResultsController objectAtIndexPath:indexPath];
         
-        if (self.searchResults.count != 0) {
-            NSIndexPath *indexFilteredPath = [self.searchDisplayController.searchResultsTableView indexPathForSelectedRow];
-            self.selectedFilteredNote = [self.searchResults objectAtIndex:indexFilteredPath.row];
-            readNoteViewController.selectedNote = _selectedFilteredNote;
-        }
-        else
-        {
-            NSIndexPath *indexPath = [self.tableView indexPathForSelectedRow];
-            self.selectedNote = [self.fetchedResultsController objectAtIndexPath:indexPath];
-            readNoteViewController.selectedNote = _selectedNote;
-        }
+        ReadNoteViewController *readNoteViewController = segue.destinationViewController;
+        readNoteViewController.selectedNote = self.selectedNote;
     }
 }
 
@@ -242,19 +175,7 @@
     }
     
 }
-/*
-// Override to support rearranging the table view.
-- (void)tableView:(UITableView *)tableView moveRowAtIndexPath:(NSIndexPath *)fromIndexPath toIndexPath:(NSIndexPath *)toIndexPath
-{
-}
 
-// Override to support conditional rearranging of the table view.
-- (BOOL)tableView:(UITableView *)tableView canMoveRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    // Return NO if you do not want the item to be re-orderable.
-    return YES;
-}
-*/
 #pragma mark - Fetched Results Controller Section
 
 - (NSFetchedResultsController*)fetchedResultsController {
@@ -307,11 +228,6 @@
             
             cell.textLabel.text = changeNote.noteTitle;
             cell.detailTextLabel.text = changeNote.noteTag;
-            //UILabel *noteTitleLabel = (UILabel *)[cell viewWithTag:101];
-            //noteTitleLabel.text = changeNote.noteTitle;
-            
-            //UILabel *noteStatusLabel = (UILabel *)[cell viewWithTag:102];
-            //noteStatusLabel.text = changeNote.noteTag;
             }
             break;
             
@@ -323,32 +239,40 @@
     }
 }
 
+#pragma mark - UISearchResultsUpdating
+
+-(void)updateSearchResultsForSearchController:(UISearchController *)searchController {
+    
+    NSString *searchString = [self.searchController.searchBar text];
+    
+    [self updateFilteredContentForNoteName:searchString];
+    
+    if (self.searchController.searchResultsController) {
+        UINavigationController *navController = (UINavigationController *)self.searchController.searchResultsController;
+        
+        SearchResultsTableViewController *vc = (SearchResultsTableViewController *)navController.topViewController;
+        vc.searchResults = self.searchResults;
+        vc.searchController = self.searchController;
+        [vc.tableView reloadData];
+    }
+    
+}
+
+#pragma mark - UISearchBarDelegate
+
+// Workaround for bug: -updateSearchResultsForSearchController: is not called when scope buttons change
+- (void)searchBar:(UISearchBar *)searchBar selectedScopeButtonIndexDidChange:(NSInteger)selectedScope {
+    [self updateSearchResultsForSearchController:self.searchController];
+}
+
+
 #pragma mark - Content Filtering
 
-- (void)filterContentForSearchText:(NSString*)searchText scope:(NSString*)scope
-{
+- (void)updateFilteredContentForNoteName:(NSString *)searchText {
+    
     [self.searchResults removeAllObjects];
     noteList = [self.fetchedResultsController fetchedObjects].mutableCopy;
-    self.searchResults = [[DataSource sharedInstance] searchNotes:(NSString*)searchText scope:(NSString*)scope notes:(NSMutableArray*)noteList].mutableCopy;
-}
-
-#pragma mark - UISearchDisplayController Delegate Methods
-
-- (BOOL)searchDisplayController:(UISearchDisplayController *)controller shouldReloadTableForSearchString:(NSString *)searchString
-{
-    [self filterContentForSearchText:searchString scope:@"All"];
-    return YES;
-}
-
-- (BOOL)searchDisplayController:(UISearchDisplayController *)controller shouldReloadTableForSearchScope:(NSInteger)searchOption
-{
-    [self filterContentForSearchText:[self.searchDisplayController.searchBar text] scope:@"All"];
-    return YES;
-}
-
-- (void)searchBarCancelButtonClicked:(UISearchBar *)searchBar
-{
-    [self viewDidLoad];
+    self.searchResults = [[DataSource sharedInstance] searchNotes:(NSString*)searchText notes:(NSMutableArray*)noteList].mutableCopy;
 }
 
 @end

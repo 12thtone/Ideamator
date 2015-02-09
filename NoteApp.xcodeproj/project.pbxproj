@@ -10,6 +10,7 @@
 		F902AD5F1A6DA5DD008E9409 /* notePaper.jpg in Resources */ = {isa = PBXBuildFile; fileRef = F902AD5E1A6DA5DD008E9409 /* notePaper.jpg */; };
 		F92571B71A648F15008C6E4C /* DataSource.m in Sources */ = {isa = PBXBuildFile; fileRef = F92571B61A648F15008C6E4C /* DataSource.m */; };
 		F94D7A1D1A60A19B009D3CC0 /* ReadNoteViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F94D7A1C1A60A19B009D3CC0 /* ReadNoteViewController.m */; };
+		F954BD5A1A7D67A6005BEA06 /* SearchResultsTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F954BD591A7D67A6005BEA06 /* SearchResultsTableViewController.m */; };
 		F98D50A91A60594700146C36 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = F98D50A81A60594700146C36 /* main.m */; };
 		F98D50AC1A60594700146C36 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = F98D50AB1A60594700146C36 /* AppDelegate.m */; };
 		F98D50AF1A60594700146C36 /* NoteApp.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = F98D50AD1A60594700146C36 /* NoteApp.xcdatamodeld */; };
@@ -46,6 +47,8 @@
 		F92B3C561A7009750042579D /* NoteApp.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = NoteApp.entitlements; sourceTree = "<group>"; };
 		F94D7A1B1A60A19B009D3CC0 /* ReadNoteViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ReadNoteViewController.h; path = ../ReadNoteViewController.h; sourceTree = "<group>"; };
 		F94D7A1C1A60A19B009D3CC0 /* ReadNoteViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ReadNoteViewController.m; path = ../ReadNoteViewController.m; sourceTree = "<group>"; };
+		F954BD581A7D67A6005BEA06 /* SearchResultsTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SearchResultsTableViewController.h; path = ../SearchResultsTableViewController.h; sourceTree = "<group>"; };
+		F954BD591A7D67A6005BEA06 /* SearchResultsTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SearchResultsTableViewController.m; path = ../SearchResultsTableViewController.m; sourceTree = "<group>"; };
 		F98D50A31A60594700146C36 /* NoteApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = NoteApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F98D50A71A60594700146C36 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		F98D50A81A60594700146C36 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -121,6 +124,8 @@
 				F94D7A1C1A60A19B009D3CC0 /* ReadNoteViewController.m */,
 				F98D50D91A60698900146C36 /* AddNoteViewController.h */,
 				F98D50DA1A60698900146C36 /* AddNoteViewController.m */,
+				F954BD581A7D67A6005BEA06 /* SearchResultsTableViewController.h */,
+				F954BD591A7D67A6005BEA06 /* SearchResultsTableViewController.m */,
 				F9F80F2F1A6898DB005130CD /* NoteTableViewController.h */,
 				F9F80F301A6898DB005130CD /* NoteTableViewController.m */,
 				F92571B51A648F15008C6E4C /* DataSource.h */,
@@ -287,6 +292,7 @@
 				F9F80F311A6898DB005130CD /* NoteTableViewController.m in Sources */,
 				F94D7A1D1A60A19B009D3CC0 /* ReadNoteViewController.m in Sources */,
 				F98D50E71A607BCA00146C36 /* EditNoteViewController.m in Sources */,
+				F954BD5A1A7D67A6005BEA06 /* SearchResultsTableViewController.m in Sources */,
 				F98D50AF1A60594700146C36 /* NoteApp.xcdatamodeld in Sources */,
 				F98D50AC1A60594700146C36 /* AppDelegate.m in Sources */,
 				F98D50A91A60594700146C36 /* main.m in Sources */,

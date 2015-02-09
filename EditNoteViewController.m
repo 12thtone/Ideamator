@@ -56,27 +56,15 @@
     [self.noteText endEditing:YES];
 }
 
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
-
 - (IBAction)saveEdit:(UIBarButtonItem *)sender {
     _selectedNote.noteText = _noteText.text;
     _selectedNote.noteTag = self.selectedStatus;
     [[DataSource sharedInstance] saveAndDismiss];
-    //[self dismissViewControllerAnimated:YES completion:nil];
     [self.navigationController popToRootViewControllerAnimated:YES];
 }
 
 - (IBAction)cancelEdit:(UIBarButtonItem *)sender {
     [[DataSource sharedInstance] cancelAndDismiss];
-    //[self dismissViewControllerAnimated:YES completion:nil];
     [self.navigationController popToRootViewControllerAnimated:YES];
 }
 
