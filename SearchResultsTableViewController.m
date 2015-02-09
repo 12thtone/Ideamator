@@ -39,31 +39,10 @@
     return cell;
     
 }
-/*
--(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    if ([[segue identifier]isEqualToString:@"readNote"]) {
-        NSIndexPath *indexFilteredPath = [self.sea indexPathForSelectedRow];
-        self.selectedFilteredNote = [self.searchResults objectAtIndex:indexFilteredPath.row];
-        readNoteViewController.selectedNote = _selectedFilteredNote;
-    }
-}*/
-/*
--(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
-    Note *selectedNote = [self.searchResults objectAtIndex:indexPath.row];
-    ReadNoteViewController *readNoteViewController = [[self storyboard] instantiateViewControllerWithIdentifier:@"ReadNoteViewController"];
-    readNoteViewController.selectedNote = selectedNote;
-    [self.presentingViewController.navigationController pushViewController:readNoteViewController animated:YES];
-}
-*/
-/*
-NSIndexPath *indexFilteredPath = [self.searchDisplayController.searchResultsTableView indexPathForSelectedRow];
-self.selectedFilteredNote = [self.searchResults objectAtIndex:indexFilteredPath.row];
-readNoteViewController.selectedNote = _selectedFilteredNote;
- */
 
 -(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
     if ([[segue identifier]isEqualToString:@"fromSearchToRead"]) {
-        //[self.searchController setActive:NO];
+        [self.searchController.searchBar endEditing:YES];
         [self.searchController.searchBar setHidden:YES];
         self.readNoteVC = [segue destinationViewController];
         

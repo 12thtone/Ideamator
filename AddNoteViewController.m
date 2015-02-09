@@ -49,7 +49,17 @@
     self.statusPickerPad.delegate = self;
     
     self.statusPhrases = [[DataSource sharedInstance] populateStatusArray];
-    //NSLog(@"%ld", [[DataSource sharedInstance] statusArray].count);
+}
+
+- (BOOL)shouldAutorotate {
+    return NO;
+}
+
+- (void)viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:animated];
+    if (!isPhone) {
+        self.preferredContentSize = CGSizeMake(800, 400);
+    }
 }
 
 - (void)didReceiveMemoryWarning {
@@ -81,29 +91,15 @@
         addNote.noteTitle = _titleField.text;
         addNote.noteText = _noteField.text;
     } else {
-        addNote.noteTitle = _titleFieldPad.text; addNote.noteText = _noteFieldPad.text;
-    }
-    
-    addNote.noteTag = self.selectedStatus; [[DataSource sharedInstance] saveAndDismiss];
-    
-    [self dismissViewControllerAnimated:YES completion:nil];
-    [[NSNotificationCenter defaultCenter] postNotificationName:@"reloadTable" object:nil];
-    
-    /*
-    if (isPhone) {
-        addNote.noteTitle = _titleField.text;
-        addNote.noteText = _noteField.text;
-    } else {
         addNote.noteTitle = _titleFieldPad.text;
         addNote.noteText = _noteFieldPad.text;
     }
     
     addNote.noteTag = self.selectedStatus;
+    
     [[DataSource sharedInstance] saveAndDismiss];
     
     [self dismissViewControllerAnimated:YES completion:nil];
-    [[NSNotificationCenter defaultCenter] postNotificationName:@"reloadTable" object:nil];
-     */
 }
 
 #pragma mark - Importing Notes

@@ -60,13 +60,11 @@
     _selectedNote.noteText = _noteText.text;
     _selectedNote.noteTag = self.selectedStatus;
     [[DataSource sharedInstance] saveAndDismiss];
-    //[self dismissViewControllerAnimated:YES completion:nil];
     [self.navigationController popToRootViewControllerAnimated:YES];
 }
 
 - (IBAction)cancelEdit:(UIBarButtonItem *)sender {
     [[DataSource sharedInstance] cancelAndDismiss];
-    //[self dismissViewControllerAnimated:YES completion:nil];
     [self.navigationController popToRootViewControllerAnimated:YES];
 }
 

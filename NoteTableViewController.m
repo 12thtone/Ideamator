@@ -19,7 +19,6 @@
 
 @property (nonatomic, strong)Note *note;
 
-//@property (nonatomic, strong) UISearchController *searchController;
 @property (nonatomic, retain) NSMutableArray *searchResults;
 @property (nonatomic, retain) NSMutableArray *fixedResults;
 
@@ -78,14 +77,6 @@
     
     [self.navigationController.navigationBar setTitleTextAttributes:[NSDictionary dictionaryWithObjectsAndKeys: [UIFont fontWithName:@"SavoyeLetPlain" size:30],NSFontAttributeName, nil]];
     self.navigationItem.title = @"The Ideamator";
-    
-    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(reloadTableView:) name:@"reloadTable" object:nil];
-    
-    // Uncomment the following line to preserve selection between presentations.
-    // self.clearsSelectionOnViewWillAppear = NO;
-    
-    // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-    // self.navigationItem.rightBarButtonItem = self.editButtonItem;
 }
 
 - (void)viewDidUnload
@@ -94,49 +85,23 @@
     self.fixedResults = nil;
 }
 
-- (void) dealloc
-{
-    [[NSNotificationCenter defaultCenter] removeObserver:self name:@"reloadTable" object:nil];
-}
-
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
-    //[self.tableView reloadData];
+    
+    if (!isPhone) {
+        [self.tableView reloadData];
+    }
 }
 
 - (void)viewDidAppear:(BOOL)animated
 {
     [super viewDidAppear:animated];
-    //[self.tableView reloadData];
 }
 
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
-}
-
-- (void)reloadTableView:(NSNotification*)notification {
-    {
-        if ([[notification name] isEqualToString:@"reloadTable"])
-        {
-            NSLog(@"Reloading");
-            /*
-            NSError *error = nil;
-            
-            //[NSFetchedResultsController deleteCacheWithName:nil];
-            
-            [self.fetchedResultsController performFetch:&error];
-            
-            if (error) {
-                NSLog(@"Error! %@", error);
-                abort();
-            }*/
-            
-            //[self.tableView reloadData];
-            // The contents of the first cell are printed on all new cells w/o reloadData.
-        }
-    }
 }
 
 #pragma mark - Table view data source
@@ -173,49 +138,13 @@
 
 -(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
     
-    if ([[segue identifier]isEqualToString:@"addNote"]) {
-        /*
-        if (isPhone) {
-            UINavigationController *navigationController = segue.destinationViewController;
-            AddNoteViewController *addNoteViewController = (AddNoteViewController*) navigationController.topViewController;
-            Note *addNote = [NSEntityDescription insertNewObjectForEntityForName:@"Note" inManagedObjectContext:[self managedObjectContext]];
-            addNoteViewController.addNote = addNote;
-        } else {
-            UIViewController *destinationVC = segue.destinationViewController;
-            AddNoteViewController *addNoteViewController = (AddNoteViewController*) destinationVC;
-            Note *addNote = [NSEntityDescription insertNewObjectForEntityForName:@"Note" inManagedObjectContext:[self managedObjectContext]];
-            addNoteViewController.addNote = addNote;
-        }*/
-    }
-    
     if ([[segue identifier]isEqualToString:@"readNote"]) {
         
-        //ReadNoteViewController *readNoteViewController = segue.destinationViewController;
-        
-        //NSIndexPath *indexPath = [self.tableView indexPathForSelectedRow];
-        //self.selectedNote = [self.fetchedResultsController objectAtIndexPath:indexPath];
-        //readNoteViewController.selectedNote = _selectedNote;
-        ///////
-        //[self.searchController.searchBar isHidden:YES];
-        [self.searchController setActive:NO];
         NSIndexPath *indexPath = [self.tableView indexPathForSelectedRow];
         self.selectedNote = [self.fetchedResultsController objectAtIndexPath:indexPath];
-        NSLog(@"You hit this: %@", self.selectedNote);
         
         ReadNoteViewController *readNoteViewController = segue.destinationViewController;
         readNoteViewController.selectedNote = self.selectedNote;
-        /*
-        if (self.searchResults.count != 0) {
-            NSIndexPath *indexFilteredPath = [self.searchDisplayController.searchResultsTableView indexPathForSelectedRow];
-            self.selectedFilteredNote = [self.searchResults objectAtIndex:indexFilteredPath.row];
-            readNoteViewController.selectedNote = _selectedFilteredNote;
-        }
-        else
-        {
-            NSIndexPath *indexPath = [self.tableView indexPathForSelectedRow];
-            self.selectedNote = [self.fetchedResultsController objectAtIndexPath:indexPath];
-            readNoteViewController.selectedNote = _selectedNote;
-        }*/
     }
 }
 
@@ -246,19 +175,7 @@
     }
     
 }
-/*
-// Override to support rearranging the table view.
-- (void)tableView:(UITableView *)tableView moveRowAtIndexPath:(NSIndexPath *)fromIndexPath toIndexPath:(NSIndexPath *)toIndexPath
-{
-}
 
-// Override to support conditional rearranging of the table view.
-- (BOOL)tableView:(UITableView *)tableView canMoveRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    // Return NO if you do not want the item to be re-orderable.
-    return YES;
-}
-*/
 #pragma mark - Fetched Results Controller Section
 
 - (NSFetchedResultsController*)fetchedResultsController {
@@ -311,11 +228,6 @@
             
             cell.textLabel.text = changeNote.noteTitle;
             cell.detailTextLabel.text = changeNote.noteTag;
-            //UILabel *noteTitleLabel = (UILabel *)[cell viewWithTag:101];
-            //noteTitleLabel.text = changeNote.noteTitle;
-            
-            //UILabel *noteStatusLabel = (UILabel *)[cell viewWithTag:102];
-            //noteStatusLabel.text = changeNote.noteTag;
             }
             break;
             
