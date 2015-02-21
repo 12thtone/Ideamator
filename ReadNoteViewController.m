@@ -41,6 +41,7 @@
     self.localizedShareButton.action = @selector(shareButton:);
     
     [self.localizedEditButton setTitle:[NSString stringWithFormat:NSLocalizedString(@"Edit", nil)] forState:UIControlStateNormal];
+    [self.localizedEditButton sizeToFit];
     
     _noteTitle = [NSString stringWithFormat:@"%@", _selectedNote.noteTitle];
     _noteText = [NSString stringWithFormat:@"%@", _selectedNote.noteText];

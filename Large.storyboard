@@ -163,10 +163,9 @@
                                 </variation>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="How Good is the Idea?" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XoK-Yy-rbg">
-                                <rect key="frame" x="16" y="162" width="283" height="21"/>
+                                <rect key="frame" x="16" y="162" width="164" height="21"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="21" id="5Sd-7X-gnR"/>
-                                    <constraint firstAttribute="width" constant="283" id="7Dk-bf-hgh"/>
                                     <constraint firstAttribute="height" constant="21" id="Ao9-CX-Ksm"/>
                                     <constraint firstAttribute="height" constant="21" id="Ca5-Tc-H4t"/>
                                     <constraint firstAttribute="height" constant="21" id="GsJ-1l-NE5"/>
@@ -189,9 +188,8 @@
                                 </variation>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="YYw-hp-UFF">
-                                <rect key="frame" x="307" y="162" width="46" height="22"/>
+                                <rect key="frame" x="308" y="162" width="45" height="22"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="46" id="47J-CZ-F21"/>
                                     <constraint firstAttribute="height" constant="22" id="4eB-ko-7Ck"/>
                                     <constraint firstAttribute="height" constant="22" id="fWE-1F-zKn"/>
                                     <constraint firstAttribute="height" constant="22" id="gXY-7P-93g"/>
@@ -314,7 +312,6 @@
                             <constraint firstItem="y1d-Ze-8MI" firstAttribute="top" secondItem="VwK-iL-a1Y" secondAttribute="bottom" constant="8" id="ChF-n5-TOh"/>
                             <constraint firstItem="y1d-Ze-8MI" firstAttribute="leading" secondItem="ljm-YM-QbF" secondAttribute="leading" constant="16" id="DYK-cd-Tr0"/>
                             <constraint firstAttribute="trailing" secondItem="y1d-Ze-8MI" secondAttribute="trailing" constant="70" id="Dn4-hp-ZtG"/>
-                            <constraint firstItem="YYw-hp-UFF" firstAttribute="leading" secondItem="XoK-Yy-rbg" secondAttribute="trailing" constant="8" id="Doe-zH-ngV"/>
                             <constraint firstItem="kAk-NR-UtI" firstAttribute="top" secondItem="Sqi-Kr-DN6" secondAttribute="bottom" id="E11-1u-Z2H"/>
                             <constraint firstItem="y1d-Ze-8MI" firstAttribute="top" secondItem="VwK-iL-a1Y" secondAttribute="bottom" constant="8" id="ETM-DV-dok"/>
                             <constraint firstItem="Sqi-Kr-DN6" firstAttribute="top" secondItem="y1d-Ze-8MI" secondAttribute="bottom" constant="8" id="FHP-sp-flG"/>
@@ -398,7 +395,6 @@
                             <constraint firstItem="VwK-iL-a1Y" firstAttribute="leading" secondItem="ljm-YM-QbF" secondAttribute="leading" id="v4T-Rd-onN"/>
                             <constraint firstItem="XoK-Yy-rbg" firstAttribute="leading" secondItem="ljm-YM-QbF" secondAttribute="leading" constant="16" id="vIp-CU-8uK"/>
                             <constraint firstItem="VwK-iL-a1Y" firstAttribute="leading" secondItem="ljm-YM-QbF" secondAttribute="leading" constant="16" id="vLK-4C-YeA"/>
-                            <constraint firstItem="YYw-hp-UFF" firstAttribute="leading" secondItem="XoK-Yy-rbg" secondAttribute="trailing" constant="8" id="vP0-Wh-sQ1"/>
                             <constraint firstItem="VwK-iL-a1Y" firstAttribute="leading" secondItem="XoK-Yy-rbg" secondAttribute="trailing" constant="8" id="vtE-2j-Xm2"/>
                             <constraint firstItem="y1d-Ze-8MI" firstAttribute="leading" secondItem="ljm-YM-QbF" secondAttribute="leading" constant="16" id="xMc-c3-wpJ"/>
                             <constraint firstItem="VwK-iL-a1Y" firstAttribute="leading" secondItem="ljm-YM-QbF" secondAttribute="leading" constant="16" id="xxs-kO-Eu0"/>
@@ -533,19 +529,26 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Note Title" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rur-Tn-dXe">
-                                <rect key="frame" x="16" y="110" width="568" height="21"/>
+                                <rect key="frame" x="16" y="72" width="92" height="21"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="21" id="37B-ge-IS1"/>
+                                    <constraint firstAttribute="height" constant="21" id="Dkg-FJ-MFp"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" name="DevanagariSangamMN" family="Devanagari Sangam MN" pointSize="22"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fcx-F8-8Dg">
+                                <rect key="frame" x="16" y="139" width="568" height="441"/>
+                                <color key="backgroundColor" red="0.60000002384185791" green="0.40000000596046448" blue="0.20000000298023224" alpha="0.080000000000000002" colorSpace="calibratedRGB"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="0.75" colorSpace="calibratedRGB"/>
+                                <fontDescription key="fontDescription" name="DevanagariSangamMN" family="Devanagari Sangam MN" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                <dataDetectorType key="dataDetectorTypes" phoneNumber="YES" link="YES" address="YES" calendarEvent="YES"/>
+                            </textView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kq5-n8-DTa">
-                                <rect key="frame" x="553" y="72" width="31" height="30"/>
+                                <rect key="frame" x="16" y="101" width="30" height="30"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="31" id="mts-Da-LvS"/>
-                                    <constraint firstAttribute="height" constant="30" id="yg5-5n-oN1"/>
+                                    <constraint firstAttribute="height" constant="30" id="Ier-Wg-hNm"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <state key="normal" title="Edit">
@@ -555,39 +558,18 @@
                                     <segue destination="FS0-NW-K14" kind="show" identifier="editNote" id="BSb-on-Dhu"/>
                                 </connections>
                             </button>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fcx-F8-8Dg">
-                                <rect key="frame" x="16" y="139" width="568" height="441"/>
-                                <color key="backgroundColor" red="0.60000002384185791" green="0.40000000596046448" blue="0.20000000298023224" alpha="0.080000000000000002" colorSpace="calibratedRGB"/>
-                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="0.75" colorSpace="calibratedRGB"/>
-                                <fontDescription key="fontDescription" name="DevanagariSangamMN" family="Devanagari Sangam MN" pointSize="14"/>
-                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
-                                <dataDetectorType key="dataDetectorTypes" phoneNumber="YES" link="YES" address="YES" calendarEvent="YES"/>
-                            </textView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstAttribute="trailing" secondItem="fcx-F8-8Dg" secondAttribute="trailing" id="0ir-Wd-Bwk"/>
-                            <constraint firstItem="fcx-F8-8Dg" firstAttribute="leading" secondItem="b7k-91-FlW" secondAttribute="leading" id="4T1-MI-8zX"/>
-                            <constraint firstItem="rur-Tn-dXe" firstAttribute="top" secondItem="kq5-n8-DTa" secondAttribute="bottom" constant="8" id="DwX-IU-rqB"/>
-                            <constraint firstItem="fcx-F8-8Dg" firstAttribute="top" secondItem="rur-Tn-dXe" secondAttribute="bottom" constant="8" id="Gpx-BI-iA0"/>
-                            <constraint firstAttribute="trailing" secondItem="kq5-n8-DTa" secondAttribute="trailing" constant="16" id="T7i-A2-TgM"/>
-                            <constraint firstItem="fcx-F8-8Dg" firstAttribute="top" secondItem="rur-Tn-dXe" secondAttribute="bottom" constant="8" id="TNm-nr-bVk"/>
-                            <constraint firstItem="HvA-CF-rek" firstAttribute="top" secondItem="fcx-F8-8Dg" secondAttribute="bottom" constant="20" id="XdS-jd-TEd"/>
-                            <constraint firstAttribute="trailing" secondItem="rur-Tn-dXe" secondAttribute="trailing" constant="16" id="iSg-rr-eBa"/>
-                            <constraint firstItem="kq5-n8-DTa" firstAttribute="top" secondItem="HrQ-Wb-Ysd" secondAttribute="bottom" constant="8" id="oZb-0E-e29"/>
-                            <constraint firstItem="fcx-F8-8Dg" firstAttribute="leading" secondItem="b7k-91-FlW" secondAttribute="leading" constant="16" id="otc-Ln-lnq"/>
-                            <constraint firstAttribute="trailing" secondItem="fcx-F8-8Dg" secondAttribute="trailing" constant="16" id="sew-BF-vuz"/>
-                            <constraint firstItem="HvA-CF-rek" firstAttribute="top" secondItem="fcx-F8-8Dg" secondAttribute="bottom" id="tEN-lr-Cgr"/>
-                            <constraint firstItem="rur-Tn-dXe" firstAttribute="leading" secondItem="b7k-91-FlW" secondAttribute="leading" constant="16" id="vLx-WL-lvr"/>
+                            <constraint firstItem="kq5-n8-DTa" firstAttribute="top" secondItem="rur-Tn-dXe" secondAttribute="bottom" constant="8" id="3xw-al-NN2"/>
+                            <constraint firstItem="rur-Tn-dXe" firstAttribute="top" secondItem="HrQ-Wb-Ysd" secondAttribute="bottom" constant="8" id="4hz-OE-J3P"/>
+                            <constraint firstItem="fcx-F8-8Dg" firstAttribute="top" secondItem="kq5-n8-DTa" secondAttribute="bottom" constant="8" id="Eyi-JM-WT3"/>
+                            <constraint firstItem="rur-Tn-dXe" firstAttribute="leading" secondItem="b7k-91-FlW" secondAttribute="leading" constant="16" id="R6E-PP-SKp"/>
+                            <constraint firstItem="kq5-n8-DTa" firstAttribute="leading" secondItem="b7k-91-FlW" secondAttribute="leading" constant="16" id="S4B-an-WlH"/>
+                            <constraint firstAttribute="trailing" secondItem="fcx-F8-8Dg" secondAttribute="trailing" constant="16" id="Sm0-hb-wDG"/>
+                            <constraint firstItem="fcx-F8-8Dg" firstAttribute="leading" secondItem="b7k-91-FlW" secondAttribute="leading" constant="16" id="djz-0o-lKc"/>
+                            <constraint firstItem="HvA-CF-rek" firstAttribute="top" secondItem="fcx-F8-8Dg" secondAttribute="bottom" constant="20" id="ye0-bp-cmf"/>
                         </constraints>
-                        <variation key="default">
-                            <mask key="constraints">
-                                <exclude reference="0ir-Wd-Bwk"/>
-                                <exclude reference="4T1-MI-8zX"/>
-                                <exclude reference="Gpx-BI-iA0"/>
-                                <exclude reference="tEN-lr-Cgr"/>
-                            </mask>
-                        </variation>
                     </view>
                     <navigationItem key="navigationItem" title="Read an Idea" id="BC6-o3-Bsc">
                         <barButtonItem key="rightBarButtonItem" title="Share" style="done" id="fK0-jN-k6W"/>
