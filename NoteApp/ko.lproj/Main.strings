@@ -1,0 +1,39 @@
+
+/* Class = "IBUILabel"; text = "New Idea:"; ObjectID = "1DJ-U4-2Bj"; */
+"1DJ-U4-2Bj.text" = "New Idea:";
+
+/* Class = "IBUIBarButtonItem"; title = "Share"; ObjectID = "27k-dT-qvq"; */
+"27k-dT-qvq.title" = "Share";
+
+/* Class = "IBUILabel"; text = "How good is the idea?"; ObjectID = "6Hu-QS-5bg"; */
+"6Hu-QS-5bg.text" = "How good is the idea?";
+
+/* Class = "IBUIButton"; normalTitle = "Import"; ObjectID = "99e-xw-dcN"; */
+"99e-xw-dcN.normalTitle" = "Import";
+
+/* Class = "IBUILabel"; text = "How good is the idea?"; ObjectID = "CuQ-Kf-IP2"; */
+"CuQ-Kf-IP2.text" = "How good is the idea?";
+
+/* Class = "IBUILabel"; text = "Detail"; ObjectID = "QeH-i7-zbh"; */
+"QeH-i7-zbh.text" = "Detail";
+
+/* Class = "IBUITextField"; placeholder = "New Idea Title"; ObjectID = "UAt-jL-UJm"; */
+"UAt-jL-UJm.placeholder" = "New Idea Title";
+
+/* Class = "IBUILabel"; text = "Title"; ObjectID = "dLz-iy-gAq"; */
+"dLz-iy-gAq.text" = "Title";
+
+/* Class = "IBUILabel"; text = "Detail"; ObjectID = "fZ2-uE-26i"; */
+"fZ2-uE-26i.text" = "Detail";
+
+/* Class = "IBUIButton"; normalTitle = "Edit"; ObjectID = "gmd-1Z-8h6"; */
+"gmd-1Z-8h6.normalTitle" = "Edit";
+
+/* Class = "IBUILabel"; text = "Note Title"; ObjectID = "qE0-Ci-gzk"; */
+"qE0-Ci-gzk.text" = "Note Title";
+
+/* Class = "IBUILabel"; text = "Title"; ObjectID = "qZi-TM-mkI"; */
+"qZi-TM-mkI.text" = "Title";
+
+/* Class = "IBUILabel"; text = "Note Title"; ObjectID = "zch-9U-33d"; */
+"zch-9U-33d.text" = "Note Title";
