@@ -508,6 +508,9 @@
                     <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
                     <size key="freeformSize" width="800" height="600"/>
                     <connections>
+                        <outlet property="localizedGoodIdeaLabel" destination="XoK-Yy-rbg" id="yrT-D4-RW0"/>
+                        <outlet property="localizedNewIdeaLabel" destination="y1d-Ze-8MI" id="jsq-s6-XWN"/>
+                        <outlet property="localizedTitleLabel" destination="D2q-lW-ryL" id="Xca-wj-Swm"/>
                         <outlet property="noteField" destination="VwK-iL-a1Y" id="LyZ-35-q2x"/>
                         <outlet property="noteFieldPad" destination="VwK-iL-a1Y" id="3pg-Oo-5CA"/>
                         <outlet property="statusPickerPad" destination="Sqi-Kr-DN6" id="dSs-f0-fVF"/>
@@ -888,6 +891,8 @@
                     </navigationItem>
                     <connections>
                         <outlet property="editStatusPickerPad" destination="epd-li-UyH" id="KNg-vS-BgN"/>
+                        <outlet property="localizeUpdateLabel" destination="gHr-aJ-fJ3" id="JQq-Ad-Nna"/>
+                        <outlet property="localizedGoodIdeaLabel" destination="J58-YP-JM2" id="BUd-0O-NEM"/>
                         <outlet property="noteText" destination="vb1-y6-KpL" id="79l-wu-ckt"/>
                         <outlet property="noteTitle" destination="OOh-zF-yEc" id="343-0L-dxs"/>
                     </connections>

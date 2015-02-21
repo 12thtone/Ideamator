@@ -37,7 +37,7 @@
 }
 
 - (NSArray *) populateStatusArray {
-    self.statusArray = @[@"Change the World", @"Amazing", @"Great", @"Good", @"Good Start", @"Not Bad", @"For the Birds"];
+    self.statusArray = @[NSLocalizedString(@"Change the World", nil), NSLocalizedString(@"Amazing", nil), NSLocalizedString(@"Great", nil), NSLocalizedString(@"Good", nil), NSLocalizedString(@"Good Start", nil), NSLocalizedString(@"Not Bad", nil), NSLocalizedString(@"For the Birds", nil)];
         
     return self.statusArray;
 }

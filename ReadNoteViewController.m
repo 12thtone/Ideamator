@@ -11,6 +11,7 @@
 #import "AppDelegate.h"
 #import "Note.h"
 #import "NoteTableViewController.h"
+#import <iAd/iAd.h>
 
 @interface ReadNoteViewController () <NSFetchedResultsControllerDelegate>
 @property (weak, nonatomic) IBOutlet UILabel *titleLabel;
@@ -33,7 +34,7 @@
     NSLog(@"View is loading.");
     
     [self.navigationController.navigationBar setTitleTextAttributes:[NSDictionary dictionaryWithObjectsAndKeys: [UIFont fontWithName:@"SavoyeLetPlain" size:30],NSFontAttributeName, nil]];
-    self.navigationItem.title = @"Read an Idea";
+    self.navigationItem.title = [NSString stringWithFormat:NSLocalizedString(@"Read an Idea", nil)];
     
     _noteTitle = [NSString stringWithFormat:@"%@", _selectedNote.noteTitle];
     _noteText = [NSString stringWithFormat:@"%@", _selectedNote.noteText];
@@ -45,6 +46,9 @@
 
 -(void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
+    
+    self.canDisplayBannerAds = YES;
+    
 }
 
 - (void)didReceiveMemoryWarning {
@@ -62,6 +66,7 @@
         
         EditNoteViewController *editNoteViewController = (EditNoteViewController*) navigationController;
         editNoteViewController.selectedNote = self.selectedNote;
+        editNoteViewController.interstitialPresentationPolicy = ADInterstitialPresentationPolicyAutomatic;
         
     }
 }

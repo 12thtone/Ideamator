@@ -23,6 +23,9 @@
 
 @property (nonatomic, weak) NSArray *statusPhrases;
 @property (nonatomic, weak) NSString *selectedStatus;
+@property (weak, nonatomic) IBOutlet UILabel *localizedNewIdeaLabel;
+@property (weak, nonatomic) IBOutlet UILabel *localizedGoodIdeaLabel;
+@property (weak, nonatomic) IBOutlet UILabel *localizedTitleLabel;
 
 - (IBAction)cancelNote:(UIBarButtonItem *)sender;
 - (IBAction)saveNote:(UIBarButtonItem *)sender;
@@ -40,8 +43,13 @@
     
     if (isPhone) {
         [self.navigationController.navigationBar setTitleTextAttributes:[NSDictionary dictionaryWithObjectsAndKeys: [UIFont fontWithName:@"SavoyeLetPlain" size:30],NSFontAttributeName, nil]];
-        self.navigationItem.title = @"Add an Idea";
-    } 
+        self.navigationItem.title = [NSString stringWithFormat:NSLocalizedString(@"Add an Idea", nil)];
+    }
+    
+    self.localizedNewIdeaLabel.text = [NSString stringWithFormat:NSLocalizedString(@"New Idea:", nil)];
+    self.localizedGoodIdeaLabel.text = [NSString stringWithFormat:NSLocalizedString(@"How Good is the Idea?", nil)];
+    self.localizedTitleLabel.text = [NSString stringWithFormat:NSLocalizedString(@"New Idea Title:", nil)];
+    self.titleField.placeholder = [NSString stringWithFormat:NSLocalizedString(@"New Idea Title", nil)];
     
     self.statusPicker.dataSource = self;
     self.statusPicker.delegate = self;
@@ -114,13 +122,14 @@
 
 - (void)documentPicker:(UIDocumentPickerViewController *)controller didPickDocumentAtURL:(NSURL *)url {
     if (controller.documentPickerMode == UIDocumentPickerModeImport) {
-        NSString *alertMessage = [NSString stringWithFormat:@"Successfully imported %@ as a note", [url lastPathComponent]];
+        NSString *alertMessage = [NSString stringWithFormat:NSLocalizedString(@"Successfully imported %@ as a note", nil), [url lastPathComponent]];
+        
         dispatch_async(dispatch_get_main_queue(), ^{
             UIAlertController *alertController = [UIAlertController
-                                                  alertControllerWithTitle:@"Import"
+                                                  alertControllerWithTitle:NSLocalizedString(@"Import", nil)
                                                   message:alertMessage
                                                   preferredStyle:UIAlertControllerStyleAlert];
-            [alertController addAction:[UIAlertAction actionWithTitle:@"Ok" style:UIAlertActionStyleDefault handler:nil]];
+            [alertController addAction:[UIAlertAction actionWithTitle:NSLocalizedString(@"Ok", nil) style:UIAlertActionStyleDefault handler:nil]];
             [self presentViewController:alertController animated:YES completion:nil];
         });
         

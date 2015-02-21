@@ -23,6 +23,8 @@
 @property (weak, nonatomic) IBOutlet UIPickerView *editStatusPickerPad;
 @property (nonatomic, strong)NSManagedObjectContext *managedObjectContext;
 @property (nonatomic, strong)NSFetchedResultsController *fetchedResultsController;
+@property (weak, nonatomic) IBOutlet UILabel *localizedGoodIdeaLabel;
+@property (weak, nonatomic) IBOutlet UILabel *localizeUpdateLabel;
 
 @property (nonatomic, weak) NSArray *statusPhrases;
 @property (nonatomic, weak) NSString *selectedStatus;
@@ -34,6 +36,10 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
+    
+    [self.navigationController.navigationBar setTitleTextAttributes:[NSDictionary dictionaryWithObjectsAndKeys: [UIFont fontWithName:@"SavoyeLetPlain" size:30],NSFontAttributeName, nil]];
+    self.navigationItem.title = [NSString stringWithFormat:NSLocalizedString(@"Edit an Idea", nil)];
+    
     NSString *noteTitle = [NSString stringWithFormat:@"%@", _selectedNote.noteTitle];
     NSString *noteText = [NSString stringWithFormat:@"%@", _selectedNote.noteText];
     self.statusPhrases = [[DataSource sharedInstance] populateStatusArray];
@@ -45,6 +51,9 @@
     
     self.noteTitle.text = noteTitle;
     self.noteText.text = noteText;
+    
+    self.localizedGoodIdeaLabel.text = [NSString stringWithFormat:NSLocalizedString(@"How Good is the Idea?", nil)];
+    self.localizeUpdateLabel.text = [NSString stringWithFormat:NSLocalizedString(@"Update the Idea:", nil)];
 }
 
 - (void)didReceiveMemoryWarning {

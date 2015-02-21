@@ -14,6 +14,7 @@
 #import "DataSource.h"
 #import <CoreData/CoreData.h>
 #import "SearchResultsTableViewController.h"
+#import <iAd/iAd.h>
 
 @interface NoteTableViewController () <NSFetchedResultsControllerDelegate, UISearchResultsUpdating, UISearchBarDelegate>
 
@@ -76,7 +77,7 @@
     self.tableView.tableHeaderView = self.searchController.searchBar;
     
     [self.navigationController.navigationBar setTitleTextAttributes:[NSDictionary dictionaryWithObjectsAndKeys: [UIFont fontWithName:@"SavoyeLetPlain" size:30],NSFontAttributeName, nil]];
-    self.navigationItem.title = @"The Ideamator";
+    self.navigationItem.title = [NSString stringWithFormat:NSLocalizedString(@"The Ideamator", nil)];
 }
 
 - (void)viewDidUnload
@@ -87,6 +88,7 @@
 
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
+    self.canDisplayBannerAds = YES;
     
     if (!isPhone) {
         [self.tableView reloadData];
@@ -254,6 +256,7 @@
         vc.searchResults = self.searchResults;
         vc.searchController = self.searchController;
         [vc.tableView reloadData];
+        self.canDisplayBannerAds = NO;
     }
     
 }
@@ -264,7 +267,6 @@
 - (void)searchBar:(UISearchBar *)searchBar selectedScopeButtonIndexDidChange:(NSInteger)selectedScope {
     [self updateSearchResultsForSearchController:self.searchController];
 }
-
 
 #pragma mark - Content Filtering
 
