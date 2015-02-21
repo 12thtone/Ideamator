@@ -237,6 +237,8 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
+                        <outlet property="localizedGoodIdeaLabel" destination="6Hu-QS-5bg" id="l33-Rr-ihq"/>
+                        <outlet property="localizedNewIdeaLabel" destination="1DJ-U4-2Bj" id="q0K-wc-YXc"/>
                         <outlet property="noteField" destination="4fv-UP-Dcb" id="0xH-ng-TCW"/>
                         <outlet property="statusPicker" destination="Mor-9L-8dS" id="eqj-2S-wlG"/>
                         <outlet property="titleField" destination="UAt-jL-UJm" id="CwE-ny-iPR"/>
@@ -380,7 +382,7 @@
             </objects>
             <point key="canvasLocation" x="4799" y="1244"/>
         </scene>
-        <!--Edit an Idea-->
+        <!--Edit Note View Controller-->
         <scene sceneID="NzS-u0-PVJ">
             <objects>
                 <viewController id="QLy-CJ-zcJ" customClass="EditNoteViewController" sceneMemberID="viewController">
@@ -490,7 +492,7 @@
                             </mask>
                         </variation>
                     </view>
-                    <navigationItem key="navigationItem" title="Edit an Idea" id="VF7-v6-s3L">
+                    <navigationItem key="navigationItem" id="VF7-v6-s3L">
                         <barButtonItem key="leftBarButtonItem" style="done" systemItem="cancel" id="cJ6-sP-JRO">
                             <connections>
                                 <action selector="cancelEdit:" destination="QLy-CJ-zcJ" id="Unw-s8-8qh"/>
@@ -505,6 +507,7 @@
                     <simulatedOrientationMetrics key="simulatedOrientationMetrics"/>
                     <connections>
                         <outlet property="editStatusPicker" destination="Agq-hI-Gx7" id="MBA-4a-nbu"/>
+                        <outlet property="localizedGoodIdeaLabel" destination="CuQ-Kf-IP2" id="cDU-E4-IBr"/>
                         <outlet property="noteText" destination="MHV-2s-58M" id="gg1-sG-Bcm"/>
                         <outlet property="noteTitle" destination="zch-9U-33d" id="pW6-XZ-lVC"/>
                     </connections>

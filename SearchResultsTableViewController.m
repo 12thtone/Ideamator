@@ -10,6 +10,7 @@
 #import "NoteTableViewController.h"
 #import "Note.h"
 #import "ReadNoteViewController.h"
+#import <iAd/iAd.h>
 
 @interface SearchResultsTableViewController()
 @property (nonatomic, strong) ReadNoteViewController *readNoteVC;
@@ -21,6 +22,7 @@
     [super viewWillAppear:animated];
     [self.searchController.searchBar setHidden:NO];
     [self.tableView reloadData];
+    self.canDisplayBannerAds = NO;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
@@ -45,6 +47,7 @@
         [self.searchController.searchBar endEditing:YES];
         [self.searchController.searchBar setHidden:YES];
         self.readNoteVC = [segue destinationViewController];
+        //self.canDisplayBannerAds = YES;
         
     }
 }
