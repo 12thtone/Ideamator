@@ -23,8 +23,6 @@
 @property (weak, nonatomic) IBOutlet UIBarButtonItem *localizedShareButton;
 @property (weak, nonatomic) IBOutlet UIButton *localizedEditButton;
 
-- (IBAction)shareButton:(UIBarButtonItem *)sender;
-
 @end
 
 @implementation ReadNoteViewController
