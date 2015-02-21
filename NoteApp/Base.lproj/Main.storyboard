@@ -72,9 +72,6 @@
                                         <exclude reference="qZo-ZV-Wbo"/>
                                     </mask>
                                 </variation>
-                                <connections>
-                                    <action selector="openImportDocumentPicker:" destination="mra-DW-FRe" eventType="touchUpInside" id="99z-aL-J7p"/>
-                                </connections>
                             </button>
                             <pickerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Mor-9L-8dS">
                                 <rect key="frame" x="0.0" y="438" width="600" height="162"/>
@@ -238,6 +235,7 @@
                     </navigationItem>
                     <connections>
                         <outlet property="localizedGoodIdeaLabel" destination="6Hu-QS-5bg" id="l33-Rr-ihq"/>
+                        <outlet property="localizedImportButton" destination="99e-xw-dcN" id="lke-Al-CeK"/>
                         <outlet property="localizedNewIdeaLabel" destination="1DJ-U4-2Bj" id="q0K-wc-YXc"/>
                         <outlet property="noteField" destination="4fv-UP-Dcb" id="0xH-ng-TCW"/>
                         <outlet property="statusPicker" destination="Mor-9L-8dS" id="eqj-2S-wlG"/>
@@ -367,13 +365,11 @@
                         </variation>
                     </view>
                     <navigationItem key="navigationItem" id="fR7-Vr-9ow">
-                        <barButtonItem key="rightBarButtonItem" title="Share" style="done" id="27k-dT-qvq">
-                            <connections>
-                                <action selector="shareButton:" destination="hvT-pW-cUU" id="sTO-p0-ceY"/>
-                            </connections>
-                        </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" title="Share" style="done" id="27k-dT-qvq"/>
                     </navigationItem>
                     <connections>
+                        <outlet property="localizedEditButton" destination="gmd-1Z-8h6" id="UVf-Z4-Otc"/>
+                        <outlet property="localizedShareButton" destination="27k-dT-qvq" id="thV-Yu-XE2"/>
                         <outlet property="noteLabel" destination="Q6r-Pz-qvh" id="Et8-C2-R23"/>
                         <outlet property="titleLabel" destination="qE0-Ci-gzk" id="l6P-Q7-aQI"/>
                     </connections>

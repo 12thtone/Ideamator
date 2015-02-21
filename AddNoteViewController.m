@@ -26,10 +26,10 @@
 @property (weak, nonatomic) IBOutlet UILabel *localizedNewIdeaLabel;
 @property (weak, nonatomic) IBOutlet UILabel *localizedGoodIdeaLabel;
 @property (weak, nonatomic) IBOutlet UILabel *localizedTitleLabel;
+@property (weak, nonatomic) IBOutlet UIButton *localizedImportButton;
 
 - (IBAction)cancelNote:(UIBarButtonItem *)sender;
 - (IBAction)saveNote:(UIBarButtonItem *)sender;
-- (IBAction)openImportDocumentPicker:(id)sender;
 
 @end
 
@@ -50,6 +50,9 @@
     self.localizedGoodIdeaLabel.text = [NSString stringWithFormat:NSLocalizedString(@"How Good is the Idea?", nil)];
     self.localizedTitleLabel.text = [NSString stringWithFormat:NSLocalizedString(@"New Idea Title:", nil)];
     self.titleField.placeholder = [NSString stringWithFormat:NSLocalizedString(@"New Idea Title", nil)];
+    
+    [self.localizedImportButton setTitle:[NSString stringWithFormat:NSLocalizedString(@"Import", nil)] forState:UIControlStateNormal];
+    [self.localizedImportButton addTarget:self action:@selector(openImportDocumentPicker:) forControlEvents:UIControlEventTouchUpInside];
     
     self.statusPicker.dataSource = self;
     self.statusPicker.delegate = self;
@@ -112,7 +115,7 @@
 
 #pragma mark - Importing Notes
 
-- (IBAction)openImportDocumentPicker:(id)sender {
+- (void)openImportDocumentPicker:(id)sender {
     UIDocumentPickerViewController *documentPicker = [[UIDocumentPickerViewController alloc] initWithDocumentTypes:@[@"public.text"]
                                                                                                             inMode:UIDocumentPickerModeImport];
     documentPicker.delegate = self;

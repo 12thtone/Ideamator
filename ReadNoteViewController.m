@@ -20,6 +20,8 @@
 @property (nonatomic, strong)NSFetchedResultsController *fetchedResultsController;
 @property (nonatomic, strong) NSString *noteTitle;
 @property (nonatomic, strong) NSString *noteText;
+@property (weak, nonatomic) IBOutlet UIBarButtonItem *localizedShareButton;
+@property (weak, nonatomic) IBOutlet UIButton *localizedEditButton;
 
 - (IBAction)shareButton:(UIBarButtonItem *)sender;
 
@@ -35,6 +37,12 @@
     
     [self.navigationController.navigationBar setTitleTextAttributes:[NSDictionary dictionaryWithObjectsAndKeys: [UIFont fontWithName:@"SavoyeLetPlain" size:30],NSFontAttributeName, nil]];
     self.navigationItem.title = [NSString stringWithFormat:NSLocalizedString(@"Read an Idea", nil)];
+    
+    [self.localizedShareButton setTitle:[NSString stringWithFormat:NSLocalizedString(@"Share", nil)]];
+    self.localizedShareButton.target = self;
+    self.localizedShareButton.action = @selector(shareButton:);
+    
+    [self.localizedEditButton setTitle:[NSString stringWithFormat:NSLocalizedString(@"Edit", nil)] forState:UIControlStateNormal];
     
     _noteTitle = [NSString stringWithFormat:@"%@", _selectedNote.noteTitle];
     _noteText = [NSString stringWithFormat:@"%@", _selectedNote.noteText];
@@ -73,7 +81,7 @@
 
 #pragma mark - Sharing
 
-- (IBAction)shareButton:(UIBarButtonItem *)sender {
+- (void)shareButton:(UIBarButtonItem *)sender {
     NSMutableArray *noteToShare = [NSMutableArray array];
     [noteToShare addObject:self.noteText];
     UIActivityViewController *activityVC = [[UIActivityViewController alloc] initWithActivityItems:noteToShare applicationActivities:nil];
