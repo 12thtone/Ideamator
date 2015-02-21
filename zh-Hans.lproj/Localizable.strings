@@ -6,25 +6,25 @@
   Copyright (c) 2015 Matt Maher. All rights reserved.
 */
 
-"The Ideamator" = "The Ideamator";
-"Add an Idea" = "Add an Idea";
-"Successfully imported %@ as a note" = "Successfully imported %@ as a note";
-"Import" = "Import";
-"Ok" = "Ok";
-"Read an Idea" = "Read an Idea";
-"From The Ideamator" = "From The Ideamator";
-"Edit an Idea" = "Edit an Idea";
-"Change the World" = "Change the World";
-"Amazing" = "Amazing";
-"Great" = "Great";
-"Good" = "Good";
-"Good Start" = "Good Start";
-"Not Bad" = "Not Bad";
-"For the Birds" = "For the Birds";
-"New Idea:" = "New Idea:";
-"How Good is the Idea?" = "How Good is the Idea?";
-"New Idea Title" = "New Idea Title";
-"New Idea Title:" = "New Idea Title:";
-"Update the Idea:" = "Update the Idea:";
-"Edit" = "Edit";
-"Share" = "Share";
+"The Ideamator" = "该Ideamator";
+"Add an Idea" = "添加创意";
+"Successfully imported %@ as a note" = "成功导入 %@ 作注";
+"Import" = "进口";
+"Ok" = "好";
+"Read an Idea" = "阅读的理念";
+"From The Ideamator" = "从Ideamator";
+"Edit an Idea" = "编辑理念";
+"Change the World" = "改变世界";
+"Amazing" = "惊人";
+"Great" = "伟大";
+"Good" = "良好";
+"Good Start" = "良好的开端";
+"Not Bad" = "不错";
+"For the Birds" = "可怕";
+"New Idea:" = "新思路:";
+"How Good is the Idea?" = "有多好主意吗？";
+"New Idea Title" = "新思路标题";
+"New Idea Title:" = "新思路标题:";
+"Update the Idea:" = "更新理念:";
+"Edit" = "编辑";
+"Share" = "分享";
